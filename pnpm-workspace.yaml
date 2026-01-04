@@ -1,0 +1,24 @@
+packages:
+  - web
+  - packages/*
+
+catalog:
+  '@commitlint/cli': ^20.3.0
+  '@commitlint/config-conventional': ^20.3.0
+  '@phaicom/eslint-config': ^0.10.3
+  '@unocss/eslint-plugin': ^66.5.12
+  eslint: ^9.39.2
+  eslint-plugin-better-tailwindcss: ^3.8.0
+  eslint-plugin-format: ^1.1.0
+  lint-staged: ^16.2.7
+  simple-git-hooks: ^2.13.1
+  turbo: ^2.7.2
+  typescript: ^5.9.3
+
+catalogMode: prefer
+
+ignoreWorkspaceRootCheck: true
+
+linkWorkspacePackages: true
+
+shamefullyHoist: true
