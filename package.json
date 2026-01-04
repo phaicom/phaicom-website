@@ -23,9 +23,11 @@
     "@phaicom/eslint-config": "catalog:",
     "@unocss/eslint-plugin": "catalog:",
     "eslint": "catalog:",
+    "eslint-plugin-astro": "catalog:",
     "eslint-plugin-better-tailwindcss": "catalog:",
     "eslint-plugin-format": "catalog:",
     "lint-staged": "catalog:",
+    "prettier-plugin-astro": "catalog:",
     "simple-git-hooks": "catalog:",
     "turbo": "catalog:",
     "typescript": "catalog:"

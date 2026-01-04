@@ -10,5 +10,10 @@
   },
   "dependencies": {
     "astro": "catalog:"
+  },
+  "devDependencies": {
+    "@unocss/preset-wind4": "catalog:",
+    "@unocss/reset": "catalog:",
+    "unocss": "catalog:"
   }
 }
