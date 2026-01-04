@@ -7,6 +7,7 @@ catalog:
   '@commitlint/config-conventional': ^20.3.0
   '@phaicom/eslint-config': ^0.10.3
   '@unocss/eslint-plugin': ^66.5.12
+  astro: ^5.16.6
   eslint: ^9.39.2
   eslint-plugin-better-tailwindcss: ^3.8.0
   eslint-plugin-format: ^1.1.0
