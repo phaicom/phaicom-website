@@ -42,7 +42,7 @@
     "commit-msg": "npx commitlint --edit ${1}"
   },
   "lint-staged": {
-    "**/*.{js,ts,vue,json}": [
+    "**/*.{js,ts,astro,json}": [
       "eslint --fix --cache"
     ]
   }
