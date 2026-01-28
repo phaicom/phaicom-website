@@ -3,7 +3,7 @@ import configs from '@phaicom/eslint-config'
 export default
 configs(
   {
-    astro: true,
+    vue: true,
     tailwind: true,
     formatters: true,
     ignores: ['pnpm-workspace.yaml'],

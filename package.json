@@ -22,11 +22,9 @@
     "@commitlint/config-conventional": "catalog:",
     "@phaicom/eslint-config": "catalog:",
     "eslint": "catalog:",
-    "eslint-plugin-astro": "catalog:",
     "eslint-plugin-better-tailwindcss": "catalog:",
     "eslint-plugin-format": "catalog:",
     "lint-staged": "catalog:",
-    "prettier-plugin-astro": "catalog:",
     "simple-git-hooks": "catalog:",
     "turbo": "catalog:",
     "typescript": "catalog:"
@@ -41,7 +39,7 @@
     "commit-msg": "npx commitlint --edit ${1}"
   },
   "lint-staged": {
-    "**/*.{js,ts,astro,json}": [
+    "**/*.{js,ts,vue,json}": [
       "eslint --fix --cache"
     ]
   }
