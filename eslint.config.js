@@ -4,7 +4,7 @@ export default
 configs(
   {
     astro: true,
-    unocss: true,
+    tailwind: true,
     formatters: true,
     ignores: ['pnpm-workspace.yaml'],
   },

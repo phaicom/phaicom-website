@@ -34,16 +34,20 @@
     "json",
     "jsonc",
     "yaml",
-    "astro"
+    "astro",
+    "tailwindcss"
   ],
 
   "typescript.tsdk": "node_modules/typescript/lib",
 
   "files.associations": {
-    "*.css": "postcss"
+    "*.css": "tailwindcss"
   },
-
-  "unocss.root": [
-    "apps/web"
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "tailwindCSS.classAttributes": ["class", "ui"],
+  "tailwindCSS.experimental.classRegex": [
+    ["ui:\\s*{([^)]*)\\s*}", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
   ]
 }

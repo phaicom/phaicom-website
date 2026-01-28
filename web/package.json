@@ -9,11 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "catalog:"
-  },
-  "devDependencies": {
-    "@unocss/preset-wind4": "catalog:",
-    "@unocss/reset": "catalog:",
-    "unocss": "catalog:"
+    "@tailwindcss/vite": "catalog:",
+    "astro": "catalog:",
+    "tailwindcss": "catalog:"
   }
 }

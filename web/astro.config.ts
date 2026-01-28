@@ -1,10 +1,10 @@
+import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
-import UnoCSS from 'unocss/astro'
 
 export default defineConfig({
-  integrations: [
-    UnoCSS({
-      injectReset: true,
-    }),
-  ],
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
+  },
 })
