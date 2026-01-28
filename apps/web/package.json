@@ -10,7 +10,9 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@tailwindcss/vite": "catalog:",
     "nuxt": "catalog:",
+    "tailwindcss": "catalog:",
     "vue": "catalog:",
     "vue-router": "catalog:"
   }
