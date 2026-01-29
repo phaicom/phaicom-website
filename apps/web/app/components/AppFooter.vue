@@ -16,77 +16,85 @@ const socialLinks = [
     icon: '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12.713l-11.985-9.713h23.971l-11.986 9.713zm-5.425-1.422l-6.565-5.329v12.501l6.565-7.172zm7.85 0l-6.565 7.172v-12.501l6.565 5.329zm7.85-7.293l-7.85 6.392v5.284l7.85-6.392v-5.284z"/></svg>',
   },
 ]
+
+const currentYear = new Date().getFullYear()
 </script>
 
 <template>
-  <footer
-    class="
-      border-t border-gray-100 bg-white
-      dark:border-gray-800 dark:bg-gray-900
-    "
-  >
-    <div
-      class="
-        mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4
-        py-8
-        sm:px-6
-        md:flex-row
-        lg:px-8
-      "
-    >
+  <footer class="border-soft-border bg-cream border-t">
+    <div class="container-artistic py-12">
       <div
         class="
-          flex flex-col items-center gap-2 text-center
-          md:flex-row md:gap-3 md:text-left
+          flex flex-col items-center justify-between gap-8
+          md:flex-row
         "
       >
+        <!-- Brand -->
         <div
           class="
-            flex size-8 items-center justify-center rounded-lg bg-linear-to-br
-            from-indigo-600 to-purple-600
+            text-center
+            md:text-left
           "
         >
-          <span class="text-sm font-bold text-white">R</span>
+          <NuxtLink
+            to="/"
+            class="
+              flex items-center justify-center gap-3
+              md:justify-start
+            "
+          >
+            <div
+              class="
+                bg-charcoal flex size-10 items-center justify-center rounded-xl
+                text-white
+              "
+            >
+              <span class="font-serif text-lg font-medium">R</span>
+            </div>
+            <span class="text-charcoal text-sm font-medium">Reawpai Chunsoi</span>
+          </NuxtLink>
+          <p class="text-warm-gray mt-2 text-sm">
+            Crafting digital experiences that matter.
+          </p>
         </div>
-        <span
-          class="
-            font-semibold text-gray-900
-            dark:text-white
-          "
-        >Reawpai Chunsoi</span>
-        <span
-          class="
-            · hidden text-gray-400
-            md:inline
-          "
-        />
-        <p
-          class="
-            text-sm text-gray-500
-            dark:text-gray-400
-          "
-        >
-          © {{ new Date().getFullYear() }}
-        </p>
+
+        <!-- Social Links -->
+        <div class="flex items-center gap-3">
+          <a
+            v-for="social in socialLinks"
+            :key="social.name"
+            :href="social.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="
+              text-warm-gray
+              hover:bg-charcoal
+              flex size-10 items-center justify-center rounded-xl transition-all
+              hover:text-white
+            "
+            :aria-label="social.name"
+          >
+            <span v-html="social.icon" />
+          </a>
+        </div>
       </div>
 
-      <div class="flex items-center gap-4">
-        <a
-          v-for="social in socialLinks"
-          :key="social.name"
-          :href="social.url"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="
-            rounded-lg p-2 text-gray-500 transition-all duration-200
-            hover:bg-gray-100 hover:text-indigo-600
-            dark:text-gray-400
-            dark:hover:bg-gray-800 dark:hover:text-indigo-400
-          "
-          :aria-label="social.name"
-        >
-          <span v-html="social.icon" />
-        </a>
+      <!-- Bottom Bar -->
+      <div
+        class="
+          border-soft-border mt-12 flex flex-col items-center justify-between
+          gap-4 border-t pt-8
+          md:flex-row
+        "
+      >
+        <p class="text-warm-gray text-sm">
+          © {{ currentYear }} Reawpai Chunsoi. All rights reserved.
+        </p>
+        <p class="text-warm-gray text-sm">
+          Built with
+          <span class="text-accent">♥</span>
+          using Nuxt.js
+        </p>
       </div>
     </div>
   </footer>

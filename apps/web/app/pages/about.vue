@@ -10,7 +10,6 @@ const skills = [
   'Vue.js',
   'React.js',
   'TypeScript',
-  'Full-Stack Development',
   'Node.js',
   'Nest.js',
   'Golang',
@@ -25,7 +24,6 @@ const skills = [
   'GitHub Actions',
   'Docker',
   'CI/CD',
-  'DevOps',
   'REST APIs',
   'GraphQL',
 ]
@@ -40,311 +38,155 @@ const interests = [
 </script>
 
 <template>
-  <div class="py-20">
+  <div class="pt-32">
     <!-- Hero Section -->
-    <div
-      class="
-        mx-auto max-w-7xl px-4
-        sm:px-6
-        lg:px-8
-      "
-    >
-      <div class="mb-16">
-        <h1
-          class="
-            mb-6 text-4xl font-bold text-gray-900
-            dark:text-white
-          "
-        >
-          About Me
-        </h1>
+    <section class="section-padding pt-0">
+      <div class="container-artistic">
         <div
           class="
-            prose prose-lg
-            dark:prose-invert
-            max-w-none
+            grid items-start gap-16
+            lg:grid-cols-2
           "
         >
-          <p
-            class="
-              text-lg text-gray-600
-              dark:text-gray-300
-            "
-          >
-            Results-driven Full-Stack Engineer with 6+ years of experience delivering high-performance, scalable web applications. Skilled in React, Vue, and TypeScript, with backend expertise in Node.js/Nest.js, and currently expanding into Golang for high-scale services. Familiar with Docker, CI/CD, and DevOps practices.
-          </p>
-          <p
-            class="
-              text-lg text-gray-600
-              dark:text-gray-300
-            "
-          >
-            Passionate about clean code, performance optimization, and team mentorship. I've delivered user-facing platforms and admin dashboards for startups in various sectors, with a focus on creating scalable, maintainable solutions.
-          </p>
-          <p
-            class="
-              text-lg text-gray-600
-              dark:text-gray-300
-            "
-          >
-            Currently working as Senior Frontend Developer at HFM, developing localized promotion and marketing pages for multiple Asian markets with SEO optimization and responsive design.
-          </p>
+          <!-- Text Content -->
+          <div>
+            <p
+              class="
+                text-accent mb-4 text-sm font-medium tracking-wider uppercase
+              "
+            >
+              About Me
+            </p>
+            <h1
+              class="
+                text-charcoal text-4xl font-semibold
+                lg:text-5xl
+              "
+            >
+              Passionate about building
+              <span class="text-gradient">great products</span>
+            </h1>
+            <div class="text-warm-gray mt-8 space-y-6">
+              <p class="leading-relaxed">
+                Results-driven Full-Stack Engineer with 6+ years of experience delivering high-performance, scalable web applications. Skilled in React, Vue, and TypeScript, with backend expertise in Node.js/Nest.js, and currently expanding into Golang for high-scale services.
+              </p>
+              <p class="leading-relaxed">
+                Passionate about clean code, performance optimization, and team mentorship. I've delivered user-facing platforms and admin dashboards for startups in various sectors, with a focus on creating scalable, maintainable solutions.
+              </p>
+              <p class="leading-relaxed">
+                Currently working as Senior Frontend Developer at HFM, developing localized promotion and marketing pages for multiple Asian markets with SEO optimization and responsive design.
+              </p>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="mt-10 grid grid-cols-3 gap-8">
+              <div>
+                <p class="text-charcoal text-3xl font-semibold">
+                  6+
+                </p>
+                <p class="text-warm-gray mt-1 text-sm">
+                  Years Experience
+                </p>
+              </div>
+              <div>
+                <p class="text-charcoal text-3xl font-semibold">
+                  50+
+                </p>
+                <p class="text-warm-gray mt-1 text-sm">
+                  Projects
+                </p>
+              </div>
+              <div>
+                <p class="text-charcoal text-3xl font-semibold">
+                  4
+                </p>
+                <p class="text-warm-gray mt-1 text-sm">
+                  Companies
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual -->
+          <div class="relative">
+            <div class="card-glass p-8">
+              <h3 class="text-charcoal mb-6 text-lg font-semibold">
+                Technical Skills
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  v-for="skill in skills"
+                  :key="skill"
+                  class="skill-tag"
+                >
+                  {{ skill }}
+                </span>
+              </div>
+
+              <h3 class="text-charcoal mt-8 mb-4 text-lg font-semibold">
+                Interests
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  v-for="interest in interests"
+                  :key="interest"
+                  class="
+                    bg-accent/10 text-accent rounded-full px-4 py-1.5 text-sm
+                  "
+                >
+                  {{ interest }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Decorative element -->
+            <div
+              class="
+                from-accent/20 to-accent-dark/20 absolute -right-4 -bottom-4
+                -z-10 size-32 rounded-2xl bg-linear-to-br
+              "
+            />
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- Technical Skills -->
-      <div class="mb-16">
-        <h2
-          class="
-            mb-6 text-2xl font-bold text-gray-900
-            dark:text-white
-          "
-        >
-          Technical Skills
+    <!-- Education Section -->
+    <section class="section-padding bg-cream-dark/50">
+      <div class="container-artistic">
+        <p class="text-accent mb-4 text-sm font-medium tracking-wider uppercase">
+          Background
+        </p>
+        <h2 class="text-charcoal mb-12 text-3xl font-semibold">
+          Education
         </h2>
-        <div class="flex flex-wrap gap-3">
-          <span
-            v-for="skill in skills"
-            :key="skill"
-            class="
-              rounded-full bg-linear-to-r from-indigo-100 to-purple-100 px-4
-              py-2 text-sm font-medium text-indigo-800 transition-all
-              duration-200
-              hover:from-indigo-200 hover:to-purple-200
-              dark:from-indigo-900/40 dark:to-purple-900/40 dark:text-indigo-300
-              dark:hover:from-indigo-900/60 dark:hover:to-purple-900/60
-            "
-          >
-            {{ skill }}
-          </span>
-        </div>
-      </div>
 
-      <div
-        class="
-          grid items-start gap-8
-          lg:grid-cols-2
-        "
-      >
-        <div class="space-y-8">
-          <!-- Education -->
-          <div
-            class="
-              rounded-2xl bg-white p-8 shadow-sm transition-all duration-300
-              hover:shadow-lg
-              dark:bg-gray-800
-            "
-          >
-            <h2
-              class="
-                mb-6 flex items-center gap-3 text-xl font-semibold text-gray-900
-                dark:text-white
-              "
-            >
-              <span
-                class="
-                  flex size-10 items-center justify-center rounded-xl
-                  bg-linear-to-br from-indigo-600 to-purple-600
-                "
-              >
-                <svg class="size-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-                </svg>
-              </span>
-              Education
-            </h2>
-            <div class="space-y-6">
+        <div class="max-w-2xl">
+          <div class="timeline-item">
+            <div class="card-glass p-6">
               <div
                 class="
-                  relative border-l-2 border-indigo-200 pl-6
-                  dark:border-indigo-800
+                  flex flex-col gap-2
+                  sm:flex-row sm:items-start sm:justify-between
                 "
               >
-                <div
-                  class="
-                    absolute top-2 -left-[9px] size-4 rounded-full
-                    bg-linear-to-br from-indigo-600 to-purple-600
-                  "
-                />
-                <h3
-                  class="
-                    font-medium text-gray-900
-                    dark:text-white
-                  "
-                >
-                  B.Sc. in Information Technology
-                </h3>
-                <p
-                  class="
-                    text-gray-600
-                    dark:text-gray-400
-                  "
-                >
-                  King Mongkut's University of Technology Thonburi (KMUTT), Thailand
-                </p>
-                <p
-                  class="
-                    text-sm text-gray-500
-                    dark:text-gray-500
-                  "
-                >
-                  2014 – 2018 | Grade: 3.26 | Graduated in 3.5 years
-                </p>
+                <div>
+                  <h3 class="text-charcoal text-lg font-semibold">
+                    B.Sc. in Information Technology
+                  </h3>
+                  <p class="text-warm-gray">
+                    King Mongkut's University of Technology Thonburi (KMUTT), Thailand
+                  </p>
+                </div>
+                <span class="text-accent shrink-0 text-sm font-medium">2014 – 2018</span>
               </div>
-              <div
-                class="
-                  relative border-l-2 border-indigo-200 pl-6
-                  dark:border-indigo-800
-                "
-              >
-                <div
-                  class="
-                    absolute top-2 -left-[9px] size-4 rounded-full
-                    bg-linear-to-br from-indigo-600 to-purple-600
-                  "
-                />
-                <h3
-                  class="
-                    font-medium text-gray-900
-                    dark:text-white
-                  "
-                >
-                  Upper-Intermediate English
-                </h3>
-                <p
-                  class="
-                    text-gray-600
-                    dark:text-gray-400
-                  "
-                >
-                  Shafston International College, Brisbane, Australia
-                </p>
-                <p
-                  class="
-                    text-sm text-gray-500
-                    dark:text-gray-500
-                  "
-                >
-                  2018
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="space-y-8">
-          <!-- Languages -->
-          <div
-            class="
-              rounded-2xl bg-white p-8 shadow-sm transition-all duration-300
-              hover:shadow-lg
-              dark:bg-gray-800
-            "
-          >
-            <h2
-              class="
-                mb-6 flex items-center gap-3 text-xl font-semibold text-gray-900
-                dark:text-white
-              "
-            >
-              <span
-                class="
-                  flex size-10 items-center justify-center rounded-xl
-                  bg-linear-to-br from-blue-600 to-indigo-600
-                "
-              >
-                <svg class="size-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-                </svg>
-              </span>
-              Languages
-            </h2>
-            <div class="space-y-4">
-              <div class="flex items-center justify-between">
-                <h3
-                  class="
-                    font-medium text-gray-900
-                    dark:text-white
-                  "
-                >
-                  Thai
-                </h3>
-                <span
-                  class="
-                    rounded-full bg-green-100 px-3 py-1 text-xs font-medium
-                    text-green-800
-                    dark:bg-green-900/30 dark:text-green-400
-                  "
-                >
-                  Native
-                </span>
-              </div>
-              <div class="flex items-center justify-between">
-                <h3
-                  class="
-                    font-medium text-gray-900
-                    dark:text-white
-                  "
-                >
-                  English
-                </h3>
-                <span
-                  class="
-                    rounded-full bg-blue-100 px-3 py-1 text-xs font-medium
-                    text-blue-800
-                    dark:bg-blue-900/30 dark:text-blue-400
-                  "
-                >
-                  Upper-Intermediate
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Interests -->
-          <div
-            class="
-              rounded-2xl bg-white p-8 shadow-sm transition-all duration-300
-              hover:shadow-lg
-              dark:bg-gray-800
-            "
-          >
-            <h2
-              class="
-                mb-6 flex items-center gap-3 text-xl font-semibold text-gray-900
-                dark:text-white
-              "
-            >
-              <span
-                class="
-                  flex size-10 items-center justify-center rounded-xl
-                  bg-linear-to-br from-purple-600 to-pink-600
-                "
-              >
-                <svg class="size-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-              </span>
-              Interests
-            </h2>
-            <div class="flex flex-wrap gap-2">
-              <span
-                v-for="interest in interests"
-                :key="interest"
-                class="
-                  rounded-full bg-gray-100 px-3 py-1 text-sm font-medium
-                  text-gray-700 transition-colors duration-200
-                  hover:bg-indigo-100 hover:text-indigo-700
-                  dark:bg-gray-700 dark:text-gray-300
-                  dark:hover:bg-indigo-900/30 dark:hover:text-indigo-400
-                "
-              >
-                {{ interest }}
-              </span>
+              <p class="text-warm-gray mt-3 text-sm">
+                Grade: 3.26 | Graduated in 3.5 years
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>

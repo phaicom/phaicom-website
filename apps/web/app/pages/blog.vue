@@ -1,8 +1,8 @@
 <script setup lang="ts">
 useHead({
-  title: 'Blog - Phaicom',
+  title: 'Blog - Reawpai Chunsoi',
   meta: [
-    { name: 'description', content: 'Thoughts, tutorials, and experiments from Phaicom' },
+    { name: 'description', content: 'Thoughts, tutorials, and experiments from Reawpai Chunsoi' },
   ],
 })
 
@@ -14,7 +14,7 @@ const posts = [
     excerpt: 'Learn how to build a modern web application using Nuxt 3. This comprehensive guide covers everything from project setup to deployment, including routing, data fetching, and state management.',
     date: 'Jan 15, 2024',
     readTime: '8 min read',
-    emoji: '⚡',
+    category: 'Development',
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const posts = [
     excerpt: 'Discover the latest TypeScript best practices and patterns that will help you write better, more maintainable code. From advanced types to utility functions, this guide has it all.',
     date: 'Jan 8, 2024',
     readTime: '6 min read',
-    emoji: '📘',
+    category: 'TypeScript',
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const posts = [
     excerpt: 'A look at my current development setup, including hardware, software, and VS Code extensions. See what tools I use to be more productive as a developer.',
     date: 'Dec 28, 2023',
     readTime: '5 min read',
-    emoji: '🛠️',
+    category: 'Tools',
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const posts = [
     excerpt: 'Deep dive into the Vue 3 Composition API. Learn how to use ref, reactive, computed, and watchEffect to build better Vue applications.',
     date: 'Dec 15, 2023',
     readTime: '10 min read',
-    emoji: '🎯',
+    category: 'Vue.js',
   },
   {
     id: 5,
@@ -50,7 +50,7 @@ const posts = [
     excerpt: 'A comprehensive comparison of CSS Grid and Flexbox. Learn when to use each layout system and how to combine them for powerful layouts.',
     date: 'Dec 1, 2023',
     readTime: '7 min read',
-    emoji: '📐',
+    category: 'CSS',
   },
   {
     id: 6,
@@ -59,109 +59,94 @@ const posts = [
     excerpt: 'Step-by-step guide to building a RESTful API with Node.js, Express, and MongoDB. Includes authentication, validation, and error handling.',
     date: 'Nov 20, 2023',
     readTime: '12 min read',
-    emoji: '🌐',
+    category: 'Backend',
   },
 ]
 </script>
 
 <template>
-  <div class="py-16">
-    <div
-      class="
-        mx-auto max-w-7xl px-4
-        sm:px-6
-        lg:px-8
-      "
-    >
-      <h1
-        class="
-          mb-4 text-4xl font-bold text-gray-900
-          dark:text-white
-        "
-      >
-        Blog
-      </h1>
-      <p
-        class="
-          mb-12 max-w-3xl text-lg text-gray-600
-          dark:text-gray-400
-        "
-      >
-        Thoughts, tutorials, and experiments. Sharing knowledge and learning along the way.
-      </p>
-
-      <div
-        class="
-          grid gap-8
-          md:grid-cols-2
-          lg:grid-cols-3
-        "
-      >
-        <article
-          v-for="post in posts"
-          :key="post.id"
-          class="
-            overflow-hidden rounded-xl bg-white shadow-sm transition-shadow
-            hover:shadow-lg
-            dark:bg-gray-800
-          "
-        >
-          <div
+  <div class="pt-32">
+    <section class="section-padding pt-0">
+      <div class="container-artistic">
+        <!-- Header -->
+        <div class="mb-16 text-center">
+          <p
             class="
-              flex h-48 items-center justify-center bg-linear-to-br
-              from-indigo-500 to-purple-600
+              text-accent mb-4 text-sm font-medium tracking-wider uppercase
             "
           >
-            <span class="text-6xl opacity-50">{{ post.emoji }}</span>
-          </div>
-          <div class="p-6">
-            <div
-              class="
-                mb-3 flex items-center gap-2 text-sm text-gray-500
-                dark:text-gray-400
-              "
-            >
-              <span>{{ post.date }}</span>
-              <span>•</span>
-              <span>{{ post.readTime }}</span>
-            </div>
-            <h2
-              class="
-                text-xl font-semibold text-gray-900 transition-colors
-                hover:text-indigo-600
-                dark:text-white
-                dark:hover:text-indigo-400
-              "
-            >
-              <NuxtLink :to="`/blog/${post.slug}`">
+            Writing
+          </p>
+          <h1
+            class="
+              text-charcoal text-4xl font-semibold
+              lg:text-5xl
+            "
+          >
+            Blog
+          </h1>
+          <p class="text-warm-gray mx-auto mt-4 max-w-2xl">
+            Thoughts, tutorials, and experiments. Sharing knowledge and learning along the way.
+          </p>
+        </div>
+
+        <!-- Blog Grid -->
+        <div
+          class="
+            grid gap-8
+            md:grid-cols-2
+            lg:grid-cols-3
+          "
+        >
+          <article
+            v-for="(post, index) in posts"
+            :key="post.id"
+            class="card-3d group cursor-pointer"
+            :style="{ animationDelay: `${index * 0.1}s` }"
+          >
+            <NuxtLink :to="`/blog/${post.slug}`" class="block p-6">
+              <!-- Meta -->
+              <div class="mb-4 flex items-center gap-3">
+                <span
+                  class="
+                    bg-accent/10 text-accent rounded-full px-3 py-1 text-xs
+                    font-medium
+                  "
+                >
+                  {{ post.category }}
+                </span>
+                <span class="text-warm-gray text-xs">{{ post.readTime }}</span>
+              </div>
+
+              <!-- Title -->
+              <h2
+                class="
+                  text-charcoal
+                  group-hover:text-accent
+                  text-xl font-semibold transition-colors
+                "
+              >
                 {{ post.title }}
-              </NuxtLink>
-            </h2>
-            <p
-              class="
-                mt-3 line-clamp-3 text-sm text-gray-600
-                dark:text-gray-400
-              "
-            >
-              {{ post.excerpt }}
-            </p>
-            <NuxtLink
-              :to="`/blog/${post.slug}`"
-              class="
-                mt-4 inline-flex items-center gap-1 text-sm font-medium
-                text-indigo-600
-                hover:underline
-                dark:text-indigo-400
-              "
-            >
-              Read more
-              <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
+              </h2>
+
+              <!-- Excerpt -->
+              <p
+                class="text-warm-gray mt-3 line-clamp-3 text-sm/relaxed"
+              >
+                {{ post.excerpt }}
+              </p>
+
+              <!-- Date -->
+              <div class="text-warm-gray mt-6 flex items-center gap-2 text-xs">
+                <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                {{ post.date }}
+              </div>
             </NuxtLink>
-          </div>
-        </article>
+          </article>
+        </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>

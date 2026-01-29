@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "catalog:",
+    "@types/three": "catalog:",
     "nuxt": "catalog:",
     "tailwindcss": "catalog:",
+    "three": "catalog:",
     "vue": "catalog:",
     "vue-router": "catalog:"
   }
