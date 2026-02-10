@@ -1,6 +1,7 @@
 {
   "name": "phaicom-website",
   "version": "0.0.1",
+  "private": true,
   "description": "Phaicom's Personal Website",
   "license": "BSD-3-Clause",
   "author": "Reawpai Chunsoi <reawpai.chunsoi@gmail.com>",
