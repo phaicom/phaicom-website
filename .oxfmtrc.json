@@ -16,5 +16,6 @@
     "attributes": ["class", "className", "ui"],
     "functions": ["clsx", "cn"],
     "preserveWhitespace": true
-  }
+  },
+  "ignorePatterns": ["project/**"]
 }
