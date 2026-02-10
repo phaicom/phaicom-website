@@ -1,6 +1,9 @@
 import { Outlet, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 /// <reference types="vite/client" />
 import type { ReactNode } from "react";
+
+import appCss from "~/styles/index.css?url";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -16,6 +19,7 @@ export const Route = createRootRoute({
         title: "TanStack Start Starter",
       },
     ],
+    links: [{ rel: "stylesheet", href: appCss }],
   }),
   component: RootComponent,
 });
@@ -36,6 +40,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
       </head>
       <body>
         {children}
+        <TanStackRouterDevtools position="bottom-right" />
         <Scripts />
       </body>
     </html>
