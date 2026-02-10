@@ -3,21 +3,24 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build"
+    "dev": "nlx --bun vite",
+    "build": "nlx --bun vite build"
   },
   "dependencies": {
     "@tanstack/react-router": "^1.159.5",
+    "@tanstack/react-router-devtools": "^1.159.5",
     "@tanstack/react-start": "^1.159.5",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.1.18",
     "@types/bun": "latest",
-    "@types/node": "^25.2.2",
     "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.4",
+    "nitro": "^3.0.1-alpha.2",
+    "tailwindcss": "^4.1.18",
     "vite": "^7.3.1",
     "vite-tsconfig-paths": "^6.1.0"
   },
