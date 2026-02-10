@@ -16,6 +16,7 @@
     "prepare": "simple-git-hooks"
   },
   "devDependencies": {
+    "@antfu/ni": "^28.2.0",
     "@commitlint/cli": "^20.4.1",
     "@commitlint/config-conventional": "^20.4.1",
     "lint-staged": "^16.2.7",
@@ -30,9 +31,9 @@
   },
   "lint-staged": {
     "**/*.{js,ts,jsx,tsx,json}": [
-      "bun run lint",
-      "bun run lint:fix",
-      "bun run fmt"
+      "nr lint",
+      "nr lint:fix",
+      "nr fmt"
     ]
   },
   "commitlint": {
