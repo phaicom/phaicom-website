@@ -1,46 +1,44 @@
 {
   "name": "phaicom-website",
-  "type": "module",
   "version": "0.0.1",
-  "packageManager": "pnpm@10.28.2",
   "description": "Phaicom's Personal Website",
+  "license": "BSD-3-Clause",
   "author": "Reawpai Chunsoi <reawpai.chunsoi@gmail.com>",
-  "license": "ISC",
-  "engines": {
-    "node": ">=22.22.0"
-  },
+  "type": "module",
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
     "test": "turbo run test",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix --cache",
+    "lint": "oxlint --type-aware --type-check",
+    "lint:fix": "oxlint --fix",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
     "prepare": "simple-git-hooks"
   },
   "devDependencies": {
-    "@commitlint/cli": "catalog:",
-    "@commitlint/config-conventional": "catalog:",
-    "@phaicom/eslint-config": "catalog:",
-    "eslint": "catalog:",
-    "eslint-plugin-better-tailwindcss": "catalog:",
-    "eslint-plugin-format": "catalog:",
-    "lint-staged": "catalog:",
-    "simple-git-hooks": "catalog:",
-    "turbo": "catalog:",
-    "typescript": "catalog:"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+    "@commitlint/cli": "^20.4.1",
+    "@commitlint/config-conventional": "^20.4.1",
+    "lint-staged": "^16.2.7",
+    "oxfmt": "^0.28.0",
+    "oxlint": "^1.43.0",
+    "oxlint-tsgolint": "^0.11.5",
+    "simple-git-hooks": "^2.13.1"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged",
     "commit-msg": "npx commitlint --edit ${1}"
   },
   "lint-staged": {
-    "**/*.{js,ts,vue,json}": [
-      "eslint --fix --cache"
+    "**/*.{js,ts,jsx,tsx,json}": [
+      "bun run lint",
+      "bun run lint:fix",
+      "bun run fmt"
     ]
-  }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "packageManager": "bun@1.3.9"
 }
