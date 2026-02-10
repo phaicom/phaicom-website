@@ -7,7 +7,7 @@
   "author": "Reawpai Chunsoi <reawpai.chunsoi@gmail.com>",
   "license": "ISC",
   "engines": {
-    "node": ">=24.0.0"
+    "node": ">=22.22.0"
   },
   "scripts": {
     "dev": "turbo run dev",
