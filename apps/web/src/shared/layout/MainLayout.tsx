@@ -2,7 +2,6 @@ import { Outlet } from "@tanstack/react-router";
 import { useState } from "react";
 
 import MobileMenuButton from "./MobileMenuButton";
-import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 
 export default function MainLayout() {
@@ -10,14 +9,11 @@ export default function MainLayout() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
-      <MobileMenuButton sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-
       <div className="flex">
+        <MobileMenuButton sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
         <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
-        <main className="min-h-screen flex-1">
-          <Navbar closeSidebar={() => setSidebarOpen(false)} />
-
+        <main className="min-h-screen flex-1 pt-16 lg:pt-0">
           <div className="p-4 sm:p-6 lg:p-8 xl:p-10">
             <Outlet />
           </div>
