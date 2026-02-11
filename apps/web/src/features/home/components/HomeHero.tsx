@@ -1,7 +1,7 @@
-export default function AboutHero() {
+export default function HomeHero() {
   return (
     <>
-      <h1 className="mb-4 text-3xl sm:text-4xl lg:text-5xl">About Me</h1>
+      <h1 className="mb-4 text-3xl sm:text-4xl lg:text-5xl">Welcome</h1>
 
       <div className="mb-6 h-1 w-12 bg-yellow-500 lg:mb-8"></div>
 

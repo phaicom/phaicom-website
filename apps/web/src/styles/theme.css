@@ -128,6 +128,18 @@
     @apply bg-background text-foreground;
   }
 
+  h1,
+  h2,
+  h3 {
+    font-family: "Playfair Display", serif;
+  }
+
+  body,
+  p,
+  div {
+    font-family: "Inter", sans-serif;
+  }
+
   /**
   * Default typography styles for HTML elements (h1-h4, p, label, button, input).
   * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
