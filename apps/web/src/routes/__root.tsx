@@ -3,6 +3,7 @@ import { Outlet, createRootRoute, HeadContent, Scripts } from "@tanstack/react-r
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import type { ReactNode } from "react";
 
+import { siteConfig } from "@/config/site";
 import { seo } from "@/lib/seo";
 import appCss from "@/styles/index.css?url";
 
@@ -17,8 +18,9 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1",
       },
       ...seo({
-        title: "Reawpai Chunsoi | Senior Full Stack Engineer | React & Vue",
-        description: `Senior Full Stack Engineer with expertise in React, Vue, Golang, and distributed systems architecture. Building modern web applications with scalable backend services.`,
+        title: siteConfig.title,
+        description: siteConfig.description,
+        image: siteConfig.ogImage,
       }),
     ],
     links: [
