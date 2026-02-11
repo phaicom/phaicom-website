@@ -1,11 +1,11 @@
-import HeroSection from "./components/HeroSection";
+import HomeHero from "./components/HomeHero";
 import ServicesSection from "./components/ServicesSection";
 import SkillsSection from "./components/SkillsSection";
 
-export function HomePage() {
+export default function HomePage() {
   return (
     <div className="mx-auto max-w-5xl">
-      <HeroSection />
+      <HomeHero />
       <ServicesSection />
       <SkillsSection />
     </div>

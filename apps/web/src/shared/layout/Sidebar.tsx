@@ -21,7 +21,7 @@ type Props = {
 const navLinks = [
   { label: "Home", to: "/", icon: Home },
   { label: "About", to: "/about", icon: User },
-  { label: "Portfolio", to: "/portfolio", icon: Briefcase },
+  { label: "Projects", to: "/projects", icon: Briefcase },
   { label: "Contact", to: "/contact", icon: MailIcon },
 ];
 
@@ -43,7 +43,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
 
       <aside className={`
           fixed top-0 z-50 flex
-          h-screen w-[300px] flex-col border-r border-gray-800 bg-[#1a1a1a] p-6
+          h-screen w-75 flex-col border-r border-gray-800 bg-[#1a1a1a] p-6
           transition-transform duration-300 lg:sticky lg:w-64
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
         `}>
