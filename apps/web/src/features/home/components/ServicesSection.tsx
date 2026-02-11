@@ -14,7 +14,11 @@ export default function ServicesSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={{ y: -4, scale: 1.02 }}
-            transition={{ duration: 0.15, ease: "easeOut" }}
+            transition={{
+              opacity: { delay: index * 0.05, duration: 0.4 },
+              y: { delay: index * 0.05, duration: 0.4 },
+              scale: { duration: 0.15 },
+            }}
             className="flex gap-4 rounded-xl border border-gray-800 bg-[#1a1a1a] p-6"
           >
             <div className="text-4xl">{service.icon}</div>

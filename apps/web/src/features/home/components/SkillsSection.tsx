@@ -11,9 +11,13 @@ export default function SkillsSection() {
         {skills.map((skill, index) => (
           <motion.div
             key={skill.name}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: index * 0.05 }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              opacity: { delay: index * 0.05, duration: 0.3 },
+              y: { delay: index * 0.05, duration: 0.3 },
+              scale: { duration: 0.15 },
+            }}
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-2 rounded-lg border border-gray-800 bg-[#1a1a1a] px-4 py-3 transition-colors hover:border-yellow-500"
           >
