@@ -14,15 +14,18 @@
     "react-dom": "^19.2.4"
   },
   "devDependencies": {
+    "@iconify-json/mdi": "^1.2.3",
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
     "@tailwindcss/vite": "^4.1.18",
     "@types/bun": "latest",
-    "@types/react": "^19.2.13",
+    "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.4",
-    "lucide-react": "^0.563.0",
     "motion": "^12.34.0",
     "nitro": "^3.0.1-alpha.2",
     "tailwindcss": "^4.1.18",
+    "unplugin-icons": "^23.0.1",
     "vite": "^7.3.1",
     "vite-tsconfig-paths": "^6.1.0"
   },
