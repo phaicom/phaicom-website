@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import ContactPage from "@/features/contact/ContactPage";
 
 export const Route = createFileRoute("/(public)/contact")({
-  head: ({ params }) => ({
+  head: () => ({
     meta: [
       {
         title: `Contact | Reawpai Chunsoi - Senior Full Stack Engineer`,
