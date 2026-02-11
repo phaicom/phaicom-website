@@ -8,6 +8,7 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
+import { Route as publicAboutRouteImport } from "./routes/(public)/about";
 import { Route as publicIndexRouteImport } from "./routes/(public)/index";
 import { Route as publicRouteRouteImport } from "./routes/(public)/route";
 import { Route as rootRouteImport } from "./routes/__root";
@@ -21,24 +22,32 @@ const publicIndexRoute = publicIndexRouteImport.update({
   path: "/",
   getParentRoute: () => publicRouteRoute,
 } as any);
+const publicAboutRoute = publicAboutRouteImport.update({
+  id: "/about",
+  path: "/about",
+  getParentRoute: () => publicRouteRoute,
+} as any);
 
 export interface FileRoutesByFullPath {
+  "/about": typeof publicAboutRoute;
   "/": typeof publicIndexRoute;
 }
 export interface FileRoutesByTo {
+  "/about": typeof publicAboutRoute;
   "/": typeof publicIndexRoute;
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport;
   "/(public)": typeof publicRouteRouteWithChildren;
+  "/(public)/about": typeof publicAboutRoute;
   "/(public)/": typeof publicIndexRoute;
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "/";
+  fullPaths: "/about" | "/";
   fileRoutesByTo: FileRoutesByTo;
-  to: "/";
-  id: "__root__" | "/(public)" | "/(public)/";
+  to: "/about" | "/";
+  id: "__root__" | "/(public)" | "/(public)/about" | "/(public)/";
   fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
@@ -61,14 +70,23 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof publicIndexRouteImport;
       parentRoute: typeof publicRouteRoute;
     };
+    "/(public)/about": {
+      id: "/(public)/about";
+      path: "/about";
+      fullPath: "/about";
+      preLoaderRoute: typeof publicAboutRouteImport;
+      parentRoute: typeof publicRouteRoute;
+    };
   }
 }
 
 interface publicRouteRouteChildren {
+  publicAboutRoute: typeof publicAboutRoute;
   publicIndexRoute: typeof publicIndexRoute;
 }
 
 const publicRouteRouteChildren: publicRouteRouteChildren = {
+  publicAboutRoute: publicAboutRoute,
   publicIndexRoute: publicIndexRoute,
 };
 
