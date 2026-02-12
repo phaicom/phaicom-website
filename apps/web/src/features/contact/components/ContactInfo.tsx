@@ -16,7 +16,13 @@ export default function ContactInfo() {
       <div className="space-y-6">
         <div className="flex items-center gap-4">
           <MdiEmail className="h-6 w-6 text-yellow-500" />
-          <span>{CONTACT.email}</span>
+          <a
+            href={`mailto:${CONTACT.email}`}
+            title={CONTACT.email}
+            className="min-w-0 truncate transition-colors hover:text-yellow-400"
+          >
+            {CONTACT.email}
+          </a>
         </div>
 
         <div className="flex items-center gap-4">
