@@ -1,10 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
-import MdiEmail from "~icons/mdi/email";
 import MdiGithub from "~icons/mdi/github";
 import MdiLinkedin from "~icons/mdi/linkedin";
-import MdiMapMarkerMultipleOutline from "~icons/mdi/map-marker-multiple-outline";
 
+import { CONTACT } from "@/config/contact";
 import { NAV_LINKS } from "@/config/navigation";
 
 type Props = {
@@ -13,6 +12,17 @@ type Props = {
 };
 
 export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
+  const contacts = [
+    {
+      icon: MdiLinkedin,
+      link: CONTACT.linkin,
+    },
+    {
+      icon: MdiGithub,
+      link: CONTACT.github,
+    },
+  ];
+
   return (
     <>
       {/* Overlay */}
@@ -60,26 +70,15 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
           </ul>
         </nav>
 
-        <div className="space-y-4 text-sm text-gray-400">
-          <div className="flex items-center gap-3">
-            <MdiEmail className="h-4 w-4 text-yellow-500" />
-            <span>hello@johndoe.com</span>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <MdiMapMarkerMultipleOutline className="h-4 w-4 text-yellow-500" />
-            <span>San Francisco, CA</span>
-          </div>
-        </div>
-
         <div className="mt-6 flex gap-3 border-t border-gray-800 pt-6">
-          {[MdiLinkedin, MdiGithub].map((Icon, i) => (
+          {contacts.map((contact, i) => (
             <a
               key={i}
-              href="#"
+              href={contact.link}
+              target="_blank"
               className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#252525] transition-colors hover:bg-[#333] hover:text-yellow-500"
             >
-              <Icon className="h-5 w-5" />
+              <contact.icon className="h-5 w-5" />
             </a>
           ))}
         </div>

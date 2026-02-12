@@ -8,139 +8,139 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as publicAboutRouteImport } from "./routes/(public)/about";
-import { Route as publicContactRouteImport } from "./routes/(public)/contact";
-import { Route as publicIndexRouteImport } from "./routes/(public)/index";
-import { Route as publicProjectsSlugRouteImport } from "./routes/(public)/projects/$slug";
-import { Route as publicProjectsIndexRouteImport } from "./routes/(public)/projects/index";
-import { Route as publicRouteRouteImport } from "./routes/(public)/route";
-import { Route as rootRouteImport } from "./routes/__root";
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as publicRouteRouteImport } from './routes/(public)/route'
+import { Route as publicIndexRouteImport } from './routes/(public)/index'
+import { Route as publicContactRouteImport } from './routes/(public)/contact'
+import { Route as publicAboutRouteImport } from './routes/(public)/about'
+import { Route as publicProjectsIndexRouteImport } from './routes/(public)/projects/index'
+import { Route as publicProjectsSlugRouteImport } from './routes/(public)/projects/$slug'
 
 const publicRouteRoute = publicRouteRouteImport.update({
-  id: "/(public)",
+  id: '/(public)',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const publicIndexRoute = publicIndexRouteImport.update({
-  id: "/",
-  path: "/",
+  id: '/',
+  path: '/',
   getParentRoute: () => publicRouteRoute,
-} as any);
+} as any)
 const publicContactRoute = publicContactRouteImport.update({
-  id: "/contact",
-  path: "/contact",
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => publicRouteRoute,
-} as any);
+} as any)
 const publicAboutRoute = publicAboutRouteImport.update({
-  id: "/about",
-  path: "/about",
+  id: '/about',
+  path: '/about',
   getParentRoute: () => publicRouteRoute,
-} as any);
+} as any)
 const publicProjectsIndexRoute = publicProjectsIndexRouteImport.update({
-  id: "/projects/",
-  path: "/projects/",
+  id: '/projects/',
+  path: '/projects/',
   getParentRoute: () => publicRouteRoute,
-} as any);
+} as any)
 const publicProjectsSlugRoute = publicProjectsSlugRouteImport.update({
-  id: "/projects/$slug",
-  path: "/projects/$slug",
+  id: '/projects/$slug',
+  path: '/projects/$slug',
   getParentRoute: () => publicRouteRoute,
-} as any);
+} as any)
 
 export interface FileRoutesByFullPath {
-  "/about": typeof publicAboutRoute;
-  "/contact": typeof publicContactRoute;
-  "/": typeof publicIndexRoute;
-  "/projects/$slug": typeof publicProjectsSlugRoute;
-  "/projects/": typeof publicProjectsIndexRoute;
+  '/about': typeof publicAboutRoute
+  '/contact': typeof publicContactRoute
+  '/': typeof publicIndexRoute
+  '/projects/$slug': typeof publicProjectsSlugRoute
+  '/projects/': typeof publicProjectsIndexRoute
 }
 export interface FileRoutesByTo {
-  "/about": typeof publicAboutRoute;
-  "/contact": typeof publicContactRoute;
-  "/": typeof publicIndexRoute;
-  "/projects/$slug": typeof publicProjectsSlugRoute;
-  "/projects": typeof publicProjectsIndexRoute;
+  '/about': typeof publicAboutRoute
+  '/contact': typeof publicContactRoute
+  '/': typeof publicIndexRoute
+  '/projects/$slug': typeof publicProjectsSlugRoute
+  '/projects': typeof publicProjectsIndexRoute
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport;
-  "/(public)": typeof publicRouteRouteWithChildren;
-  "/(public)/about": typeof publicAboutRoute;
-  "/(public)/contact": typeof publicContactRoute;
-  "/(public)/": typeof publicIndexRoute;
-  "/(public)/projects/$slug": typeof publicProjectsSlugRoute;
-  "/(public)/projects/": typeof publicProjectsIndexRoute;
+  __root__: typeof rootRouteImport
+  '/(public)': typeof publicRouteRouteWithChildren
+  '/(public)/about': typeof publicAboutRoute
+  '/(public)/contact': typeof publicContactRoute
+  '/(public)/': typeof publicIndexRoute
+  '/(public)/projects/$slug': typeof publicProjectsSlugRoute
+  '/(public)/projects/': typeof publicProjectsIndexRoute
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "/about" | "/contact" | "/" | "/projects/$slug" | "/projects/";
-  fileRoutesByTo: FileRoutesByTo;
-  to: "/about" | "/contact" | "/" | "/projects/$slug" | "/projects";
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '/about' | '/contact' | '/' | '/projects/$slug' | '/projects/'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/about' | '/contact' | '/' | '/projects/$slug' | '/projects'
   id:
-    | "__root__"
-    | "/(public)"
-    | "/(public)/about"
-    | "/(public)/contact"
-    | "/(public)/"
-    | "/(public)/projects/$slug"
-    | "/(public)/projects/";
-  fileRoutesById: FileRoutesById;
+    | '__root__'
+    | '/(public)'
+    | '/(public)/about'
+    | '/(public)/contact'
+    | '/(public)/'
+    | '/(public)/projects/$slug'
+    | '/(public)/projects/'
+  fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  publicRouteRoute: typeof publicRouteRouteWithChildren;
+  publicRouteRoute: typeof publicRouteRouteWithChildren
 }
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/(public)": {
-      id: "/(public)";
-      path: "";
-      fullPath: "";
-      preLoaderRoute: typeof publicRouteRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/(public)/": {
-      id: "/(public)/";
-      path: "/";
-      fullPath: "/";
-      preLoaderRoute: typeof publicIndexRouteImport;
-      parentRoute: typeof publicRouteRoute;
-    };
-    "/(public)/contact": {
-      id: "/(public)/contact";
-      path: "/contact";
-      fullPath: "/contact";
-      preLoaderRoute: typeof publicContactRouteImport;
-      parentRoute: typeof publicRouteRoute;
-    };
-    "/(public)/about": {
-      id: "/(public)/about";
-      path: "/about";
-      fullPath: "/about";
-      preLoaderRoute: typeof publicAboutRouteImport;
-      parentRoute: typeof publicRouteRoute;
-    };
-    "/(public)/projects/": {
-      id: "/(public)/projects/";
-      path: "/projects";
-      fullPath: "/projects/";
-      preLoaderRoute: typeof publicProjectsIndexRouteImport;
-      parentRoute: typeof publicRouteRoute;
-    };
-    "/(public)/projects/$slug": {
-      id: "/(public)/projects/$slug";
-      path: "/projects/$slug";
-      fullPath: "/projects/$slug";
-      preLoaderRoute: typeof publicProjectsSlugRouteImport;
-      parentRoute: typeof publicRouteRoute;
-    };
+    '/(public)': {
+      id: '/(public)'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof publicRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(public)/': {
+      id: '/(public)/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof publicIndexRouteImport
+      parentRoute: typeof publicRouteRoute
+    }
+    '/(public)/contact': {
+      id: '/(public)/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof publicContactRouteImport
+      parentRoute: typeof publicRouteRoute
+    }
+    '/(public)/about': {
+      id: '/(public)/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof publicAboutRouteImport
+      parentRoute: typeof publicRouteRoute
+    }
+    '/(public)/projects/': {
+      id: '/(public)/projects/'
+      path: '/projects'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof publicProjectsIndexRouteImport
+      parentRoute: typeof publicRouteRoute
+    }
+    '/(public)/projects/$slug': {
+      id: '/(public)/projects/$slug'
+      path: '/projects/$slug'
+      fullPath: '/projects/$slug'
+      preLoaderRoute: typeof publicProjectsSlugRouteImport
+      parentRoute: typeof publicRouteRoute
+    }
   }
 }
 
 interface publicRouteRouteChildren {
-  publicAboutRoute: typeof publicAboutRoute;
-  publicContactRoute: typeof publicContactRoute;
-  publicIndexRoute: typeof publicIndexRoute;
-  publicProjectsSlugRoute: typeof publicProjectsSlugRoute;
-  publicProjectsIndexRoute: typeof publicProjectsIndexRoute;
+  publicAboutRoute: typeof publicAboutRoute
+  publicContactRoute: typeof publicContactRoute
+  publicIndexRoute: typeof publicIndexRoute
+  publicProjectsSlugRoute: typeof publicProjectsSlugRoute
+  publicProjectsIndexRoute: typeof publicProjectsIndexRoute
 }
 
 const publicRouteRouteChildren: publicRouteRouteChildren = {
@@ -149,23 +149,24 @@ const publicRouteRouteChildren: publicRouteRouteChildren = {
   publicIndexRoute: publicIndexRoute,
   publicProjectsSlugRoute: publicProjectsSlugRoute,
   publicProjectsIndexRoute: publicProjectsIndexRoute,
-};
+}
 
-const publicRouteRouteWithChildren = publicRouteRoute._addFileChildren(publicRouteRouteChildren);
+const publicRouteRouteWithChildren = publicRouteRoute._addFileChildren(
+  publicRouteRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   publicRouteRoute: publicRouteRouteWithChildren,
-};
+}
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>();
+  ._addFileTypes<FileRouteTypes>()
 
-import type { createStart } from "@tanstack/react-start";
-
-import type { getRouter } from "./router.tsx";
-declare module "@tanstack/react-start" {
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
   interface Register {
-    ssr: true;
-    router: Awaited<ReturnType<typeof getRouter>>;
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
   }
 }

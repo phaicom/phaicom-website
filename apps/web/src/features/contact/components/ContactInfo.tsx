@@ -1,6 +1,8 @@
 import MdiEmail from "~icons/mdi/email";
 import MdiMapMarkerMultipleOutline from "~icons/mdi/map-marker-multiple-outline";
 
+import { CONTACT } from "@/config/contact";
+
 export default function ContactInfo() {
   return (
     <div>
@@ -14,12 +16,12 @@ export default function ContactInfo() {
       <div className="space-y-6">
         <div className="flex items-center gap-4">
           <MdiEmail className="h-6 w-6 text-yellow-500" />
-          <span>hello@johndoe.com</span>
+          <span>{CONTACT.email}</span>
         </div>
 
         <div className="flex items-center gap-4">
           <MdiMapMarkerMultipleOutline className="h-6 w-6 text-yellow-500" />
-          <span>San Francisco, CA</span>
+          <span>{CONTACT.location}</span>
         </div>
       </div>
     </div>

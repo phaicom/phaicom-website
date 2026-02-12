@@ -5,7 +5,7 @@ import { skills } from "../data/skills";
 export default function SkillsSection() {
   return (
     <>
-      <h2 className="mb-8 text-2xl sm:text-3xl lg:text-4xl">Skills</h2>
+      <h2 className="mb-8 text-2xl sm:text-3xl lg:text-4xl">Core Skills</h2>
 
       <div className="flex flex-wrap gap-4">
         {skills.map((skill, index) => (

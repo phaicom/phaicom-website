@@ -7,18 +7,13 @@ export default function HomeHero() {
 
       <div className="mb-12 space-y-4 leading-relaxed text-gray-400">
         <p>
-          I'm a passionate developer with strong expertise in creating modern web and mobile
-          applications.
+          Bangkok-based web developer specializing in React, Vue, and Node.js, building scalable and
+          impactful web applications.
         </p>
 
         <p>
-          I focus on building scalable systems, integrating APIs, and optimizing performance while
-          maintaining clean and maintainable code.
-        </p>
-
-        <p>
-          If you're seeking a developer to transform ideas into reliable and polished digital
-          products, I'd love to collaborate.
+          Passionate about modern web technologies, adaptable across frameworks, and committed to
+          clean architecture and high-quality digital products.
         </p>
       </div>
     </>

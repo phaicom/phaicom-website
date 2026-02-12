@@ -2,23 +2,27 @@ import type { Service } from "../types";
 
 export const services: Service[] = [
   {
-    icon: "📱",
-    title: "Mobile Apps",
-    description: "Professional development of applications for Android and iOS.",
+    icon: "⚡",
+    title: "Full Stack Web Development",
+    description:
+      "Building scalable web applications using Vue, Nuxt, React, Next.js, and Node.js with modern architecture.",
   },
   {
-    icon: "🌐",
-    title: "Web Development",
-    description: "High-quality development of sites at the professional level.",
+    icon: "🧩",
+    title: "Frontend Engineering",
+    description:
+      "Crafting performant and maintainable interfaces with Vue ecosystem, React, TypeScript, and Tailwind CSS.",
   },
   {
-    icon: "🎨",
-    title: "UI/UX Design",
-    description: "Modern and high-quality design built with user experience in mind.",
+    icon: "🔗",
+    title: "Backend & API Development",
+    description:
+      "Designing RESTful APIs and microservices using client-preferred frameworks such as Fastify, Express or NestJS",
   },
   {
-    icon: "💻",
-    title: "Backend Development",
-    description: "High-performance backend services designed for scalability.",
+    icon: "☁️",
+    title: "Cloud & DevOps",
+    description:
+      "Deploying and managing applications with AWS, CI/CD pipelines, containerization, and agile workflows.",
   },
 ];
