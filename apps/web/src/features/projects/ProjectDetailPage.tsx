@@ -20,7 +20,7 @@ export default function ProjectDetailPage() {
         {project.techStack.map((tech) => (
           <span
             key={tech}
-            className="rounded-lg border border-gray-800 bg-[#1a1a1a] px-3 py-1 text-sm"
+            className="rounded-lg border border-gray-800 bg-[#1a1a1a] px-3 py-1 text-sm text-gray-200"
           >
             {tech}
           </span>
