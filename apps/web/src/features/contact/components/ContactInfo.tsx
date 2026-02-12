@@ -9,8 +9,8 @@ export default function ContactInfo() {
       <h2 className="mb-6 text-2xl">Get In Touch</h2>
 
       <p className="mb-8 leading-relaxed text-muted-foreground">
-        Have a project in mind or just want to connect? Feel free to reach out and I'll get back to
-        you soon.
+        Whether you have an idea, a project, or just want to connect, I'd love to hear from you.
+        Let's build something meaningful together.
       </p>
 
       <div className="space-y-6">
