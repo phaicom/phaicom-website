@@ -1,4 +1,4 @@
-import type { LucideIcon } from "lucide-react";
+import type { IconComponent } from "@/shared/types";
 
 export type Service = {
   icon: string;
@@ -8,5 +8,5 @@ export type Service = {
 
 export type Skill = {
   name: string;
-  icon: LucideIcon;
+  icon: IconComponent;
 };

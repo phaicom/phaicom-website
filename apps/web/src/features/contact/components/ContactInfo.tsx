@@ -1,4 +1,5 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import MdiEmail from "~icons/mdi/email";
+import MdiMapMarkerMultipleOutline from "~icons/mdi/map-marker-multiple-outline";
 
 export default function ContactInfo() {
   return (
@@ -12,17 +13,12 @@ export default function ContactInfo() {
 
       <div className="space-y-6">
         <div className="flex items-center gap-4">
-          <Mail className="h-6 w-6 text-yellow-500" />
+          <MdiEmail className="h-6 w-6 text-yellow-500" />
           <span>hello@johndoe.com</span>
         </div>
 
         <div className="flex items-center gap-4">
-          <Phone className="h-6 w-6 text-yellow-500" />
-          <span>+1 234 567 8900</span>
-        </div>
-
-        <div className="flex items-center gap-4">
-          <MapPin className="h-6 w-6 text-yellow-500" />
+          <MdiMapMarkerMultipleOutline className="h-6 w-6 text-yellow-500" />
           <span>San Francisco, CA</span>
         </div>
       </div>

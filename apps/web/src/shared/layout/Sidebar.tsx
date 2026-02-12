@@ -1,29 +1,16 @@
 import { Link } from "@tanstack/react-router";
-import {
-  Mail,
-  MapPin,
-  Phone,
-  Linkedin,
-  Github,
-  Twitter,
-  Home,
-  User,
-  Briefcase,
-  Mail as MailIcon,
-} from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import MdiEmail from "~icons/mdi/email";
+import MdiGithub from "~icons/mdi/github";
+import MdiLinkedin from "~icons/mdi/linkedin";
+import MdiMapMarkerMultipleOutline from "~icons/mdi/map-marker-multiple-outline";
+
+import { NAV_LINKS } from "@/config/navigation";
 
 type Props = {
   sidebarOpen: boolean;
   setSidebarOpen: (value: boolean) => void;
 };
-
-const navLinks = [
-  { label: "Home", to: "/", icon: Home },
-  { label: "About", to: "/about", icon: User },
-  { label: "Projects", to: "/projects", icon: Briefcase },
-  { label: "Contact", to: "/contact", icon: MailIcon },
-];
 
 export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
   return (
@@ -55,7 +42,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
         {/* Navigation Links */}
         <nav className="mb-6 flex-1">
           <ul className="space-y-1">
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <li key={link.to}>
                 <Link
                   to={link.to}
@@ -65,7 +52,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
                     className: "bg-[#252525] text-yellow-500",
                   }}
                 >
-                  <link.icon className="h-5 w-5" />
+                  {link.icon && <link.icon className="h-5 w-5" />}
                   {link.label}
                 </Link>
               </li>
@@ -75,23 +62,18 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
 
         <div className="space-y-4 text-sm text-gray-400">
           <div className="flex items-center gap-3">
-            <Mail className="h-4 w-4 text-yellow-500" />
+            <MdiEmail className="h-4 w-4 text-yellow-500" />
             <span>hello@johndoe.com</span>
           </div>
 
           <div className="flex items-center gap-3">
-            <Phone className="h-4 w-4 text-yellow-500" />
-            <span>+1 234 567 8900</span>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <MapPin className="h-4 w-4 text-yellow-500" />
+            <MdiMapMarkerMultipleOutline className="h-4 w-4 text-yellow-500" />
             <span>San Francisco, CA</span>
           </div>
         </div>
 
         <div className="mt-6 flex gap-3 border-t border-gray-800 pt-6">
-          {[Linkedin, Github, Twitter].map((Icon, i) => (
+          {[MdiLinkedin, MdiGithub].map((Icon, i) => (
             <a
               key={i}
               href="#"
