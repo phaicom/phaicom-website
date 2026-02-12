@@ -19,12 +19,12 @@ export default function ServicesSection() {
               y: { delay: index * 0.05, duration: 0.4 },
               scale: { duration: 0.15 },
             }}
-            className="flex gap-4 rounded-xl border border-gray-800 bg-[#1a1a1a] p-6"
+            className="flex gap-4 rounded-xl border border-border bg-card p-6"
           >
             <div className="text-4xl">{service.icon}</div>
             <div>
               <h3 className="mb-2 text-lg">{service.title}</h3>
-              <p className="text-sm leading-relaxed text-gray-400">{service.description}</p>
+              <p className="text-sm leading-relaxed text-muted-foreground">{service.description}</p>
             </div>
           </motion.div>
         ))}

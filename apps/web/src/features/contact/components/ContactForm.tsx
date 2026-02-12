@@ -12,7 +12,7 @@ export default function ContactForm() {
         <input
           type="text"
           placeholder="Your name"
-          className="w-full rounded-lg border border-gray-800 bg-[#1a1a1a] px-4 py-3 focus:border-yellow-500 focus:outline-none"
+          className="w-full rounded-lg border border-border bg-card px-4 py-3 focus:border-primary focus:outline-none"
         />
       </div>
 
@@ -21,7 +21,7 @@ export default function ContactForm() {
         <input
           type="email"
           placeholder="your.email@example.com"
-          className="w-full rounded-lg border border-gray-800 bg-[#1a1a1a] px-4 py-3 focus:border-yellow-500 focus:outline-none"
+          className="w-full rounded-lg border border-border bg-card px-4 py-3 focus:border-primary focus:outline-none"
         />
       </div>
 
@@ -30,7 +30,7 @@ export default function ContactForm() {
         <textarea
           rows={5}
           placeholder="Tell me about your project..."
-          className="w-full resize-none rounded-lg border border-gray-800 bg-[#1a1a1a] px-4 py-3 focus:border-yellow-500 focus:outline-none"
+          className="w-full resize-none rounded-lg border border-border bg-card px-4 py-3 focus:border-primary focus:outline-none"
         />
       </div>
 
@@ -38,7 +38,7 @@ export default function ContactForm() {
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         type="submit"
-        className="w-full rounded-lg bg-yellow-500 px-6 py-3 font-medium text-black hover:bg-yellow-400"
+        className="w-full rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground hover:bg-primary/90"
       >
         Send Message
       </motion.button>

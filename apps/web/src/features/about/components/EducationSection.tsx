@@ -14,17 +14,17 @@ export default function EducationSection() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="relative rounded-xl border border-gray-800 bg-[#1a1a1a] p-6 pl-10"
+            className="relative rounded-xl border border-border bg-card p-6 pl-10"
           >
-            <div className="absolute top-6 left-0 h-16 w-1 rounded-r bg-yellow-500"></div>
+            <div className="absolute top-6 left-0 h-16 w-1 rounded-r bg-primary"></div>
 
-            <p className="mb-2 text-sm text-yellow-500">{item.period}</p>
+            <p className="mb-2 text-sm text-primary">{item.period}</p>
 
             <h3 className="mb-1 text-xl">{item.title}</h3>
 
-            <p className="mb-2 text-gray-400">{item.institution}</p>
+            <p className="mb-2 text-muted-foreground">{item.institution}</p>
 
-            <p className="text-sm leading-relaxed text-gray-500">{item.description}</p>
+            <p className="text-sm leading-relaxed text-muted-foreground/70">{item.description}</p>
           </motion.div>
         ))}
       </div>

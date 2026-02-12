@@ -33,20 +33,20 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSidebarOpen(false)}
-            className="fixed inset-0 z-40 bg-black/50 lg:hidden"
+            className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
           />
         )}
       </AnimatePresence>
 
       <aside className={`
           fixed top-0 z-50 flex
-          h-screen w-75 flex-col border-r border-gray-800 bg-[#1a1a1a] p-6
+          h-screen w-75 flex-col border-r border-border bg-card p-6
           transition-transform duration-300 lg:sticky lg:w-64
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
         `}>
         <div className="mt-12 mb-8 text-center lg:mt-0">
-          <h1 className="text-xl font-bold">Reawpai Chunsoi</h1>
-          <p className="text-sm text-gray-400">Full Stack Developer</p>
+          <h1 className="text-xl font-bold text-foreground">Reawpai Chunsoi</h1>
+          <p className="text-sm text-muted-foreground">Full Stack Developer</p>
         </div>
 
         {/* Navigation Links */}
@@ -57,9 +57,9 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
                 <Link
                   to={link.to}
                   onClick={() => setSidebarOpen(false)}
-                  className="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-400 transition-colors hover:bg-[#252525] hover:text-white"
+                  className="flex items-center gap-3 rounded-lg px-4 py-3 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
                   activeProps={{
-                    className: "bg-[#252525] text-yellow-500",
+                    className: "bg-accent text-accent-foreground",
                   }}
                 >
                   {link.icon && <link.icon className="h-5 w-5" />}
@@ -70,13 +70,13 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
           </ul>
         </nav>
 
-        <div className="mt-6 flex gap-3 border-t border-gray-800 pt-6">
+        <div className="mt-6 flex gap-3 border-t border-border pt-6">
           {contacts.map((contact, i) => (
             <a
               key={i}
               href={contact.link}
               target="_blank"
-              className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#252525] transition-colors hover:bg-[#333] hover:text-yellow-500"
+              className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:bg-accent/80"
             >
               <contact.icon className="h-5 w-5" />
             </a>

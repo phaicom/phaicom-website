@@ -27,7 +27,7 @@ export default function ProjectCard({ project, index }: Props) {
             ease: "easeOut",
           },
         }}
-        className="group overflow-hidden rounded-xl border border-gray-800 bg-[#1a1a1a] will-change-transform"
+        className="group overflow-hidden rounded-xl border border-border bg-card will-change-transform"
       >
         <div className="relative h-56 overflow-hidden">
           <img
@@ -38,7 +38,7 @@ export default function ProjectCard({ project, index }: Props) {
         </div>
 
         <div className="p-5">
-          <p className="mb-2 text-sm text-yellow-500">{project.category}</p>
+          <p className="mb-2 text-sm text-primary">{project.category}</p>
           <h3 className="text-lg">{project.title}</h3>
         </div>
       </motion.div>

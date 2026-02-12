@@ -8,25 +8,25 @@ export default function ContactInfo() {
     <div>
       <h2 className="mb-6 text-2xl">Get In Touch</h2>
 
-      <p className="mb-8 leading-relaxed text-gray-400">
+      <p className="mb-8 leading-relaxed text-muted-foreground">
         Have a project in mind or just want to connect? Feel free to reach out and I'll get back to
         you soon.
       </p>
 
       <div className="space-y-6">
         <div className="flex items-center gap-4">
-          <MdiEmail className="h-6 w-6 text-yellow-500" />
+          <MdiEmail className="h-6 w-6 text-primary" />
           <a
             href={`mailto:${CONTACT.email}`}
             title={CONTACT.email}
-            className="min-w-0 truncate transition-colors hover:text-yellow-400"
+            className="min-w-0 truncate transition-colors hover:text-primary/80"
           >
             {CONTACT.email}
           </a>
         </div>
 
         <div className="flex items-center gap-4">
-          <MdiMapMarkerMultipleOutline className="h-6 w-6 text-yellow-500" />
+          <MdiMapMarkerMultipleOutline className="h-6 w-6 text-primary" />
           <span>{CONTACT.location}</span>
         </div>
       </div>

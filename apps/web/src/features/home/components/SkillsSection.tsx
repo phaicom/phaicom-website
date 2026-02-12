@@ -19,10 +19,10 @@ export default function SkillsSection() {
               scale: { duration: 0.15 },
             }}
             whileHover={{ scale: 1.05 }}
-            className="flex items-center gap-2 rounded-lg border border-gray-800 bg-[#1a1a1a] px-4 py-3 transition-colors hover:border-yellow-500"
+            className="flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-3 transition-colors hover:border-primary"
           >
-            <skill.icon className="h-5 w-5 text-yellow-500" />
-            <span className="text-sm text-gray-300">{skill.name}</span>
+            <skill.icon className="h-5 w-5 text-primary" />
+            <span className="text-sm text-foreground">{skill.name}</span>
           </motion.div>
         ))}
       </div>
