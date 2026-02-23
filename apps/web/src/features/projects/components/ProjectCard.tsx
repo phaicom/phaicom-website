@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 
+import { Image } from "@/shared/components/Image";
+
 import type { Project } from "../types";
 
 type Props = {
@@ -14,7 +16,6 @@ export default function ProjectCard({ project, index }: Props) {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        whileHover={{ y: -8 }}
         transition={{
           opacity: {
             duration: 0.5,
@@ -30,9 +31,12 @@ export default function ProjectCard({ project, index }: Props) {
         className="group overflow-hidden rounded-xl border border-border bg-card will-change-transform"
       >
         <div className="relative h-56 overflow-hidden">
-          <img
-            src={project.image}
+          <Image
+            src={project.placeholder}
             alt={project.title}
+            layout="fixed"
+            height={200}
+            width={300}
             className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
           />
         </div>

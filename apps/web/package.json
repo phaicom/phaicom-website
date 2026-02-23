@@ -7,13 +7,29 @@
     "build": "nlx --bun vite build"
   },
   "dependencies": {
+    "@content-collections/core": "^0.14.1",
+    "@content-collections/vite": "^0.2.9",
     "@tanstack/react-router": "^1.159.5",
     "@tanstack/react-router-devtools": "^1.159.5",
     "@tanstack/react-start": "^1.159.5",
+    "@unpic/placeholder": "^0.1.2",
+    "@unpic/react": "^1.0.2",
     "clsx": "^2.1.1",
+    "gray-matter": "^4.0.3",
+    "html-react-parser": "^5.2.17",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "tailwind-merge": "^3.4.0"
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-raw": "^7.0.0",
+    "rehype-slug": "^6.0.0",
+    "rehype-stringify": "^10.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "shiki": "^3.22.0",
+    "tailwind-merge": "^3.4.0",
+    "unified": "^11.0.5",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.2.3",
