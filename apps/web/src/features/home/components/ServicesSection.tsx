@@ -21,7 +21,7 @@ export default function ServicesSection() {
             }}
             className="flex gap-4 rounded-xl border border-border bg-card p-6"
           >
-            <div className="text-4xl">{service.icon}</div>
+            <service.icon className="h-10 w-10 flex-shrink-0 text-primary" />
             <div>
               <h3 className="mb-2 text-lg">{service.title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{service.description}</p>

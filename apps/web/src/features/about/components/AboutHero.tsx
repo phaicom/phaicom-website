@@ -1,9 +1,5 @@
-export default function AboutHero() {
-  return (
-    <>
-      <h1 className="mb-4 text-3xl sm:text-4xl lg:text-5xl">About Me</h1>
+import { PageHeader } from "@/shared/components";
 
-      <div className="mb-6 h-1 w-12 bg-primary lg:mb-8"></div>
-    </>
-  );
+export default function AboutHero() {
+  return <PageHeader title="About Me" />;
 }

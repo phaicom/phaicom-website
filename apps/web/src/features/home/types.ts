@@ -1,7 +1,7 @@
 import type { IconComponent } from "@/shared/types";
 
 export type Service = {
-  icon: string;
+  icon: IconComponent;
   title: string;
   description: string;
 };

@@ -65,14 +65,16 @@ export default function ProjectCard({ project, index }: Props) {
           )}
 
           {/* Title and category on image */}
-          <div className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-5">
-            <p className="mb-1.5 text-sm font-semibold tracking-wide text-white/90 uppercase">
+          <div className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-5 backdrop-blur-[2px]">
+            <p className="mb-1.5 text-sm font-semibold tracking-wide text-white uppercase drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
               {project.category}
             </p>
             <h3 className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               <div className="text-xl leading-tight font-bold">{project.title}</div>
               {project.subtitle && (
-                <div className="mt-1.5 text-sm font-medium text-white">{project.subtitle}</div>
+                <div className="mt-1.5 text-sm font-medium text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
+                  {project.subtitle}
+                </div>
               )}
             </h3>
           </div>

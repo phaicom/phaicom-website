@@ -1,10 +1,7 @@
-import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 
 import { Route } from "@/routes/(public)/projects/$slug";
-import { Image } from "@/shared/components/Image";
-import { Markdown } from "@/shared/components/Markdown";
-import Pill from "@/shared/components/Pill";
+import { BackLink, Image, Markdown, Pill } from "@/shared/components";
 
 export default function ProjectDetailPage() {
   const { project } = Route.useLoaderData();
@@ -18,25 +15,7 @@ export default function ProjectDetailPage() {
         transition={{ duration: 0.3 }}
         className="mb-8"
       >
-        <Link
-          to="/projects"
-          className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
-        >
-          <svg
-            className="h-4 w-4 transition-transform group-hover:-translate-x-1"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          Back to Projects
-        </Link>
+        <BackLink to="/projects" label="Back to Projects" />
       </motion.div>
 
       {/* Hero Section */}
@@ -144,25 +123,7 @@ export default function ProjectDetailPage() {
       >
         <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
         <div className="mt-8 flex items-center justify-between">
-          <Link
-            to="/projects"
-            className="group inline-flex items-center gap-2 rounded-lg border border-border bg-card px-5 py-3 text-sm font-medium text-foreground shadow-sm transition-all hover:border-primary hover:bg-accent hover:shadow-md"
-          >
-            <svg
-              className="h-4 w-4 transition-transform group-hover:-translate-x-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-            View All Projects
-          </Link>
+          <BackLink to="/projects" label="View All Projects" variant="button" />
         </div>
       </motion.div>
     </article>
