@@ -12,10 +12,6 @@ techStack:
 featured: false
 ---
 
-# BackMarket-Inspired E-Commerce Platform
-
-A production-grade e-commerce platform inspired by Back Market, built with a microservices architecture. Features product catalog, seller management, order processing, and full-text search.
-
 ## Project Overview
 
 This project demonstrates a complete e-commerce ecosystem with multiple services working together. The platform handles everything from product listings to order fulfillment, with a focus on scalability and maintainability.

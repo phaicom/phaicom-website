@@ -11,10 +11,6 @@ techStack:
 featured: false
 ---
 
-# Go E-Commerce API
-
-High-performance REST API built with Gin, PostgreSQL, and sqlc. Implements JWT authentication, order workflows, and scalable service design following clean architecture principles.
-
 ## Project Overview
 
 This project demonstrates building a production-ready REST API using Go with a focus on performance, type safety, and maintainability. The API handles e-commerce operations including user management, product catalog, and order processing.

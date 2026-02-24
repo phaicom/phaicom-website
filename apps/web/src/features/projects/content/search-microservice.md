@@ -10,10 +10,6 @@ techStack:
 featured: false
 ---
 
-# Search Microservice
-
-Dedicated search service written in Go using Meilisearch. Provides high-speed full-text product search and indexing within a distributed microservices ecosystem.
-
 ## Project Overview
 
 This microservice handles all search-related operations in a larger e-commerce platform. It's designed to be independently deployable and scalable, handling millions of product searches with sub-50ms response times.

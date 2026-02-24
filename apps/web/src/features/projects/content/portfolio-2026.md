@@ -10,10 +10,6 @@ techStack:
 featured: false
 ---
 
-# Personal Portfolio (2026)
-
-Modern developer portfolio built with TanStack Start, React, and Tailwind CSS. Focused on performance, SEO optimization, and clean UI system design.
-
 ## Project Overview
 
 This portfolio website showcases my projects, skills, and experience as a full-stack developer. Built with modern web technologies, it emphasizes performance, accessibility, and user experience.

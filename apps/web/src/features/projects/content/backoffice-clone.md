@@ -1,88 +1,125 @@
 ---
-title: BackOffice Clone - Enterprise Admin Dashboard
-category: Full Stack
+title: Back-Office System – Inventory & Sales Management
+category: Frontend
 techStack:
-  - React
-  - TypeScript
-  - Node.js
-  - PostgreSQL
-  - Docker
+  - Vue.js
+  - JavaScript
+  - REST API
+  - Responsive Design
+  - Admin Dashboard
 featured: true
 ---
 
-# BackOffice Clone - Enterprise Admin Dashboard
-
-A comprehensive admin dashboard solution built with modern web technologies, designed for enterprise-scale applications with complex data management needs.
-
 ## Project Overview
 
-This project demonstrates a production-ready admin interface that handles complex business operations including user management, analytics dashboards, and real-time data visualization.
+While working at **FireOneOne**, I developed a back-office web application for a retail company to streamline internal operations.
 
-![BackOffice Dashboard Overview](/images/projects/backoffice-1.jpg)
+The system focuses primarily on **inventory management** and **sales workflows**, enabling staff to efficiently manage stock levels, process orders, monitor performance, and support daily business operations.
 
-## Key Features
+My role as a **Frontend Developer (Vue.js)** was to deliver a responsive, user-friendly, and reliable interface used daily by operational teams.
 
-### 1. Dashboard Analytics
+![Login Page](/images/projects/backoffice-1.jpg)
 
-The main dashboard provides real-time analytics with interactive charts and metrics. Users can monitor key performance indicators at a glance.
+---
 
-![Analytics Dashboard](/images/projects/backoffice-2.jpg)
+## Core Business Workflows
 
-### 2. User Management System
+### 1. Inventory Management
 
-A complete user management module with role-based access control (RBAC), allowing administrators to:
+The inventory module allows staff to:
 
-- Create, edit, and delete user accounts
-- Assign roles and permissions
-- Track user activity and audit logs
-- Manage team hierarchies
+- Monitor real-time stock levels
+- Track product availability by category
+- Update product information
+- Manage stock movement (inbound / outbound)
+- Prevent overselling with validation workflows
 
-![User Management Interface](/images/projects/backoffice-3.jpg)
+The interface was designed for speed and clarity, reducing manual errors and improving stock visibility across departments.
 
-### 3. Data Tables & Filtering
+![Inventory & Service Request](/images/projects/backoffice-2.jpg)
 
-Advanced data tables with:
+---
 
-- Server-side pagination
-- Multi-column sorting
-- Complex filtering capabilities
-- Export functionality (CSV, Excel)
-- Bulk actions support
+### 2. Sales & Order Management
 
-![Data Tables](/images/projects/backoffice-4.jpg)
+The sales workflow supports:
 
-## Technical Architecture
+- Order tracking and status updates
+- Filtering by date, status, and service type
+- Sales reporting and performance metrics
+- Exporting data for accounting and analysis
 
-### Frontend Stack
+Special attention was given to usability, ensuring that staff could quickly locate and update orders during peak business hours.
 
-- **React 18** with TypeScript for type safety
-- **TanStack Query** for server state management
-- **Tailwind CSS** for styling
-- **Recharts** for data visualization
+![Sales Report Dashboard](/images/projects/backoffice-3.jpg)
 
-### Backend Stack
+---
 
-- **Node.js** with Express/Fastify
-- **PostgreSQL** for relational data
-- **Redis** for caching and sessions
-- **Docker** for containerization
+### 3. Service & Configuration Management
 
-## Performance Optimizations
+The system also includes configurable service settings such as:
 
-1. **Code Splitting**: Route-based lazy loading reduces initial bundle size
-2. **Virtual Scrolling**: Handles large datasets efficiently
-3. **Query Optimization**: Debounced search and cached responses
-4. **Image Optimization**: Responsive images with lazy loading
+- Enable/disable services
+- Manage service categories
+- Configure pricing visibility
+- Control operational toggles
 
-## Lessons Learned
+This allows business users to adjust operational behavior without developer intervention.
 
-Building this admin dashboard taught me valuable lessons about:
+![Service Settings](/images/projects/backoffice-4.jpg)
 
-- Designing scalable component architectures
-- Implementing efficient data fetching strategies
-- Creating accessible and responsive interfaces
-- Managing complex application state
+---
 
-## Conclusion
+## My Responsibilities
 
-This project showcases modern frontend development practices and demonstrates the ability to build enterprise-grade applications with attention to performance, accessibility, and user experience.
+As the frontend developer, I was responsible for:
+
+- Designing scalable Vue.js component architecture
+- Building reusable UI components
+- Integrating REST APIs with proper state handling
+- Implementing filtering, pagination, and export features
+- Ensuring responsive layouts for different screen sizes
+- Improving UX for high-frequency operational tasks
+
+---
+
+## Technical Implementation
+
+### Frontend
+
+- **Vue.js** for reactive UI development
+- Component-based architecture for maintainability
+- API-driven data rendering
+- Form validation for operational accuracy
+- Responsive layout optimized for desktop office use
+
+### Key Focus Areas
+
+- Clear information hierarchy
+- Fast data entry and editing flows
+- Error prevention in stock and sales updates
+- Consistent UI patterns across modules
+
+---
+
+## Impact
+
+This back-office system helped the retail team:
+
+- Reduce manual tracking errors
+- Improve stock accuracy
+- Speed up order processing
+- Gain better visibility into sales performance
+
+It strengthened my experience in building enterprise internal tools where reliability, clarity, and workflow efficiency are critical.
+
+---
+
+## Summary
+
+This project demonstrates my ability to:
+
+- Build production-ready admin systems using Vue.js
+- Translate business workflows into intuitive UI
+- Optimize frontend performance for operational use
+- Deliver responsive and maintainable enterprise applications
