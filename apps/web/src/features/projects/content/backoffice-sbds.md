@@ -1,5 +1,6 @@
 ---
-title: Back-Office System – Inventory & Sales Management
+title: Back-Office System
+subtitle: Inventory & Sales Management
 category: Frontend
 techStack:
   - Vue.js
@@ -8,6 +9,8 @@ techStack:
   - Responsive Design
   - Admin Dashboard
 featured: true
+startDate: 2017-06-01
+endDate: 2018-01-01
 ---
 
 ## Project Overview

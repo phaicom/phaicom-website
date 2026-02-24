@@ -2,10 +2,12 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 
 import { Image } from "@/shared/components/Image";
+import Pill from "@/shared/components/Pill";
 
 type Project = {
   slug: string;
   title: string;
+  subtitle?: string;
   category: string;
   techStack: string[];
   featured: boolean;
@@ -36,7 +38,9 @@ export default function ProjectCard({ project, index }: Props) {
             ease: "easeOut",
           },
         }}
-        className="group overflow-hidden rounded-xl border border-border bg-card will-change-transform"
+        className={`group overflow-hidden rounded-xl border bg-card will-change-transform ${
+          project.featured ? "border-2 border-primary ring-4 ring-primary/30" : "border-border"
+        }`}
       >
         <div className="relative h-56 overflow-hidden">
           <Image
@@ -47,11 +51,31 @@ export default function ProjectCard({ project, index }: Props) {
             width={300}
             className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
           />
-        </div>
 
-        <div className="p-5">
-          <p className="mb-2 text-sm text-primary">{project.category}</p>
-          <h3 className="text-lg">{project.title}</h3>
+          {/* Subtle gradient overlay - bottom only */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+
+          {/* Featured badge */}
+          {project.featured && (
+            <div className="absolute top-3 right-3">
+              <Pill variant="featured" className="py-1 text-xs shadow-lg">
+                ⭐ Featured
+              </Pill>
+            </div>
+          )}
+
+          {/* Title and category on image */}
+          <div className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-5">
+            <p className="mb-1.5 text-sm font-semibold tracking-wide text-white/90 uppercase">
+              {project.category}
+            </p>
+            <h3 className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              <div className="text-xl leading-tight font-bold">{project.title}</div>
+              {project.subtitle && (
+                <div className="mt-1.5 text-sm font-medium text-white">{project.subtitle}</div>
+              )}
+            </h3>
+          </div>
         </div>
       </motion.div>
     </Link>

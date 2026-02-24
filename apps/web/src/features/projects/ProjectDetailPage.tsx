@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { Route } from "@/routes/(public)/projects/$slug";
 import { Image } from "@/shared/components/Image";
 import { Markdown } from "@/shared/components/Markdown";
+import Pill from "@/shared/components/Pill";
 
 export default function ProjectDetailPage() {
   const { project } = Route.useLoaderData();
@@ -47,19 +48,26 @@ export default function ProjectDetailPage() {
       >
         {/* Meta Tags */}
         <div className="mb-6 flex flex-wrap items-center gap-3">
-          <span className="rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
+          <Pill variant="category" className="py-1.5">
             {project.category}
-          </span>
+          </Pill>
           {project.featured && (
-            <span className="rounded-full bg-amber-500/10 px-4 py-1.5 text-sm font-medium text-amber-400">
+            <Pill variant="featured" className="py-1.5">
               ⭐ Featured Project
-            </span>
+            </Pill>
           )}
         </div>
 
         {/* Title */}
-        <h1 className="mb-6 text-4xl font-bold tracking-tight text-primary md:text-5xl lg:text-6xl">
-          {project.title}
+        <h1 className="mb-6 tracking-tight">
+          <div className="text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
+            {project.title}
+          </div>
+          {project.subtitle && (
+            <div className="mt-2 text-2xl font-medium text-muted-foreground md:text-3xl lg:text-4xl">
+              {project.subtitle}
+            </div>
+          )}
         </h1>
 
         {/* Description */}
@@ -67,13 +75,10 @@ export default function ProjectDetailPage() {
 
         {/* Tech Stack Pills */}
         <div className="mt-8 flex flex-wrap gap-2">
-          {project.techStack.map((tech: string) => (
-            <span
-              key={tech}
-              className="rounded-lg border border-border bg-card px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-accent"
-            >
+          {project.techStack.map((tech: string, index: number) => (
+            <Pill key={tech} index={index} animate>
               {tech}
-            </span>
+            </Pill>
           ))}
         </div>
       </motion.header>

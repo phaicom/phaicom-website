@@ -14,9 +14,12 @@ const projects = defineCollection({
 
   schema: z.object({
     title: z.string(),
+    subtitle: z.string().optional(),
     category: z.string(),
     techStack: z.string().array(),
     featured: z.boolean(),
+    startDate: z.string(),
+    endDate: z.string().optional(),
     content: z.string(),
   }),
 

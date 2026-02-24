@@ -3,11 +3,16 @@ import { allProjects } from "content-collections";
 import ProjectCard from "./ProjectCard";
 
 export default function ProjectsGrid() {
-  // Sort: featured first, then by title
+  // Sort: featured first, then by startDate (newest first)
   const sortedProjects = [...allProjects].sort((a, b) => {
+    // Featured projects always come first
     if (a.featured && !b.featured) return -1;
     if (!a.featured && b.featured) return 1;
-    return a.title.localeCompare(b.title);
+
+    // Within same featured status, sort by startDate (newest first)
+    const dateA = new Date(a.startDate).getTime();
+    const dateB = new Date(b.startDate).getTime();
+    return dateB - dateA;
   });
 
   return (

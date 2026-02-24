@@ -1,5 +1,7 @@
 import { motion } from "motion/react";
 
+import Pill from "@/shared/components/Pill";
+
 import { skills } from "../data/skills";
 
 export default function SkillsSection() {
@@ -22,7 +24,7 @@ export default function SkillsSection() {
             className="flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-3 transition-colors hover:border-primary"
           >
             <skill.icon className="h-5 w-5 text-primary" />
-            <span className="text-sm text-foreground">{skill.name}</span>
+            <span className="text-sm text-foreground select-none">{skill.name}</span>
           </motion.div>
         ))}
       </div>
