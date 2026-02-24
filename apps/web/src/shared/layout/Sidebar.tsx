@@ -5,6 +5,7 @@ import MdiLinkedin from "~icons/mdi/linkedin";
 
 import { CONTACT } from "@/config/contact";
 import { NAV_LINKS } from "@/config/navigation";
+import { ParallaxProfile } from "@/shared/components/ParallaxProfile";
 
 type Props = {
   sidebarOpen: boolean;
@@ -69,6 +70,9 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
             ))}
           </ul>
         </nav>
+
+        {/* My paralax photo */}
+        <ParallaxProfile />
 
         <div className="mt-6 flex gap-3 border-t border-border pt-6">
           {contacts.map((contact, i) => (
