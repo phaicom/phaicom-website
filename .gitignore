@@ -178,3 +178,5 @@ dist
 # Turbo
 .turbo
 temp
+
+.content-collections
