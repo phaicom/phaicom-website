@@ -1,14 +1,58 @@
-import { useEffect, useRef } from "react";
+import { useLocation } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
 
 import { Image } from "@/shared/components/Image";
 
+interface ImageConfig {
+  body: string;
+  face: string;
+  glasses?: string;
+}
+
+const routeImageMap: Record<string, ImageConfig> = {
+  "/": {
+    body: "/images/profile/body.webp",
+    face: "/images/profile/face.webp",
+    glasses: "/images/profile/glasses.webp",
+  },
+  "/about": {
+    body: "/images/profile/body-dev.webp",
+    face: "/images/profile/face.webp",
+  },
+  "/projects": {
+    body: "/images/profile/body-chill.webp",
+    face: "/images/profile/face.webp",
+    glasses: "/images/profile/glasses-chill.webp",
+  },
+  "/contact": {
+    body: "/images/profile/body.webp",
+    face: "/images/profile/face.webp",
+    glasses: "/images/profile/glasses.webp",
+  },
+};
+
+const defaultConfig: ImageConfig = {
+  body: "/images/profile/body.webp",
+  face: "/images/profile/face.webp",
+  glasses: "/images/profile/glasses.webp",
+};
+
 export function ParallaxProfile() {
+  const location = useLocation();
+  const [imageConfig, setImageConfig] = useState<ImageConfig>(defaultConfig);
+
   const animationRef = useRef({
     target: { x: 0, y: 0 },
     current: { x: 0, y: 0 },
     frameId: 0,
   });
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Update images when route changes
+  useEffect(() => {
+    const config = routeImageMap[location.pathname] || defaultConfig;
+    setImageConfig(config);
+  }, [location.pathname]);
 
   // Global mouse tracking
   useEffect(() => {
@@ -63,25 +107,27 @@ export function ParallaxProfile() {
     <div ref={containerRef} className="relative mx-auto h-50 w-50 select-none">
       {/* Body - slowest layer */}
       <Image
-        src="/images/profile/body.webp"
+        src={imageConfig.body}
         alt="Body"
         layout="fullWidth"
         className="absolute inset-0 w-full transform-[translate(calc(var(--parallax-x)*5px),calc(var(--parallax-y)*5px))] object-contain transition-transform duration-75"
       />
       {/* Face - middle layer */}
       <Image
-        src="/images/profile/face.webp"
+        src={imageConfig.face}
         alt="Face"
         layout="fullWidth"
-        className="absolute inset-0 m-auto w-[80%] transform-[translate(calc(var(--parallax-x)*8px),calc(var(--parallax-y)*8px))] object-contain transition-transform duration-75"
+        className="absolute inset-0 m-auto w-[80%] transform-[translate(calc(var(--parallax-x)*8px),calc(var(--parallax-y)*8px))] object-contain pb-1 transition-transform duration-75"
       />
       {/* Glasses - fastest/top layer */}
-      <Image
-        src="/images/profile/glasses.webp"
-        alt="Glasses"
-        layout="fullWidth"
-        className="absolute inset-0 m-auto mt-[23%] w-[60%] transform-[translate(calc(var(--parallax-x)*12px),calc(var(--parallax-y)*12px))] object-contain transition-transform duration-75"
-      />
+      {imageConfig.glasses && (
+        <Image
+          src={imageConfig.glasses}
+          alt="Glasses"
+          layout="fullWidth"
+          className="absolute inset-0 m-auto mt-[23%] w-[60%] transform-[translate(calc(var(--parallax-x)*12px),calc(var(--parallax-y)*12px))] object-contain pb-1 transition-transform duration-75"
+        />
+      )}
     </div>
   );
 }
