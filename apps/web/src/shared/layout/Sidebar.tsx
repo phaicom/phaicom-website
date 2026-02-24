@@ -72,7 +72,9 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
         </nav>
 
         {/* My paralax photo */}
-        <ParallaxProfile />
+        <div className="opacity-90 contrast-95 saturate-90 transition duration-500 hover:opacity-100">
+          <ParallaxProfile />
+        </div>
 
         <div className="mt-6 flex gap-3 border-t border-border pt-6">
           {contacts.map((contact, i) => (
