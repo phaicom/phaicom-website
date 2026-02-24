@@ -3,7 +3,15 @@ import { motion } from "motion/react";
 
 import { Image } from "@/shared/components/Image";
 
-import type { Project } from "../types";
+type Project = {
+  slug: string;
+  title: string;
+  category: string;
+  techStack: string[];
+  featured: boolean;
+  headerImage?: string;
+  description?: string;
+};
 
 type Props = {
   project: Project;
@@ -12,7 +20,7 @@ type Props = {
 
 export default function ProjectCard({ project, index }: Props) {
   return (
-    <Link to="/projects/$slug" params={{ slug: project.id }} className="block">
+    <Link to="/projects/$slug" params={{ slug: project.slug }} className="block">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -32,7 +40,7 @@ export default function ProjectCard({ project, index }: Props) {
       >
         <div className="relative h-56 overflow-hidden">
           <Image
-            src={project.placeholder}
+            src={project.headerImage || "https://placehold.co/600x400"}
             alt={project.title}
             layout="fixed"
             height={200}

@@ -3,7 +3,7 @@ export default function ContactHero() {
     <>
       <h1 className="mb-4 text-3xl sm:text-4xl lg:text-5xl">Contact</h1>
 
-      <div className="mb-8 h-1 w-12 bg-yellow-500"></div>
+      <div className="mb-6 h-1 w-12 bg-primary lg:mb-8"></div>
     </>
   );
 }
