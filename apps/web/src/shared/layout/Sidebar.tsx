@@ -26,7 +26,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
 
   return (
     <>
-      {/* Overlay */}
+      {/* Overlay (mobile) */}
       <AnimatePresence>
         {sidebarOpen && (
           <motion.div
@@ -40,27 +40,30 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
       </AnimatePresence>
 
       <aside className={`
-          fixed top-0 z-50 flex
-          h-screen w-75 flex-col border-r border-border bg-card p-6
-          transition-transform duration-300 lg:sticky lg:w-64
+          fixed top-0 z-50 flex h-screen w-75 flex-col
+          border-r border-sidebar-border bg-sidebar p-6
+          transition-transform duration-300
+          lg:sticky lg:w-64
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
         `}>
-        <div className="mt-12 mb-8 text-center lg:mt-0">
-          <h1 className="text-xl font-bold text-foreground">Reawpai Chunsoi</h1>
+        {/* Header */}
+        <div className="mb-8 text-center">
+          <div className="mx-auto mb-4 h-0.5 w-10 rounded-full bg-sidebar-primary/60" />
+          <h1 className="text-xl font-bold text-sidebar-foreground">Reawpai Chunsoi</h1>
           <p className="text-sm text-muted-foreground">Full Stack Developer</p>
         </div>
 
-        {/* Navigation Links */}
-        <nav className="mb-6 flex-1">
+        {/* Navigation */}
+        <nav className="mb-8">
           <ul className="space-y-1">
             {NAV_LINKS.map((link) => (
               <li key={link.to}>
                 <Link
                   to={link.to}
                   onClick={() => setSidebarOpen(false)}
-                  className="flex items-center gap-3 rounded-lg px-4 py-3 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                  className="flex items-center gap-3 rounded-lg px-4 py-3 text-muted-foreground transition-all duration-200 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                   activeProps={{
-                    className: "bg-accent text-accent-foreground",
+                    className: "bg-sidebar-accent text-sidebar-accent-foreground font-medium",
                   }}
                 >
                   {link.icon && <link.icon className="h-5 w-5" />}
@@ -71,22 +74,23 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
           </ul>
         </nav>
 
-        {/* My paralax photo */}
-        <div className="opacity-90 contrast-95 saturate-90 transition duration-500 hover:opacity-100">
+        {/* Profile + Social */}
+        <div className="mt-auto flex flex-col items-center rounded-xl bg-sidebar-accent/30 p-4">
           <ParallaxProfile />
-        </div>
 
-        <div className="mt-6 flex gap-3 border-t border-border pt-6">
-          {contacts.map((contact, i) => (
-            <a
-              key={i}
-              href={contact.link}
-              target="_blank"
-              className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:bg-accent/80"
-            >
-              <contact.icon className="h-5 w-5" />
-            </a>
-          ))}
+          <div className="mt-4 flex w-full justify-center gap-3">
+            {contacts.map((contact, i) => (
+              <a
+                key={i}
+                href={contact.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-lg bg-sidebar-accent text-sidebar-accent-foreground transition-all duration-200 hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+              >
+                <contact.icon className="h-5 w-5" />
+              </a>
+            ))}
+          </div>
         </div>
       </aside>
     </>
