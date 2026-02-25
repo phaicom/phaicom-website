@@ -93,9 +93,9 @@ export function ParallaxProfile() {
     <div
       ref={containerRef}
       className="
-        relative mx-auto aspect-square w-full max-w-[200px]
+        relative mx-auto aspect-square w-full max-w-50
         cursor-pointer overflow-hidden
-        rounded-2xl bg-gradient-to-br from-primary/5
+        rounded-2xl bg-linear-to-br from-primary/5
         to-primary/10 ring-1
         ring-border/50 transition-all
         duration-300 select-none
@@ -128,7 +128,7 @@ export function ParallaxProfile() {
           src={imageConfig.glasses}
           alt="Glasses"
           layout="fullWidth"
-          className="absolute inset-0 m-auto mt-[22%] w-[58%] transform-[translate(calc(var(--parallax-x)*10px),calc(var(--parallax-y)*10px))]
+          className="absolute inset-0 m-auto mt-[24%] w-[58%] transform-[translate(calc(var(--parallax-x)*10px),calc(var(--parallax-y)*10px))]
           object-contain
           transition-transform duration-75"
         />
