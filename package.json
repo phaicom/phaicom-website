@@ -19,10 +19,6 @@
     "fmt:check": "oxfmt --check",
     "prepare": "simple-git-hooks"
   },
-  "dependencies": {
-    "hast-util-to-string": "^3.0.1",
-    "unist-util-visit": "^5.1.0"
-  },
   "devDependencies": {
     "@antfu/ni": "^28.2.0",
     "@commitlint/cli": "^20.4.2",
