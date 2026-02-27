@@ -28,7 +28,7 @@ The platform focuses on:
 - Detailed property pages
 - Advertising management tools for agents/admins
 
-![Hjem Listing Page](/images/projects/hjem-1.png)
+![Hjem Listing Page](/images/projects/hjem-1.webp)
 
 ---
 
@@ -46,7 +46,7 @@ Users can:
 
 The filtering logic was designed to be fast, dynamic, and API-driven to ensure a smooth browsing experience.
 
-![Filter Modal](/images/projects/hjem-2.png)
+![Filter Modal](/images/projects/hjem-2.webp)
 
 ---
 
@@ -62,7 +62,7 @@ The platform integrates map functionality allowing users to:
 
 This required tight synchronization between map state and listing results.
 
-![Map Search View](/images/projects/hjem-3.png)
+![Map Search View](/images/projects/hjem-3.webp)
 
 ---
 
@@ -78,7 +78,7 @@ Each property page includes:
 
 The layout was optimized for readability and user conversion.
 
-![Property Detail Page](/images/projects/hjem-4.png)
+![Property Detail Page](/images/projects/hjem-4.webp)
 
 ---
 

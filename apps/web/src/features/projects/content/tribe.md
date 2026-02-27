@@ -25,7 +25,7 @@ The goal of the project was to enhance physical board game interaction by overla
 
 The system supports online multiplayer functionality, enabling synchronized turn-based battles between players.
 
-![Tribe Cover](/images/projects/tribe-1.jpg)
+![Tribe Cover](/images/projects/tribe-1.webp)
 
 ---
 
@@ -43,7 +43,7 @@ The gameplay system includes:
 
 The combat system was designed to ensure synchronized multiplayer logic while maintaining strategic depth.
 
-![Character Selection](/images/projects/tribe-2.jpg)
+![Character Selection](/images/projects/tribe-2.webp)
 
 ---
 
@@ -58,9 +58,9 @@ The game combines physical board interaction with digital rendering:
 
 This allowed players to experience dynamic battles directly on top of a real-world board.
 
-![AR Battle Scene](/images/projects/tribe-3.jpg)
+![AR Battle Scene](/images/projects/tribe-3.webp)
 
-![Skill Card Interaction](/images/projects/tribe-4.jpg)
+![Skill Card Interaction](/images/projects/tribe-4.webp)
 
 ---
 
@@ -76,7 +76,7 @@ The multiplayer system supports:
 
 The architecture ensures consistent game state updates and low-latency communication between players.
 
-![System Architecture](/images/projects/tribe-6.PNG)
+![System Architecture](/images/projects/tribe-6.webp)
 
 ---
 

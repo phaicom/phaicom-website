@@ -21,7 +21,7 @@ The application allows users to simply point their device toward the sky to dete
 
 I was responsible for developing the **core game system**, including constellation interaction logic, object behavior, and immersive visual presentation within Unity.
 
-![Sky Walk Overview](/images/projects/skywalk-1.jpg)
+![Sky Walk Overview](/images/projects/skywalk-1.webp)
 
 ---
 
@@ -38,7 +38,7 @@ The application enables users to:
 
 The system was built to provide a smooth and educational real-time experience.
 
-![Constellation System](/images/projects/skywalk-2.jpg)
+![Constellation System](/images/projects/skywalk-2.webp)
 
 ---
 
@@ -53,7 +53,7 @@ When a constellation is selected:
 
 The goal was to merge education with engaging visual storytelling.
 
-![Zodiac Highlight](/images/projects/skywalk-3.jpg)
+![Zodiac Highlight](/images/projects/skywalk-3.webp)
 
 ---
 
@@ -68,7 +68,7 @@ The project integrates AR and VR technologies to create an immersive sky explora
 
 This allowed users to experience the night sky in a more interactive and futuristic way.
 
-![AR / VR Mode](/images/projects/skywalk-4.jpg)
+![AR / VR Mode](/images/projects/skywalk-4.webp)
 
 ---
 

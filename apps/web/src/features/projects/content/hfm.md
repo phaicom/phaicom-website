@@ -29,7 +29,7 @@ My work focuses on:
 - High-performance SSR/ISR architecture
 - Cross-region content alignment
 
-![HFM Homepage](/images/projects/hfm-1.png)
+![HFM Homepage](/images/projects/hfm-1.webp)
 
 ---
 
@@ -51,7 +51,7 @@ Each localized page requires:
 
 The system ensures regional customization without breaking global brand consistency.
 
-![Bonuses & Promotions](/images/projects/hfm-2.png)
+![Bonuses & Promotions](/images/projects/hfm-2.webp)
 
 ---
 
@@ -70,7 +70,7 @@ Key optimization areas:
 
 This ensures strong search visibility and reduced bounce rates across multiple Asian markets.
 
-![AngPao Campaign](/images/projects/hfm-3.png)
+![AngPao Campaign](/images/projects/hfm-3.webp)
 
 ---
 

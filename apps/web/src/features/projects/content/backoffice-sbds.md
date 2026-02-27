@@ -21,7 +21,7 @@ The system focuses primarily on **inventory management** and **sales workflows**
 
 My role as a **Frontend Developer (Vue.js)** was to deliver a responsive, user-friendly, and reliable interface used daily by operational teams.
 
-![Login Page](/images/projects/backoffice-1.jpg)
+![Login Page](/images/projects/backoffice-1.webp)
 
 ---
 
@@ -39,7 +39,7 @@ The inventory module allows staff to:
 
 The interface was designed for speed and clarity, reducing manual errors and improving stock visibility across departments.
 
-![Inventory & Service Request](/images/projects/backoffice-2.jpg)
+![Inventory & Service Request](/images/projects/backoffice-2.webp)
 
 ---
 
@@ -54,7 +54,7 @@ The sales workflow supports:
 
 Special attention was given to usability, ensuring that staff could quickly locate and update orders during peak business hours.
 
-![Sales Report Dashboard](/images/projects/backoffice-3.jpg)
+![Sales Report Dashboard](/images/projects/backoffice-3.webp)
 
 ---
 
@@ -69,7 +69,7 @@ The system also includes configurable service settings such as:
 
 This allows business users to adjust operational behavior without developer intervention.
 
-![Service Settings](/images/projects/backoffice-4.jpg)
+![Service Settings](/images/projects/backoffice-4.webp)
 
 ---
 

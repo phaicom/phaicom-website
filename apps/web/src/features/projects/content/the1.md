@@ -24,7 +24,7 @@ I worked as a **Contract Fullstack Developer at Apar Technologies (Bangkok)** fr
 
 My work focused on customer acquisition funnels, engagement platforms, and backend API systems that power loyalty operations across Central Retail brands.
 
-![The 1 Hero Section](/images/projects/the1-1.png)
+![The 1 Hero Section](/images/projects/the1-1.webp)
 
 ---
 
@@ -42,7 +42,7 @@ The platform supports large-scale promotional campaigns:
 
 I implemented reusable, configurable campaign modules to allow marketing teams to launch new promotions quickly without deep system refactoring.
 
-![Member Onboarding Flow](/images/projects/the1-2.png)
+![Member Onboarding Flow](/images/projects/the1-2.webp)
 
 ---
 
@@ -58,7 +58,7 @@ The loyalty infrastructure enables:
 
 I designed and implemented REST APIs using Node.js and Express to ensure system reliability and data integrity.
 
-![Points & Rewards](/images/projects/the1-3.png)
+![Points & Rewards](/images/projects/the1-3.webp)
 
 ---
 
@@ -73,7 +73,7 @@ The system includes tier-based segmentation logic:
 
 This required close coordination between frontend SSR rendering (Nuxt) and backend validation logic.
 
-![The 1 Exclusive](/images/projects/the1-4.png)
+![The 1 Exclusive](/images/projects/the1-4.webp)
 
 ---
 
