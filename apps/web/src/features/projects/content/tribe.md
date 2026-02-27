@@ -12,7 +12,7 @@ techStack:
   - RethinkDB
   - Vuforia
   - Google VR SDK
-featured: true
+featured: false
 startDate: 2017-01-01
 endDate: 2017-05-31
 ---

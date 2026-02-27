@@ -8,7 +8,7 @@ techStack:
   - REST API
   - Responsive Design
   - Admin Dashboard
-featured: true
+featured: false
 startDate: 2017-06-01
 endDate: 2018-01-01
 ---
