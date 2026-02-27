@@ -104,6 +104,49 @@ This cross-team collaboration requires strong communication and architectural cl
 - CMS-driven dynamic content
 - Regional configuration support
 
+### System Overview
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Frontend
+    participant Middleware
+    participant Cache
+    participant Database
+    participant Analytics
+
+    User->>Frontend: Request page
+    Frontend->>Middleware: Process request
+    Middleware->>Middleware: Validate & extract params
+    Middleware->>Analytics: Send tracking data
+    Middleware->>Cache: Check cached data
+    alt Cache hit
+        Cache-->>Frontend: Return cached data
+    else Cache miss
+        Frontend->>Database: Query database
+        Database-->>Frontend: Return fresh data
+    end
+    Frontend->>Analytics: Push to data layer
+    Frontend-->>User: Render page
+```
+
+---
+
+### Data Caching Strategy
+
+```mermaid
+flowchart LR
+    A[User Request] --> B{Cache Available?}
+    B -->|Yes| C[Return Cached Data]
+    B -->|No| D[Query Database]
+    D --> E{Database Success?}
+    E -->|Yes| F[Return & Cache Data]
+    E -->|No| G[Return No Data]
+    C --> H[Response]
+    F --> H
+    G --> H
+```
+
 ---
 
 ## My Responsibilities
