@@ -1,10 +1,10 @@
 ---
 title: Hjem.no Platform
 subtitle: Real Estate Marketplace & Admin Advertising System
-category: Frontend Development
+category: Frontend
 techStack:
-  - Vue 3
-  - Vite 2
+  - Vue.js
+  - Vite
   - TypeScript
   - Material Design
   - REST API

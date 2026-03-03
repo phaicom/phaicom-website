@@ -1,7 +1,7 @@
 ---
 title: Tribe
 subtitle: Multiplayer Mixed Reality Strategy Game
-category: Game Development
+category: Game
 techStack:
   - Unity
   - C#

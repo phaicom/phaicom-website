@@ -1,13 +1,14 @@
 ---
 title: Picross
 subtitle: Browser-Based Nonogram Game & Solver Engine
-category: Frontend Architecture / Game Development
+category: Fullstack / Game
 techStack:
-  - Nuxt 3 (Vue 3)
+  - Nuxt 3
   - TypeScript
   - Pinia
   - UnoCSS
-  - Turbo + pnpm Monorepo
+  - Turborepo
+  - pnpm Workspace
   - Custom Solver Engine (@picross/core)
 featured: false
 startDate: 2021-04-28

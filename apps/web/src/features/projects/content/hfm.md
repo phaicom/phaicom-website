@@ -1,14 +1,14 @@
 ---
 title: HFM (HF Markets)
 subtitle: Global Trading Platform & Localized Marketing Ecosystem
-category: Frontend / Fullstack Development
+category: Frontend
 techStack:
   - Next.js
   - TypeScript
   - Tailwind CSS
   - Django
   - REST API
-  - SEO Optimization
+  - SEO
   - AWS
 featured: true
 startDate: 2025-08-01

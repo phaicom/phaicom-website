@@ -1,9 +1,9 @@
 ---
 title: Sky Walk
 subtitle: AR Planetarium & Zodiac Learning Experience
-category: AR / Game Development
+category: Game
 techStack:
-  - Unity 5
+  - Unity
   - C#
   - Vuforia
   - Google VR SDK

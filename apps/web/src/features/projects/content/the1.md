@@ -1,12 +1,12 @@
 ---
 title: The 1 Platform
 subtitle: Enterprise Loyalty & Customer Engagement Ecosystem
-category: Fullstack Development
+category: Fullstack
 techStack:
-  - Nuxt.js (Vue)
+  - Nuxt.js
   - TypeScript
   - Node.js
-  - Express
+  - Express.js
   - SQL
   - AWS
   - REST API

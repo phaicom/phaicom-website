@@ -6,7 +6,7 @@ techStack:
   - Vue.js
   - JavaScript
   - REST API
-  - Responsive Design
+  - Responsive Web Design
   - Admin Dashboard
 featured: false
 startDate: 2017-06-01
