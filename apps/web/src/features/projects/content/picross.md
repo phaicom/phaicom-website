@@ -9,9 +9,11 @@ techStack:
   - UnoCSS
   - Turbo + pnpm Monorepo
   - Custom Solver Engine (@picross/core)
-featured: true
-startDate: 2026-02-15
+featured: false
+startDate: 2021-04-28
 endDate: Present
+websiteUrl: https://picross-git-main-phaicom.vercel.app
+githubUrl: https://github.com/phaicom/picross
 ---
 
 ## Project Overview

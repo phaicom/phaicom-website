@@ -1,10 +1,14 @@
 import { motion } from "motion/react";
+import MdiGithub from "~icons/mdi/github";
+import MdiWeb from "~icons/mdi/web";
 
 import { Route } from "@/routes/(public)/projects/$slug";
 import { BackLink, Image, Markdown, Pill } from "@/shared/components";
 
 export default function ProjectDetailPage() {
   const { project } = Route.useLoaderData();
+  const externalLinkClass =
+    "inline-flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 bg-primary text-primary-foreground shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50";
 
   return (
     <article className="mx-auto max-w-5xl">
@@ -55,11 +59,45 @@ export default function ProjectDetailPage() {
         {/* Tech Stack Pills */}
         <div className="mt-8 flex flex-wrap gap-2">
           {project.techStack.map((tech: string, index: number) => (
-            <Pill key={tech} index={index} animate>
+            <Pill key={tech} index={index} animate className="px-3 py-1 text-xs">
               {tech}
             </Pill>
           ))}
         </div>
+
+        {(project.websiteUrl || project.githubUrl) && (
+          <div className="mt-7 border-t border-border/70 pt-4">
+            <p className="mb-3 text-xs font-semibold tracking-[0.12em] text-muted-foreground uppercase">
+              External Links
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {project.websiteUrl && (
+                <a
+                  href={project.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit project website"
+                  title="Visit project website"
+                  className={externalLinkClass}
+                >
+                  <MdiWeb className="h-5 w-5" />
+                </a>
+              )}
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View project GitHub repository"
+                  title="View project GitHub repository"
+                  className={externalLinkClass}
+                >
+                  <MdiGithub className="h-5 w-5" />
+                </a>
+              )}
+            </div>
+          </div>
+        )}
       </motion.header>
 
       {/* Hero Image */}

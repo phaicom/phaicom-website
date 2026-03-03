@@ -7,6 +7,8 @@ function extractFrontMatter(content: string) {
   return { data, body, excerpt: excerpt || "" };
 }
 
+const optionalUrl = z.preprocess((value) => (value === "" ? undefined : value), z.url().optional());
+
 const projects = defineCollection({
   name: "projects",
   directory: "./src/features/projects/content",
@@ -20,6 +22,8 @@ const projects = defineCollection({
     featured: z.boolean(),
     startDate: z.string(),
     endDate: z.string().optional(),
+    websiteUrl: optionalUrl,
+    githubUrl: optionalUrl,
     content: z.string(),
   }),
 
