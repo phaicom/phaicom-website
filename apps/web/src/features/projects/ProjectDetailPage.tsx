@@ -107,6 +107,7 @@ export default function ProjectDetailPage() {
           prose-table:overflow-hidden prose-table:rounded-lg prose-table:border prose-table:border-border
           prose-th:bg-accent prose-th:p-3 prose-th:text-left prose-th:font-semibold prose-th:text-foreground
           prose-td:border-t prose-td:border-border prose-td:p-3 prose-td:text-muted-foreground
+          prose-img:mx-auto prose-img:w-auto prose-img:max-w-full
           prose-img:rounded-xl prose-img:border prose-img:border-border prose-img:shadow-lg
           prose-hr:my-10 prose-hr:border-border
         "
