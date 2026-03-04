@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import MdiGithub from "~icons/mdi/github";
+import MdiStar from "~icons/mdi/star";
 import MdiWeb from "~icons/mdi/web";
 
 import { Route } from "@/routes/(public)/projects/$slug";
@@ -36,7 +37,10 @@ export default function ProjectDetailPage() {
           </Pill>
           {project.featured && (
             <Pill variant="featured" className="py-1.5">
-              ⭐ Featured Project
+              <span className="inline-flex items-center gap-2">
+                <MdiStar className="h-4 w-4 text-primary-foreground" />
+                <span>Featured Project</span>
+              </span>
             </Pill>
           )}
         </div>

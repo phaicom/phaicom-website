@@ -12,8 +12,7 @@ const variantStyles = {
   default:
     "rounded-lg border border-border bg-card text-foreground shadow-sm transition-colors hover:bg-accent",
   category: "rounded-full bg-primary/10 text-primary",
-  featured:
-    "rounded-full bg-amber-500/80 backdrop-blur-sm text-white border border-amber-400/50 shadow-lg",
+  featured: "rounded-full border border-primary bg-primary text-primary-foreground shadow-md",
 };
 
 export default function Pill({
