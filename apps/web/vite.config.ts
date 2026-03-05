@@ -25,4 +25,7 @@ export default defineConfig({
     viteReact(),
     nitro(),
   ],
+  ssr: {
+    external: ["mermaid"],
+  },
 });

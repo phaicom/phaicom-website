@@ -5,19 +5,11 @@ import parse, {
   type DOMNode,
   Element,
 } from "html-react-parser";
-import mermaid from "mermaid";
 import { useEffect, useMemo, useRef, useState } from "react";
 import MdiClose from "~icons/mdi/close";
 
 import { Image } from "@/shared/components/Image";
 import { renderMarkdown } from "@/shared/utils/markdown";
-
-// Initialize mermaid
-mermaid.initialize({
-  startOnLoad: false,
-  theme: "default",
-  securityLevel: "loose",
-});
 
 type MarkdownProps = {
   content: string;
@@ -76,16 +68,31 @@ export function Markdown({ content, className }: MarkdownProps) {
 
   // Render all mermaid diagrams after markup changes
   useEffect(() => {
-    // Small delay to ensure DOM is ready
-    const timer = setTimeout(() => {
-      mermaid
-        .run({
-          querySelector: ".mermaid",
-        })
-        .catch(console.error);
-    }, 0);
+    let cancelled = false;
 
-    return () => clearTimeout(timer);
+    async function renderMermaid() {
+      if (typeof window === "undefined") return;
+
+      const mermaid = (await import("mermaid")).default;
+
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: "default",
+        securityLevel: "loose",
+      });
+
+      if (!cancelled) {
+        await mermaid.run({
+          querySelector: ".mermaid",
+        });
+      }
+    }
+
+    renderMermaid().catch(console.error);
+
+    return () => {
+      cancelled = true;
+    };
   }, [markup]);
 
   useEffect(() => {
