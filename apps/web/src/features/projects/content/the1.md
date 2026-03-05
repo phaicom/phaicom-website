@@ -15,6 +15,7 @@ techStack:
 featured: true
 startDate: 2020-10-01
 endDate: 2021-06-01
+websiteUrl: https://the1.co.th
 ---
 
 ## Project Overview

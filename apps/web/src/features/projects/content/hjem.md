@@ -13,6 +13,7 @@ techStack:
 featured: true
 startDate: 2021-06-01
 endDate: 2022-03-01
+websiteUrl: https://hjem.no
 ---
 
 ## Project Overview
