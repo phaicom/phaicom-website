@@ -6,7 +6,7 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["apps/web/.vercel/output/**", "apps/web/.output/**"]
+      "outputs": [".vercel/output/**", ".output/**"]
     },
     "dev": {
       "cache": false,
