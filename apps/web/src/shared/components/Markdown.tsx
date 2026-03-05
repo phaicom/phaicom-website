@@ -96,6 +96,7 @@ export function Markdown({ content, className }: MarkdownProps) {
   }, [markup]);
 
   useEffect(() => {
+    if (typeof document === "undefined") return;
     if (!lightboxMedia) return;
 
     const previousOverflow = document.body.style.overflow;
