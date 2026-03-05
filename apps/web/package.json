@@ -3,8 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "nlx --bun vite",
-    "build": "nlx --bun vite build"
+    "dev": "vite",
+    "build": "vite build"
   },
   "dependencies": {
     "@content-collections/core": "^0.14.2",
@@ -40,7 +40,6 @@
     "@svgr/plugin-jsx": "^8.1.0",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.1",
-    "@types/bun": "latest",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.4",
