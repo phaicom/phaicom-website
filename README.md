@@ -1,49 +1,39 @@
 # Phaicom Website
 
-Personal portfolio and resume website, built as a monorepo with a web app in `apps/web`.
+Personal portfolio and resume website in a Bun + Turbo monorepo.
 
 ## Overview
 
-This project is focused on presenting:
+This repository powers a portfolio site focused on:
 
-- Professional profile as a Senior Full-Stack Web Developer
-- Resume and experience highlights
-- Skills and service offerings
-- Project case studies from Markdown content
+- Professional profile and resume
+- Skills and services
+- Detailed project case studies (Markdown-driven)
 
-## Tech Stack
+Main app location: `apps/web`
 
-- Bun (workspace package manager)
-- Turbo (monorepo task runner)
+## Stack
+
+- Bun `1.3.9`
+- Turborepo
 - React 19 + TanStack Router
 - TypeScript
 - Tailwind CSS 4
-- Content Collections (Markdown-driven content)
+- Content Collections
 
-## Project Structure
+## Monorepo Structure
 
-- `apps/web` - main website application
-- `scripts` - utility scripts (e.g., image optimization)
+- `apps/web` - portfolio website
+- `scripts` - repo utility scripts
 
-## Prerequisites
-
-- Bun `1.3.9` (as defined in `package.json`)
-
-## Getting Started
-
-Install dependencies (from repo root):
+## Quick Start
 
 ```bash
 bun install
-```
-
-Run development mode for the workspace:
-
-```bash
 bun run dev
 ```
 
-## Available Scripts (Root)
+## Root Scripts
 
 ```bash
 bun run dev
@@ -56,22 +46,31 @@ bun run fmt:check
 bun run optimize:images
 ```
 
-## App-Specific Commands
+## App Scripts (`apps/web`)
 
 ```bash
 bun --cwd apps/web run dev
 bun --cwd apps/web run build
 ```
 
+## Portfolio Case Studies
+
+Source folder: `apps/web/src/features/projects/content/`
+
+- `the1.md` - The 1 Platform (Enterprise Loyalty)
+- `hjem.md` - Hjem.no (Real Estate Marketplace)
+- `hfm.md` - HFM (Global Trading Marketing Platform)
+- `picross.md` - Picross (Nonogram Game + Solver)
+- `backoffice-sbds.md`, `skywalk.md`, `tribe.md`
+
 ## Key Content Locations
 
-- Resume experience: `apps/web/src/features/about/data/experience.ts`
-- Skills and services: `apps/web/src/features/home/data/`
-- Project case studies: `apps/web/src/features/projects/content/`
+- Resume data: `apps/web/src/features/about/data/experience.ts`
+- Home data (skills/services): `apps/web/src/features/home/data/`
+- Project content: `apps/web/src/features/projects/content/`
+- Public assets: `apps/web/public/`
 - Downloadable CV: `apps/web/public/files/fullstack-resume.pdf`
 
-## Additional App Docs
+## Documentation
 
-Detailed app-level notes are available in:
-
-- `apps/web/README.md`
+- App-specific docs: `apps/web/README.md`
