@@ -1,7 +1,7 @@
-# Portfolio Analysis for Senior Full Stack Developer Position
+# Portfolio Analysis for Senior Full-Stack Web Developer Position
 
 **Analysis Date:** February 2026  
-**Target Role:** Senior Full Stack Developer  
+**Target Role:** Senior Full-Stack Web Developer  
 **Current Portfolio:** phaicom.space
 
 ---
@@ -129,7 +129,7 @@ export const skills: Skill[] = [
 
 ### 5. Title Mismatch
 
-- `site.ts` says "Senior Full Stack Engineer"
+- `site.ts` says "Senior Full-Stack Web Developer"
 - Current role in `experience.ts` is "Frontend Developer"
 
 This discrepancy will raise questions during interviews. Either:
@@ -292,7 +292,7 @@ Add a downloadable PDF resume link in the navigation or hero section.
 
 ## Salary Positioning Tips
 
-To command a higher salary as a Senior Full Stack Developer:
+To command a higher salary as a Senior Full-Stack Web Developer:
 
 ### 1. Demonstrate Business Impact
 
@@ -381,7 +381,7 @@ Your portfolio has a strong technical foundation, but needs content enhancement 
 3. **Depth over breadth** - Demonstrate senior-level thinking
 4. **Consistency** - Align your narrative across all sections
 
-With these improvements, you'll be well-positioned to command a higher salary as a Senior Full Stack Developer.
+With these improvements, you'll be well-positioned to command a higher salary as a Senior Full-Stack Web Developer.
 
 ---
 

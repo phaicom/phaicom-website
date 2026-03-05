@@ -15,6 +15,7 @@ export default function ExperienceSection() {
             title={item.title}
             organization={item.company}
             description={item.description}
+            highlights={item.highlights}
             index={index}
           />
         ))}

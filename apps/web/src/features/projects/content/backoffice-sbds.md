@@ -1,6 +1,7 @@
 ---
 title: Back-Office System
 subtitle: Inventory & Sales Management
+description: Internal retail back-office system focused on inventory visibility, sales operations, and service configuration workflows.
 category: Frontend
 techStack:
   - Vue.js

@@ -1,6 +1,7 @@
 ---
 title: Tribe
 subtitle: Multiplayer Mixed Reality Strategy Game
+description: Mixed reality strategy game combining Unity gameplay, AR overlays, and synchronized multiplayer systems.
 category: Game
 techStack:
   - Unity

@@ -6,11 +6,11 @@ import { CONTACT } from "@/config/contact";
 export default function ContactInfo() {
   return (
     <div>
-      <h2 className="mb-6 text-2xl">Get In Touch</h2>
+      <h2 className="mb-6 text-2xl">Let&apos;s Connect</h2>
 
       <p className="mb-8 leading-relaxed text-muted-foreground">
-        Whether you have an idea, a project, or just want to connect, I'd love to hear from you.
-        Let's build something meaningful together.
+        Open to Senior Full-Stack Web Developer opportunities, product engineering roles, and
+        technical consulting work where reliable delivery and clear architecture matter.
       </p>
 
       <div className="space-y-6">

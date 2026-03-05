@@ -16,7 +16,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
   const contacts = [
     {
       icon: MdiLinkedin,
-      link: CONTACT.linkin,
+      link: CONTACT.linkedin,
     },
     {
       icon: MdiGithub,
@@ -50,7 +50,9 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
         <div className="mb-8 text-center">
           <div className="mx-auto mb-4 h-0.5 w-10 rounded-full bg-sidebar-primary/60" />
           <h1 className="text-xl font-bold text-sidebar-foreground">Reawpai Chunsoi</h1>
-          <p className="text-sm text-muted-foreground">Full Stack Developer</p>
+          <p className="text-sm text-muted-foreground">
+            Senior Full-Stack <span className="whitespace-nowrap">Web Developer</span>
+          </p>
         </div>
 
         {/* Navigation */}

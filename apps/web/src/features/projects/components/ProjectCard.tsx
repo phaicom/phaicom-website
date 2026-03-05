@@ -45,7 +45,7 @@ export default function ProjectCard({ project, index }: Props) {
       >
         <div className="relative h-56 overflow-hidden">
           <Image
-            src={project.headerImage || "https://placehold.co/600x400"}
+            src={project.headerImage || "/apple-touch-icon.png"}
             alt={project.title}
             layout="fixed"
             height={200}

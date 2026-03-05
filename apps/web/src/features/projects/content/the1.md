@@ -1,7 +1,8 @@
 ---
 title: The 1 Platform
 subtitle: Enterprise Loyalty & Customer Engagement Ecosystem
-category: Fullstack
+description: Enterprise loyalty platform work spanning campaign frontend delivery, API services, and AWS-ready full-stack integration.
+category: Full-Stack
 techStack:
   - Nuxt.js
   - TypeScript
@@ -20,7 +21,7 @@ endDate: 2021-06-01
 
 **The 1** is Thailand’s leading loyalty and customer engagement platform under Central Retail, serving millions of members nationwide.
 
-I worked as a **Contract Fullstack Developer at Apar Technologies (Bangkok)** from **October 2020 – June 2021**, assigned to The 1 Central team to develop and enhance large-scale, data-driven loyalty platforms.
+I worked as a **Contract Full-Stack Developer at Apar Technologies (Bangkok)** from **October 2020 – June 2021**, assigned to The 1 Central team to develop and enhance large-scale, data-driven loyalty platforms.
 
 My work focused on customer acquisition funnels, engagement platforms, and backend API systems that power loyalty operations across Central Retail brands.
 
@@ -79,7 +80,7 @@ This required close coordination between frontend SSR rendering (Nuxt) and backe
 
 ## My Responsibilities
 
-As a Contract Fullstack Developer, I was responsible for:
+As a Contract Full-Stack Developer, I was responsible for:
 
 - Developing Nuxt.js (Vue) SSR & SPA applications
 - Designing RESTful APIs using Node.js & Express

@@ -1,7 +1,8 @@
 ---
 title: Picross
 subtitle: Browser-Based Nonogram Game & Solver Engine
-category: Fullstack / Game
+description: Browser-based nonogram game with incremental validation, deterministic solver logic, and bounded backtracking execution.
+category: Full-Stack / Game
 techStack:
   - Nuxt 3
   - TypeScript

@@ -5,11 +5,11 @@ import ProjectsPage from "@/features/projects/ProjectsPage";
 export const Route = createFileRoute("/(public)/projects/")({
   head: () => ({
     meta: [
-      { title: "Projects | Reawpai Chunsoi - Full Stack Applications & System Architecture" },
+      { title: "Projects | Reawpai Chunsoi - Senior Web Engineering Case Studies" },
       {
         name: "description",
         content:
-          "Explore full stack projects built with React, Vue, Golang, and modern cloud architecture. Production-grade applications, scalable backend systems, and performance-focused engineering.",
+          "Case studies covering production web delivery, frontend architecture, backend APIs, and performance optimization across React, Vue, Node.js, and Golang projects.",
       },
     ],
   }),

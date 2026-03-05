@@ -10,7 +10,7 @@ export const services: Service[] = [
     icon: MdiLightningBolt,
     title: "Full Stack Web Development",
     description:
-      "Building scalable web applications using Vue, Nuxt, React, Next.js, and Node.js with modern architecture.",
+      "Building scalable web applications using React, Vue, Next.js, and backend services with Node.js or Golang.",
   },
   {
     icon: MdiPuzzle,
@@ -22,7 +22,7 @@ export const services: Service[] = [
     icon: MdiLinkVariant,
     title: "Backend & API Development",
     description:
-      "Designing RESTful APIs and microservices using client-preferred frameworks such as Fastify, Express or NestJS",
+      "Designing REST APIs and service layers with Node.js, Express/Fastify/NestJS, and Go for performance-critical workflows.",
   },
   {
     icon: MdiCloud,

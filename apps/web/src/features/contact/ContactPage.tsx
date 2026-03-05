@@ -30,10 +30,9 @@ export default function ContactPage() {
               <p className="text-xs font-semibold tracking-[0.14em] text-primary uppercase">
                 Resume
               </p>
-              <h3 className="text-2xl font-semibold">Fullstack CV</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">
-                Download a complete summary of my experience, projects, and technical stack in PDF
-                format.
+                Download a concise PDF version of my experience, selected case studies, and core
+                technical strengths.
               </p>
             </div>
 

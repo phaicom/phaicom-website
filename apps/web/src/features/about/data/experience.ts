@@ -3,44 +3,72 @@ import type { Experience } from "../types";
 export const experience: Experience[] = [
   {
     period: "Jul 2025 - Present",
-    title: "Frontend Developer",
+    title: "Senior Frontend Developer",
     company: "HFM",
     description:
-      "Building localized promotion and marketing platforms for multiple Asian markets using Next.js, React, and Tailwind CSS. Focused on SEO optimization, performance tuning, and responsive design while collaborating with headquarters teams to align regional implementations with global marketing strategies.",
+      "Owning frontend delivery for localized promotion platforms across Asian markets using Next.js, React, and Tailwind CSS.",
+    highlights: [
+      "Built and maintained campaign templates for repeated regional launches.",
+      "Improved SEO readiness through metadata, page structure, and performance-focused implementation.",
+      "Coordinated delivery with headquarters teams to keep regional execution aligned with global branding.",
+    ],
   },
   {
     period: "Mar 2022 - Jul 2025",
     title: "Full Stack Developer (Freelance)",
     company: "Self-Employed",
     description:
-      "Designed and developed full stack applications across diverse client projects, selecting technologies based on business requirements. Utilized Next.js and Nuxt for frontend development and implemented backend API services with Node.js, emphasizing scalable architecture and maintainable code.",
+      "Delivered end-to-end client projects from discovery to release, selecting stack and architecture based on business constraints.",
+    highlights: [
+      "Developed production systems with Next.js, Nuxt, Node.js, and SQL/NoSQL backends.",
+      "Implemented API layers and integrations with maintainability and iteration speed as priorities.",
+      "Managed direct client communication, scope decisions, and technical tradeoffs across multiple projects.",
+    ],
   },
   {
     period: "Jun 2021 - Mar 2022",
     title: "Front-End Developer",
     company: "Zrch, Bangkok",
     description:
-      "Built and maintained a property portal including both public-facing websites and internal admin dashboards using Vue 3 and modern frontend tooling. Collaborated with design and backend teams to deliver scalable and user-friendly solutions.",
+      "Developed a real estate platform and internal advertising dashboard using Vue 3, TypeScript, and modern frontend tooling.",
+    highlights: [
+      "Implemented property discovery flows with filtering and map-based interaction.",
+      "Built internal dashboard modules for listing and advertising operations.",
+      "Worked closely with design and backend teams on API contracts and UX behavior.",
+    ],
   },
   {
     period: "Oct 2020 - Jun 2021",
     title: "Full Stack Developer (Contractor)",
     company: "Apar Technologies, Bangkok",
     description:
-      "Worked as a contractor embedded within The 1 Central web development team. Developed customer-facing web applications using Nuxt and Vuetify, contributed to internal CRM systems, and built BFF (Backend-for-Frontend) API services using Node.js, TypeScript, and Express to support scalable integration.",
+      "Contributed to The 1 Central as an embedded contractor building web platforms and backend integrations.",
+    highlights: [
+      "Shipped Nuxt/Vuetify customer-facing pages and internal CRM features.",
+      "Built BFF APIs with Node.js, TypeScript, and Express.",
+      "Supported scalable integration across campaign workflows and loyalty-related systems.",
+    ],
   },
   {
     period: "2019 - 2020",
     title: "Full Stack Developer (Contract)",
     company: "Logistics Technology & Client Projects",
-    description:
-      "Developed a logistics booking platform enabling users to schedule vehicle transportation services. Built frontend interfaces with Vue.js and implemented backend services in Go, handling API design, booking workflows, and database integration.",
+    description: "Built logistics booking systems with Vue.js frontends and Go backend services.",
+    highlights: [
+      "Implemented booking workflows, API design, and data persistence layers.",
+      "Handled full-stack ownership from feature implementation to production readiness.",
+      "Strengthened backend fundamentals through hands-on Go service development.",
+    ],
   },
   {
     period: "2018 - 2019",
     title: "Frontend Developer (Contract)",
     company: "Fire One One",
-    description:
-      "Developed and enhanced an internal CRM system using Vue.js, implementing dynamic UI components and collaborating with backend engineers to integrate API services and improve system usability.",
+    description: "Developed internal CRM and business operation interfaces with Vue.js.",
+    highlights: [
+      "Built reusable UI components for high-frequency internal workflows.",
+      "Integrated API services with a focus on clarity and predictable UI behavior.",
+      "Improved day-to-day usability for operations teams through iterative UI enhancements.",
+    ],
   },
 ];

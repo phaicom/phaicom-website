@@ -1,6 +1,7 @@
 ---
 title: Sky Walk
 subtitle: AR Planetarium & Zodiac Learning Experience
+description: AR and VR-based planetarium learning application built in Unity for constellation discovery and zodiac storytelling.
 category: Game
 techStack:
   - Unity

@@ -5,7 +5,7 @@ import { services } from "../data/services";
 export default function ServicesSection() {
   return (
     <>
-      <h2 className="mb-8 text-2xl sm:text-3xl lg:text-4xl">What I'm Doing</h2>
+      <h2 className="mb-8 text-2xl sm:text-3xl lg:text-4xl">Core Expertise</h2>
 
       <div className="mb-16 grid gap-6 sm:grid-cols-2">
         {services.map((service, index) => (

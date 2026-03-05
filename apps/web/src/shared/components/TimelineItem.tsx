@@ -5,10 +5,18 @@ type Props = {
   title: string;
   organization: string;
   description?: string;
+  highlights?: string[];
   index: number;
 };
 
-export function TimelineItem({ period, title, organization, description, index }: Props) {
+export function TimelineItem({
+  period,
+  title,
+  organization,
+  description,
+  highlights,
+  index,
+}: Props) {
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -26,6 +34,14 @@ export function TimelineItem({ period, title, organization, description, index }
 
       {description && (
         <p className="text-sm leading-relaxed text-muted-foreground/70">{description}</p>
+      )}
+
+      {highlights && highlights.length > 0 && (
+        <ul className="mt-3 list-disc space-y-1 pl-4 text-sm leading-relaxed text-muted-foreground/80">
+          {highlights.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
       )}
     </motion.div>
   );

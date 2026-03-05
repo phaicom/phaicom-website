@@ -11,16 +11,21 @@ export default function HomeHero() {
       <div className="absolute -bottom-4 -left-4 h-20 w-20 rounded-full bg-accent/20 blur-2xl" />
 
       <PageHeader
-        title="Welcome"
+        title={
+          <>
+            Senior Full-Stack <span className="whitespace-nowrap">Web Developer</span>
+          </>
+        }
+        subtitle="React, Vue, Node.js, and Golang"
         description={
           <>
             <p>
-              Bangkok-based web developer specializing in React, Vue, and Node.js, building scalable
-              and impactful web applications.
+              Bangkok-based engineer with 7+ years of experience delivering web platforms used by
+              regional markets, enterprise teams, and product-driven businesses.
             </p>
             <p>
-              Passionate about modern web technologies, adaptable across frameworks, and committed
-              to clean architecture and high-quality digital products.
+              I focus on shipping maintainable systems, performance-aware frontend experiences, and
+              backend services that support long-term product growth.
             </p>
           </>
         }

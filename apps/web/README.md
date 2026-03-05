@@ -1,15 +1,32 @@
-# web
+# Web App
 
-To install dependencies:
+Portfolio and resume website for positioning as a `Senior Full-Stack Web Developer`.
+
+## Stack
+
+- TanStack Router + React 19
+- TypeScript
+- Tailwind CSS 4
+- Content Collections (Markdown case studies)
+
+## Development
+
+From repo root:
 
 ```bash
-bun install
+bun run dev
 ```
 
-To run:
+App-specific commands:
 
 ```bash
-bun run index.ts
+bun --cwd apps/web run dev
+bun --cwd apps/web run build
 ```
 
-This project was created using `bun init` in bun v1.3.9. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+## Content Locations
+
+- Resume experience: `apps/web/src/features/about/data/experience.ts`
+- Skills and services: `apps/web/src/features/home/data/`
+- Project case studies: `apps/web/src/features/projects/content/`
+- Downloadable CV: `apps/web/public/files/fullstack-resume.pdf`

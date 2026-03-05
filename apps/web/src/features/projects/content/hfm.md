@@ -1,6 +1,7 @@
 ---
 title: HFM (HF Markets)
 subtitle: Global Trading Platform & Localized Marketing Ecosystem
+description: Multi-market marketing and promotion platform delivery for HFM with a focus on SEO, performance, and brand consistency.
 category: Frontend
 techStack:
   - Next.js

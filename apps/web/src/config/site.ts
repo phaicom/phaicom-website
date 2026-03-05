@@ -3,7 +3,8 @@ const domain = import.meta.env.PROD ? "https://phaicom.space" : "http://localhos
 export const siteConfig = {
   name: "Reawpai Chunsoi",
   domain,
-  title: "Reawpai Chunsoi | Senior Full Stack Engineer | React, Vue & Golang",
-  description: `Senior Full Stack Engineer specializing in React, Vue, Golang, and scalable distributed systems. I build high-performance web applications and architect backend services for modern businesses.`,
+  title: "Reawpai Chunsoi | Senior Full-Stack Web Developer | React, Vue, Node.js, Golang",
+  description:
+    "Senior Full-Stack Web Developer focused on scalable product delivery across React, Vue, Node.js, and Golang. Building high-performance web platforms, APIs, and maintainable systems for real business impact.",
   ogImage: `${domain}/apple-touch-icon.png`,
 };

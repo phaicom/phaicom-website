@@ -1,6 +1,7 @@
 import MdiAws from "~icons/mdi/aws";
 import MdiDatabase from "~icons/mdi/database";
 import MdiDocker from "~icons/mdi/docker";
+import MdiLanguageGo from "~icons/mdi/language-go";
 import MdiLanguageTypescript from "~icons/mdi/language-typescript";
 import MdiLightningBolt from "~icons/mdi/lightning-bolt"; // for Bun
 import MdiNodejs from "~icons/mdi/nodejs";
@@ -19,6 +20,7 @@ export const skills: Skill[] = [
   { name: "Next.js", icon: MdiReact },
   { name: "Astro", icon: MdiRocketLaunch },
   { name: "TypeScript", icon: MdiLanguageTypescript },
+  { name: "Golang", icon: MdiLanguageGo },
   { name: "Tailwind CSS", icon: MdiTailwind },
   { name: "Node.js (Express, Fastify, NestJS)", icon: MdiNodejs },
   { name: "Bun", icon: MdiLightningBolt },

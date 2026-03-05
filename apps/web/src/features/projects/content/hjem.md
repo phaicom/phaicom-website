@@ -1,6 +1,7 @@
 ---
 title: Hjem.no Platform
 subtitle: Real Estate Marketplace & Admin Advertising System
+description: Property marketplace and admin advertising dashboard with map-based discovery and data-driven listing workflows.
 category: Frontend
 techStack:
   - Vue.js
