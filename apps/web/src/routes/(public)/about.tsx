@@ -5,7 +5,7 @@ import AboutPage from "@/features/about/AboutPage";
 export const Route = createFileRoute("/(public)/about")({
   head: () => ({
     meta: [
-      { title: "Resume | Reawpai Chunsoi - Senior Full-Stack Web Developer" },
+      { title: "Experience | Reawpai Chunsoi - Senior Full-Stack Web Developer" },
       {
         name: "description",
         content:

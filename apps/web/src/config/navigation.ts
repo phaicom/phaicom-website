@@ -13,7 +13,7 @@ export type NavItem = {
 
 export const NAV_LINKS: NavItem[] = [
   { label: "Home", to: "/", icon: MdiHome },
-  { label: "Resume", to: "/about", icon: MdiAccount },
+  { label: "Experience", to: "/about", icon: MdiAccount },
   { label: "Projects", to: "/projects", icon: MdiBriefcase },
   { label: "Contact", to: "/contact", icon: MdiEmail },
 ];
