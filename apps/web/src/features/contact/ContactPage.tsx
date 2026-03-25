@@ -7,7 +7,7 @@ import ContactInfo from "./components/ContactInfo";
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-5xl">
+    <div className="mx-auto flex max-w-5xl flex-col gap-12 lg:gap-14">
       <ContactHero />
 
       <div className="grid gap-10 lg:grid-cols-2">

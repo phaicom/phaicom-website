@@ -1,4 +1,4 @@
-import { PageHeader } from "@/shared/components";
+import { PageHero } from "@/shared/components";
 
 export default function HomeHero() {
   return (
@@ -10,15 +10,17 @@ export default function HomeHero() {
       <div className="absolute -top-4 -right-4 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
       <div className="absolute -bottom-4 -left-4 h-20 w-20 rounded-full bg-accent/20 blur-2xl" />
 
-      <PageHeader
+      <PageHero
+        className="relative"
+        eyebrow="Bangkok, Thailand"
         title={
           <>
             Senior Full-Stack <span className="whitespace-nowrap">Web Developer</span>
           </>
         }
-        subtitle="React, Vue, Node.js, and Golang"
         description={
           <>
+            <p className="font-medium text-foreground/85">React, Vue, Node.js, and Golang.</p>
             <p>
               Bangkok-based engineer with 7+ years of experience delivering web platforms used by
               regional markets, enterprise teams, and product-driven businesses.
