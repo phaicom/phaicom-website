@@ -1,5 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
+import MdiArrowRight from "~icons/mdi/arrow-right";
+import MdiCalendarBlankOutline from "~icons/mdi/calendar-blank-outline";
+import MdiLinkVariant from "~icons/mdi/link-variant";
 import MdiStar from "~icons/mdi/star";
 
 import { Image } from "@/shared/components/Image";
@@ -14,6 +17,11 @@ type Project = {
   featured: boolean;
   headerImage?: string;
   description?: string;
+  excerpt?: string;
+  startDate: string;
+  endDate?: string;
+  websiteUrl?: string;
+  githubUrl?: string;
 };
 
 type Props = {
@@ -21,65 +29,140 @@ type Props = {
   index: number;
 };
 
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  year: "numeric",
+});
+
+function stripMarkdown(value: string) {
+  return value
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, "$1")
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/^#{1,6}\s+/gm, "")
+    .replace(/^\s*[-*+]\s+/gm, "")
+    .replace(/^\s*>\s+/gm, "")
+    .replace(/[*_~]+/g, "")
+    .replace(/\n+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function shortenSummary(value: string, maxLength = 120) {
+  if (value.length <= maxLength) return value;
+
+  const firstSentence = value.match(/^.*?[.!?](\s|$)/)?.[0]?.trim();
+  if (firstSentence && firstSentence.length <= maxLength) return firstSentence;
+
+  return `${value.slice(0, maxLength).trimEnd()}...`;
+}
+
+function formatDateRange(startDate: string, endDate?: string) {
+  const start = new Date(startDate);
+  const end = endDate ? new Date(endDate) : undefined;
+
+  if (Number.isNaN(start.getTime())) return "Date unavailable";
+  if (!end || Number.isNaN(end.getTime())) return `${dateFormatter.format(start)} - Present`;
+  return `${dateFormatter.format(start)} - ${dateFormatter.format(end)}`;
+}
+
 export default function ProjectCard({ project, index }: Props) {
+  const summary = shortenSummary(
+    stripMarkdown(project.excerpt ?? project.description ?? project.subtitle ?? ""),
+  );
+  const visibleTech = project.techStack.slice(0, 3);
+  const hasExternalLink = Boolean(project.websiteUrl || project.githubUrl);
+
   return (
-    <Link to="/projects/$slug" params={{ slug: project.slug }} className="block">
+    <Link to="/projects/$slug" params={{ slug: project.slug }} className="block h-full">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
           opacity: {
-            duration: 0.5,
-            delay: index * 0.1,
+            duration: 0.3,
+            delay: index * 0.04,
             ease: "easeOut",
           },
           y: {
-            duration: 0.5,
-            delay: index * 0.1,
+            duration: 0.3,
+            delay: index * 0.04,
             ease: "easeOut",
           },
         }}
-        className={`group overflow-hidden rounded-xl border bg-card will-change-transform ${
-          project.featured ? "border-2 border-primary ring-4 ring-primary/30" : "border-border"
-        }`}
+        className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-colors duration-200 hover:border-primary/30"
       >
-        <div className="relative h-56 overflow-hidden">
+        <div className="relative h-52 overflow-hidden border-b border-border/80">
           <Image
             src={project.headerImage || "/apple-touch-icon.png"}
             alt={project.title}
             layout="fixed"
             height={200}
             width={300}
-            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
           />
+        </div>
 
-          {/* Darken image slightly for consistent readability */}
-          <div className="absolute inset-0 bg-black/20" />
+        <div className="flex flex-1 flex-col p-5 sm:p-6">
+          <div className="flex flex-wrap items-center gap-2">
+            <Pill variant="category" className="px-3 py-1 text-xs">
+              {project.category}
+            </Pill>
+            {project.featured && (
+              <span className="inline-flex items-center gap-1.5 text-xs font-medium text-primary">
+                <MdiStar className="h-3.5 w-3.5" />
+                Featured
+              </span>
+            )}
+          </div>
 
-          {/* Featured badge */}
-          {project.featured && (
-            <div className="absolute top-3 right-3">
-              <Pill variant="featured" className="py-1 text-xs shadow-lg">
-                <span className="inline-flex items-center gap-1.5">
-                  <MdiStar className="h-3.5 w-3.5 text-primary-foreground" />
-                  <span>Featured</span>
-                </span>
+          <div className="mt-4 min-h-[5.5rem]">
+            <h3 className="line-clamp-2 text-2xl font-semibold tracking-[-0.03em] text-foreground">
+              {project.title}
+            </h3>
+
+            {project.subtitle && (
+              <p className="mt-2 line-clamp-2 text-sm leading-6 text-foreground/80">
+                {project.subtitle}
+              </p>
+            )}
+          </div>
+
+          <div className="mt-4 inline-flex items-center gap-2 text-sm text-muted-foreground">
+            <MdiCalendarBlankOutline className="h-4 w-4" />
+            {formatDateRange(project.startDate, project.endDate)}
+          </div>
+
+          <p className="mt-4 line-clamp-2 min-h-[3rem] text-sm leading-6 text-muted-foreground">
+            {summary}
+          </p>
+
+          <div className="mt-5 flex min-h-10 flex-wrap content-start gap-2">
+            {visibleTech.map((tech, techIndex) => (
+              <Pill key={tech} index={techIndex} animate className="px-3 py-1 text-xs">
+                {tech}
               </Pill>
-            </div>
-          )}
+            ))}
+            {project.techStack.length > visibleTech.length && (
+              <span className="rounded-full border border-dashed border-border px-3 py-1 text-xs text-muted-foreground">
+                +{project.techStack.length - visibleTech.length} more
+              </span>
+            )}
+          </div>
 
-          {/* Title and category on image */}
-          <div className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent p-5">
-            <div className="flex min-h-[6.75rem] flex-col justify-end">
-              <p className="mb-1.5 text-sm font-semibold tracking-wide text-white/95 uppercase">
-                {project.category}
-              </p>
-              <h3 className="truncate text-xl leading-tight font-bold text-white">
-                {project.title}
-              </h3>
-              <p className="mt-1.5 h-10 overflow-hidden text-sm leading-5 font-medium text-white/90">
-                {project.subtitle ?? ""}
-              </p>
+          <div className="mt-auto pt-6">
+            <div className="flex items-center justify-between gap-4 border-t border-border/70 pt-4 text-sm">
+              <span className="inline-flex items-center gap-2 font-medium text-foreground">
+                Read case study
+                <MdiArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+
+              {hasExternalLink && (
+                <span className="inline-flex items-center gap-1.5 text-muted-foreground">
+                  <MdiLinkVariant className="h-4 w-4" />
+                  External links
+                </span>
+              )}
             </div>
           </div>
         </div>
