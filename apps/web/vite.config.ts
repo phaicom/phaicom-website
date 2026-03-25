@@ -5,9 +5,11 @@ import viteReact from "@vitejs/plugin-react";
 import { nitro } from "nitro/vite";
 import Icons from "unplugin-icons/vite";
 import { defineConfig } from "vite";
-import tsConfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
+  resolve: {
+    tsconfigPaths: true,
+  },
   server: {
     port: 3000,
   },
@@ -15,9 +17,6 @@ export default defineConfig({
     tailwindcss(),
     contentCollections(),
     Icons({ compiler: "jsx", jsx: "react" }),
-    tsConfigPaths({
-      projects: ["./tsconfig.json"],
-    }),
     tanstackStart({
       srcDirectory: "src",
     }),

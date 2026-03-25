@@ -8,6 +8,9 @@
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": [".vercel/output/**", ".output/**"]
     },
+    "typecheck": {
+      "dependsOn": ["^typecheck"]
+    },
     "dev": {
       "cache": false,
       "persistent": true
