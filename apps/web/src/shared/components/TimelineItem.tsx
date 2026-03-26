@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import type { CSSProperties } from "react";
 
 type Props = {
   period: string;
@@ -18,11 +18,9 @@ export function TimelineItem({
   index,
 }: Props) {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: index * 0.1 }}
-      className="relative overflow-hidden rounded-[1.6rem] border border-border/80 bg-background/88 p-5 pl-5 shadow-[0_16px_40px_-34px_rgba(42,53,22,0.42)] sm:p-6 sm:pl-10"
+    <div
+      style={{ "--enter-delay": `${index * 100}ms` } as CSSProperties}
+      className="enter-fade-left relative overflow-hidden rounded-[1.6rem] border border-border/80 bg-background/88 p-5 pl-5 shadow-[0_16px_40px_-34px_rgba(42,53,22,0.42)] sm:p-6 sm:pl-10"
     >
       <div className="absolute inset-x-0 top-0 h-1.5 bg-linear-to-r from-primary via-primary/70 to-transparent sm:inset-y-6 sm:left-0 sm:h-16 sm:w-1.5 sm:rounded-r sm:bg-primary" />
 
@@ -43,6 +41,6 @@ export function TimelineItem({
           ))}
         </ul>
       )}
-    </motion.div>
+    </div>
   );
 }

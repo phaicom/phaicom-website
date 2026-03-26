@@ -6,12 +6,12 @@ export default function ExperienceSection() {
   return (
     <SectionCard
       title="Experience"
-      description="Career highlights now sit in roomier stacked panels with improved readability on smaller screens."
+      description="Roles spanning product delivery, platform work, and internal tooling across frontend and full-stack teams."
     >
       <div className="space-y-6">
         {experience.map((item, index) => (
           <TimelineItem
-            key={index}
+            key={`${item.company}-${item.period}-${item.title}`}
             period={item.period}
             title={item.title}
             organization={item.company}

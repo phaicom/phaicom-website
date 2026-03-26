@@ -1,11 +1,11 @@
 import { Link } from "@tanstack/react-router";
-import { AnimatePresence, motion } from "motion/react";
 import MdiClose from "~icons/mdi/close";
 import MdiGithub from "~icons/mdi/github";
 import MdiLinkedin from "~icons/mdi/linkedin";
 
 import { CONTACT } from "@/config/contact";
 import { NAV_LINKS } from "@/config/navigation";
+import { ParallaxProfile } from "@/shared/components/ParallaxProfile";
 
 type SidebarProps = {
   isOpen: boolean;
@@ -28,19 +28,14 @@ const socialLinks = [
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
   return (
     <>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.button
-            type="button"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-            className="fixed inset-0 z-40 h-screen bg-black/50 backdrop-blur-sm lg:hidden"
-            aria-label="Close navigation menu"
-          />
-        )}
-      </AnimatePresence>
+      <button
+        type="button"
+        onClick={onClose}
+        className={`fixed inset-0 z-40 h-screen bg-black/50 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+          isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        }`}
+        aria-label="Close navigation menu"
+      />
 
       <aside id="site-sidebar" aria-label="Primary" className={`
           fixed top-0 left-0 z-50 flex h-screen max-h-screen w-[84vw] max-w-72 flex-col overflow-hidden border-r
@@ -111,6 +106,10 @@ function SidebarNavigation({ onNavigate }: { onNavigate: () => void }) {
 function SidebarFooter() {
   return (
     <div className="border-t border-sidebar-border pt-4">
+      <div className="mb-5 hidden rounded-2xl bg-sidebar-accent/30 p-4 lg:block">
+        <ParallaxProfile />
+      </div>
+
       <a
         href={`mailto:${CONTACT.email}`}
         className="block truncate text-sm text-muted-foreground transition-colors hover:text-foreground"

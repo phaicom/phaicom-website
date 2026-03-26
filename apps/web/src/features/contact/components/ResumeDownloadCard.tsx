@@ -1,15 +1,9 @@
-import { motion } from "motion/react";
 import MdiDownload from "~icons/mdi/download";
 import MdiFileDocumentOutline from "~icons/mdi/file-document-outline";
 
 export default function ResumeDownloadCard() {
   return (
-    <motion.aside
-      initial={{ opacity: 0, x: 20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className="relative overflow-hidden rounded-[2rem] border border-border/80 bg-card/88 p-6 shadow-[0_20px_50px_-38px_rgba(42,53,22,0.42)] lg:max-w-md lg:justify-self-end"
-    >
+    <aside className="enter-fade-right relative overflow-hidden rounded-[2rem] border border-border/80 bg-card/88 p-6 shadow-[0_20px_50px_-38px_rgba(42,53,22,0.42)] lg:max-w-md lg:justify-self-end">
       <div className="pointer-events-none absolute -top-12 -right-10 h-36 w-36 rounded-full bg-primary/15 blur-2xl" />
       <div className="pointer-events-none absolute -bottom-12 -left-10 h-36 w-36 rounded-full bg-accent/45 blur-2xl" />
 
@@ -26,17 +20,15 @@ export default function ResumeDownloadCard() {
           </p>
         </div>
 
-        <motion.a
-          whileHover={{ y: -1 }}
-          whileTap={{ y: 0 }}
+        <a
           href="/files/fullstack-resume.pdf"
           download="fullstack-resume.pdf"
-          className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-primary px-5 py-3.5 text-sm font-semibold text-primary-foreground shadow-md shadow-primary/30 transition-all hover:brightness-95"
+          className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-primary px-5 py-3.5 text-sm font-semibold text-primary-foreground shadow-md shadow-primary/30 transition-all hover:-translate-y-0.5 hover:brightness-95"
         >
           <MdiDownload className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
           Download Resume
-        </motion.a>
+        </a>
       </div>
-    </motion.aside>
+    </aside>
   );
 }

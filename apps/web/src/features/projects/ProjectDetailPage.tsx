@@ -1,4 +1,5 @@
-import { motion } from "motion/react";
+import type { CSSProperties } from "react";
+
 import MdiGithub from "~icons/mdi/github";
 import MdiStar from "~icons/mdi/star";
 import MdiWeb from "~icons/mdi/web";
@@ -13,24 +14,11 @@ export default function ProjectDetailPage() {
 
   return (
     <article className="mx-auto max-w-5xl">
-      {/* Back Navigation */}
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.3 }}
-        className="mb-8"
-      >
+      <div className="enter-fade-left mb-8">
         <BackLink to="/projects" label="Back to Projects" />
-      </motion.div>
+      </div>
 
-      {/* Hero Section */}
-      <motion.header
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="mb-12"
-      >
-        {/* Meta Tags */}
+      <header style={{ "--enter-delay": "100ms" } as CSSProperties} className="enter-fade-up mb-12">
         <div className="mb-6 flex flex-wrap items-center gap-3">
           <Pill variant="category" className="py-1.5">
             {project.category}
@@ -45,7 +33,6 @@ export default function ProjectDetailPage() {
           )}
         </div>
 
-        {/* Title */}
         <h1 className="mb-6 tracking-tight">
           <div className="text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
             {project.title}
@@ -57,10 +44,8 @@ export default function ProjectDetailPage() {
           )}
         </h1>
 
-        {/* Description */}
         <p className="text-xl leading-relaxed text-muted-foreground">{project.description}</p>
 
-        {/* Tech Stack Pills */}
         <div className="mt-8 flex flex-wrap gap-2">
           {project.techStack.map((tech: string, index: number) => (
             <Pill key={tech} index={index} animate className="px-3 py-1 text-xs">
@@ -102,15 +87,12 @@ export default function ProjectDetailPage() {
             </div>
           </div>
         )}
-      </motion.header>
+      </header>
 
-      {/* Hero Image */}
       {project.headerImage && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-12 overflow-hidden rounded-2xl border border-border shadow-lg"
+        <div
+          style={{ "--enter-delay": "200ms" } as CSSProperties}
+          className="enter-fade-up mb-12 overflow-hidden rounded-2xl border border-border shadow-lg"
         >
           <Image
             src={project.headerImage}
@@ -120,18 +102,14 @@ export default function ProjectDetailPage() {
             layout="constrained"
             className="aspect-video w-full object-cover"
           />
-        </motion.div>
+        </div>
       )}
 
-      {/* Content Divider */}
       <div className="mb-12 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
-      {/* Markdown Content with Prose Styling */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="prose prose-lg max-w-none prose-invert
+      <div
+        style={{ "--enter-delay": "300ms" } as CSSProperties}
+        className="enter-fade-up prose prose-lg max-w-none prose-invert
           prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-foreground
           prose-h2:mt-10 prose-h2:mb-4 prose-h2:text-2xl prose-h2:first:mt-0
           prose-h3:mt-6 prose-h3:mb-3 prose-h3:text-xl
@@ -154,21 +132,15 @@ export default function ProjectDetailPage() {
           prose-hr:my-10 prose-hr:border-border
         "
       >
-        <Markdown content={project.content} />
-      </motion.div>
+        <Markdown content={project.content} enableImageLightbox />
+      </div>
 
-      {/* Bottom Navigation */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        className="mt-16"
-      >
+      <div style={{ "--enter-delay": "400ms" } as CSSProperties} className="enter-fade-up mt-16">
         <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
         <div className="mt-8 flex items-center justify-between">
           <BackLink to="/projects" label="View All Projects" variant="button" />
         </div>
-      </motion.div>
+      </div>
     </article>
   );
 }

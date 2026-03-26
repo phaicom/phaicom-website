@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "node ./node_modules/vitest/vitest.mjs run"
   },
   "dependencies": {
     "@content-collections/core": "^0.14.3",
@@ -16,22 +17,12 @@
     "@unpic/react": "^1.0.2",
     "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
-    "hast-util-to-string": "^3.0.1",
-    "html-react-parser": "^5.2.17",
-    "mermaid": "^11.13.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "rehype-autolink-headings": "^7.1.0",
-    "rehype-raw": "^7.0.0",
-    "rehype-slug": "^6.0.0",
-    "rehype-stringify": "^10.0.1",
+    "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
-    "remark-parse": "^11.0.0",
-    "remark-rehype": "^11.1.2",
-    "shiki": "^4.0.2",
     "tailwind-merge": "^3.5.0",
-    "unified": "^11.0.5",
-    "unist-util-visit": "^5.1.0",
+    "yet-another-react-lightbox": "^3.30.0",
     "zod": "^4.3.6"
   },
   "devDependencies": {
@@ -39,14 +30,17 @@
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.2",
     "@tanstack/react-router-devtools": "^1.166.11",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
-    "motion": "^12.38.0",
+    "jsdom": "^29.0.1",
     "nitro": "^3.0.1-alpha.2",
     "tailwindcss": "^4.2.2",
     "unplugin-icons": "^23.0.1",
-    "vite": "^8.0.3"
+    "vite": "^8.0.3",
+    "vitest": "^4.1.2"
   },
   "peerDependencies": {
     "typescript": "^5.9.3"

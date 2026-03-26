@@ -1,3 +1,14 @@
+type SeoTag =
+  | { title: string }
+  | {
+      name: string;
+      content: string;
+    };
+
+function isSeoTag(tag: SeoTag | null): tag is SeoTag {
+  return tag !== null;
+}
+
 export const seo = ({
   title,
   description,
@@ -8,26 +19,20 @@ export const seo = ({
   description?: string;
   image?: string;
   keywords?: string;
-}) => {
-  const tags = [
+}): SeoTag[] => {
+  return [
     { title },
-    { name: "description", content: description },
-    { name: "keywords", content: keywords },
+    description ? { name: "description", content: description } : null,
+    keywords ? { name: "keywords", content: keywords } : null,
+    { name: "twitter:card", content: image ? "summary_large_image" : "summary" },
     { name: "twitter:title", content: title },
-    { name: "twitter:description", content: description },
+    description ? { name: "twitter:description", content: description } : null,
     { name: "twitter:creator", content: "@PiePaiPhi1" },
     { name: "twitter:site", content: "@PiePaiPhi1" },
     { name: "og:type", content: "website" },
     { name: "og:title", content: title },
-    { name: "og:description", content: description },
-    ...(image
-      ? [
-          { name: "twitter:image", content: image },
-          { name: "twitter:card", content: "summary_large_image" },
-          { name: "og:image", content: image },
-        ]
-      : []),
-  ];
-
-  return tags;
+    description ? { name: "og:description", content: description } : null,
+    image ? { name: "twitter:image", content: image } : null,
+    image ? { name: "og:image", content: image } : null,
+  ].filter(isSeoTag);
 };

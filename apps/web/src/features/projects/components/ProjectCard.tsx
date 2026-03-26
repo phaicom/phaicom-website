@@ -1,5 +1,6 @@
+import type { CSSProperties } from "react";
+
 import { Link } from "@tanstack/react-router";
-import { motion } from "motion/react";
 import MdiArrowRight from "~icons/mdi/arrow-right";
 import MdiCalendarBlankOutline from "~icons/mdi/calendar-blank-outline";
 import MdiLinkVariant from "~icons/mdi/link-variant";
@@ -37,22 +38,9 @@ export default function ProjectCard({ project, index }: Props) {
 
   return (
     <Link to="/projects/$slug" params={{ slug: project.slug }} className="block h-full">
-      <motion.div
-        initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          opacity: {
-            duration: 0.3,
-            delay: index * 0.04,
-            ease: "easeOut",
-          },
-          y: {
-            duration: 0.3,
-            delay: index * 0.04,
-            ease: "easeOut",
-          },
-        }}
-        className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border/80 bg-background/90 shadow-[0_16px_40px_-34px_rgba(42,53,22,0.42)] transition-colors duration-200 hover:border-primary/30"
+      <div
+        style={{ "--enter-delay": `${index * 40}ms` } as CSSProperties}
+        className="enter-fade-up group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border/80 bg-background/90 shadow-[0_16px_40px_-34px_rgba(42,53,22,0.42)] transition-colors duration-200 hover:border-primary/30"
       >
         <div className="relative h-56 overflow-hidden border-b border-border/80 sm:h-52">
           <Image
@@ -128,7 +116,7 @@ export default function ProjectCard({ project, index }: Props) {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </Link>
   );
 }

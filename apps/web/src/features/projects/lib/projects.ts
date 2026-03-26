@@ -69,6 +69,39 @@ export function getProjectSummary(project: ProjectSummarySource, maxLength = 120
   return `${value.slice(0, maxLength).trimEnd()}...`;
 }
 
+export function searchProjects<
+  T extends {
+    title: string;
+    subtitle?: string;
+    description?: string;
+    excerpt?: string;
+    category: string;
+    techStack: string[];
+  },
+>(projects: T[], query: string) {
+  const normalizedQuery = query.trim().toLowerCase();
+
+  if (!normalizedQuery) {
+    return projects;
+  }
+
+  return projects.filter((project) => {
+    const searchIndex = [
+      project.title,
+      project.subtitle,
+      project.description,
+      project.excerpt,
+      project.category,
+      project.techStack.join(" "),
+    ]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
+
+    return searchIndex.includes(normalizedQuery);
+  });
+}
+
 function getProjectTimestamp(value: string) {
   const timestamp = new Date(value).getTime();
   return Number.isNaN(timestamp) ? 0 : timestamp;

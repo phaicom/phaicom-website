@@ -108,46 +108,21 @@ This cross-team collaboration requires strong communication and architectural cl
 
 ### System Overview
 
-```mermaid
-sequenceDiagram
-    participant User
-    participant Frontend
-    participant Middleware
-    participant Cache
-    participant Database
-    participant Analytics
-
-    User->>Frontend: Request page
-    Frontend->>Middleware: Process request
-    Middleware->>Middleware: Validate & extract params
-    Middleware->>Analytics: Send tracking data
-    Middleware->>Cache: Check cached data
-    alt Cache hit
-        Cache-->>Frontend: Return cached data
-    else Cache miss
-        Frontend->>Database: Query database
-        Database-->>Frontend: Return fresh data
-    end
-    Frontend->>Analytics: Push to data layer
-    Frontend-->>User: Render page
-```
+1. User requests a page from the frontend.
+2. Frontend middleware validates request parameters and emits analytics events.
+3. Middleware checks the cache before hitting the database.
+4. Cache hits return immediately; cache misses fetch fresh CMS or backend data.
+5. The frontend renders the final page and pushes client-side analytics for engagement tracking.
 
 ---
 
 ### Data Caching Strategy
 
-```mermaid
-flowchart LR
-    A[User Request] --> B{Cache Available?}
-    B -->|Yes| C[Return Cached Data]
-    B -->|No| D[Query Database]
-    D --> E{Database Success?}
-    E -->|Yes| F[Return & Cache Data]
-    E -->|No| G[Return No Data]
-    C --> H[Response]
-    F --> H
-    G --> H
-```
+- Check for an existing cache entry before performing a database query.
+- Return cached content immediately when available to keep campaigns responsive.
+- On a cache miss, fetch the latest data from the database or CMS.
+- Store successful responses back in cache for the next request.
+- Fall back gracefully when downstream data is unavailable so marketing pages still respond predictably.
 
 ---
 

@@ -6,12 +6,12 @@ export default function EducationSection() {
   return (
     <SectionCard
       title="Education"
-      description="Presented as standalone mobile cards so the timeline keeps its shape without feeling cramped."
+      description="Formal education and language study that supported my transition into professional software development."
     >
       <div className="space-y-6">
         {education.map((item, index) => (
           <TimelineItem
-            key={index}
+            key={`${item.institution}-${item.period}-${item.title}`}
             period={item.period}
             title={item.title}
             organization={item.institution}

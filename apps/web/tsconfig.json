@@ -1,7 +1,7 @@
 {
   "include": ["**/*.ts", "**/*.tsx"],
   "compilerOptions": {
-    "types": ["bun", "unplugin-icons/types/react"],
+    "types": ["bun", "unplugin-icons/types/react", "vitest/globals"],
     "strict": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",

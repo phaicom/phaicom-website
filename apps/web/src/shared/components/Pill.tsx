@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import type { CSSProperties } from "react";
 
 type Props = {
   children: React.ReactNode;
@@ -26,17 +26,12 @@ export default function Pill({
 
   if (animate) {
     return (
-      <motion.span
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          opacity: { delay: index * 0.05, duration: 0.3 },
-          y: { delay: index * 0.05, duration: 0.3 },
-        }}
-        className={`${baseClasses} ${className}`}
+      <span
+        style={{ "--enter-delay": `${index * 50}ms` } as CSSProperties}
+        className={`enter-fade-up ${baseClasses} ${className}`}
       >
         {children}
-      </motion.span>
+      </span>
     );
   }
 

@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import type { CSSProperties } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -35,12 +35,7 @@ export function PageHero({ eyebrow, title, description, stats, className }: Prop
           hasStats && "lg:grid-cols-[minmax(0,1.5fr)_minmax(16rem,0.8fr)] lg:items-end",
         )}
       >
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.35, ease: "easeOut" }}
-          className="max-w-3xl"
-        >
+        <div className="enter-fade-up max-w-3xl">
           {eyebrow && (
             <p className="inline-flex rounded-full border border-primary/15 bg-primary/8 px-3 py-1 text-[0.68rem] font-semibold tracking-[0.2em] text-primary uppercase">
               {eyebrow}
@@ -56,30 +51,26 @@ export function PageHero({ eyebrow, title, description, stats, className }: Prop
               {typeof description === "string" ? <p>{description}</p> : description}
             </div>
           )}
-        </motion.div>
+        </div>
 
         {hasStats && (
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, delay: 0.08, ease: "easeOut" }}
-            className="grid grid-cols-2 items-stretch gap-3 sm:grid-cols-4 lg:grid-cols-2"
+          <div
+            style={{ "--enter-delay": "80ms" } as CSSProperties}
+            className="enter-fade-up grid grid-cols-2 items-stretch gap-3 sm:grid-cols-4 lg:grid-cols-2"
           >
             {stats?.map((stat, index) => (
-              <motion.div
+              <div
                 key={stat.label}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.14 + index * 0.04, ease: "easeOut" }}
-                className="flex h-full min-h-26 flex-col justify-between rounded-2xl border border-border/70 bg-background/75 px-4 py-3"
+                style={{ "--enter-delay": `${140 + index * 40}ms` } as CSSProperties}
+                className="enter-fade-up flex h-full min-h-26 flex-col justify-between rounded-2xl border border-border/70 bg-background/75 px-4 py-3"
               >
                 <p className="min-h-11 text-xl leading-tight font-semibold tracking-[-0.04em] text-foreground sm:text-2xl">
                   {stat.value}
                 </p>
                 <p className="mt-3 text-sm leading-5 text-muted-foreground">{stat.label}</p>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         )}
       </div>
     </section>

@@ -1,42 +1,29 @@
+import type { ReactNode } from "react";
+import type { Components } from "react-markdown";
+import type { SlideImage } from "yet-another-react-lightbox";
+
 import { Link } from "@tanstack/react-router";
-import parse, {
-  attributesToProps,
-  domToReact,
-  type DOMNode,
-  type HTMLReactParserOptions,
-  Element,
-} from "html-react-parser";
-import { useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
-import MdiClose from "~icons/mdi/close";
+import { isValidElement, lazy, Suspense, useMemo, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 import { Image } from "@/shared/components/Image";
-import { useBodyScrollLock } from "@/shared/hooks/useBodyScrollLock";
-import { renderMarkdown } from "@/shared/utils/markdown";
 
 type MarkdownProps = {
   content: string;
   className?: string;
+  enableImageLightbox?: boolean;
 };
 
-type LightboxMedia =
-  | {
-      type: "image";
-      src: string;
-      alt: string;
-    }
-  | {
-      type: "video";
-      src: string;
-    };
-
-type HtmlNode = {
-  data?: string;
-  children?: HtmlNode[];
+type MarkdownNode = {
+  type?: string;
+  value?: string;
+  children?: MarkdownNode[];
 };
 
-function getTextContent(node: HtmlNode): string {
-  if (typeof node.data === "string") {
-    return node.data;
+function getTextContent(node: MarkdownNode): string {
+  if (typeof node.value === "string") {
+    return node.value;
   }
 
   if (Array.isArray(node.children)) {
@@ -46,212 +33,212 @@ function getTextContent(node: HtmlNode): string {
   return "";
 }
 
-export function Markdown({ content, className }: MarkdownProps) {
-  const { markup } = useMemo(() => renderMarkdown(content), [content]);
-  const hasMermaidDiagrams = markup.includes('class="language-mermaid"');
-  const [lightboxMedia, setLightboxMedia] = useState<LightboxMedia | null>(null);
-  const [isZoomed, setIsZoomed] = useState(false);
-  const [zoomWidth, setZoomWidth] = useState<number | null>(null);
-  const lightboxImageRef = useRef<HTMLImageElement | null>(null);
+function slugifyHeading(value: string) {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
 
-  const closeLightbox = useEffectEvent(() => {
-    setLightboxMedia(null);
-    setIsZoomed(false);
-    setZoomWidth(null);
-  });
+function getCodeTextContent(children: ReactNode): string | null {
+  if (typeof children === "string" || typeof children === "number") {
+    return String(children);
+  }
 
-  const toggleImageZoom = () => {
-    if (isZoomed) {
-      setIsZoomed(false);
-      setZoomWidth(null);
+  if (Array.isArray(children)) {
+    const parts = children
+      .map(getCodeTextContent)
+      .filter((value): value is string => value !== null);
+
+    return parts.length > 0 ? parts.join("") : null;
+  }
+
+  if (isValidElement<{ children?: ReactNode }>(children)) {
+    return getCodeTextContent(children.props.children);
+  }
+
+  return null;
+}
+
+function extractMarkdownImages(content: string): SlideImage[] {
+  const imagePattern = /!\[([^\]]*)\]\(([^)\s]+)(?:\s+["'][^"']*["'])?\)/g;
+
+  return Array.from(content.matchAll(imagePattern), ([, alt, src]) => ({
+    alt,
+    src,
+  }));
+}
+
+function getSlideIndex(slides: SlideImage[], src: string, alt?: string) {
+  const exactMatchIndex = slides.findIndex(
+    (slide) => slide.src === src && slide.alt === (alt || ""),
+  );
+
+  if (exactMatchIndex >= 0) {
+    return exactMatchIndex;
+  }
+
+  return slides.findIndex((slide) => slide.src === src);
+}
+
+// Keep the lightbox UX, but load the package only after image intent so it stays out of the
+// initial markdown/client bundle for visitors who never open a gallery image.
+const loadMarkdownLightbox = () => import("./MarkdownLightbox");
+const MarkdownLightbox = lazy(loadMarkdownLightbox);
+
+export function Markdown({ content, className, enableImageLightbox = false }: MarkdownProps) {
+  const [lightboxIndex, setLightboxIndex] = useState(-1);
+  const [hasRequestedLightbox, setHasRequestedLightbox] = useState(false);
+  const slides = useMemo(() => extractMarkdownImages(content), [content]);
+  const isLightboxOpen = lightboxIndex >= 0;
+
+  function prepareLightbox() {
+    if (!enableImageLightbox || slides.length === 0) {
       return;
     }
 
-    const currentWidth = lightboxImageRef.current?.getBoundingClientRect().width;
-    if (currentWidth) {
-      setZoomWidth(Math.round(currentWidth * 2));
-    }
-    setIsZoomed(true);
-  };
+    void loadMarkdownLightbox();
+  }
 
-  useEffect(() => {
-    if (!hasMermaidDiagrams || typeof window === "undefined") {
-      return;
-    }
+  function openLightbox(index: number) {
+    setHasRequestedLightbox(true);
+    setLightboxIndex(index);
+    prepareLightbox();
+  }
 
-    let cancelled = false;
-
-    async function renderMermaid() {
-      const mermaid = (await import("mermaid")).default;
-
-      mermaid.initialize({
-        startOnLoad: false,
-        theme: "default",
-        securityLevel: "loose",
-      });
-
-      if (!cancelled) {
-        await mermaid.run({
-          querySelector: ".mermaid",
-        });
+  const components: Components = {
+    a: ({ href, children, ...props }) => {
+      if (href?.startsWith("/")) {
+        return (
+          <Link to={href} {...props}>
+            {children}
+          </Link>
+        );
       }
-    }
 
-    renderMermaid().catch(() => {
-      // Keep markdown content readable even if mermaid fails to render.
-    });
+      return (
+        <a
+          href={href}
+          target={href?.startsWith("#") ? undefined : "_blank"}
+          rel={href?.startsWith("#") ? undefined : "noopener noreferrer"}
+          {...props}
+        >
+          {children}
+        </a>
+      );
+    },
+    h1: ({ node, children, ...props }) => {
+      const id = slugifyHeading(getTextContent(node as MarkdownNode));
+      return (
+        <h1 id={id} {...props}>
+          <a href={`#${id}`} className="anchor">
+            {children}
+          </a>
+        </h1>
+      );
+    },
+    h2: ({ node, children, ...props }) => {
+      const id = slugifyHeading(getTextContent(node as MarkdownNode));
+      return (
+        <h2 id={id} {...props}>
+          <a href={`#${id}`} className="anchor">
+            {children}
+          </a>
+        </h2>
+      );
+    },
+    h3: ({ node, children, ...props }) => {
+      const id = slugifyHeading(getTextContent(node as MarkdownNode));
+      return (
+        <h3 id={id} {...props}>
+          <a href={`#${id}`} className="anchor">
+            {children}
+          </a>
+        </h3>
+      );
+    },
+    img: ({ src, alt }) => {
+      if (!src) return null;
 
-    return () => {
-      cancelled = true;
-    };
-  }, [hasMermaidDiagrams, markup]);
+      if (enableImageLightbox) {
+        const currentIndex = getSlideIndex(slides, src, alt);
 
-  useBodyScrollLock(Boolean(lightboxMedia));
+        if (currentIndex < 0) {
+          return null;
+        }
 
-  useEffect(() => {
-    if (!lightboxMedia) return;
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        closeLightbox();
+        return (
+          <button
+            type="button"
+            onClick={() => openLightbox(currentIndex)}
+            onPointerEnter={prepareLightbox}
+            onFocus={prepareLightbox}
+            onTouchStart={prepareLightbox}
+            className="group block w-full cursor-zoom-in rounded-lg text-left"
+            aria-label={`Open image${alt ? `: ${alt}` : ""}`}
+          >
+            <Image
+              src={src}
+              alt={alt || ""}
+              width={800}
+              height={600}
+              layout="constrained"
+              loading="lazy"
+              className="rounded-lg shadow-md transition-transform duration-200 group-hover:scale-[1.01]"
+            />
+          </button>
+        );
       }
-    };
 
-    window.addEventListener("keydown", onKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", onKeyDown);
-    };
-  }, [closeLightbox, lightboxMedia]);
-
-  const options: HTMLReactParserOptions = {
-    replace: (domNode) => {
-      if (domNode instanceof Element) {
-        if (domNode.name === "a") {
-          const href = domNode.attribs.href;
-
-          if (href?.startsWith("/")) {
-            return <Link to={href}>{domToReact(domNode.children as DOMNode[], options)}</Link>;
-          }
-        }
-
-        if (domNode.name === "pre") {
-          const codeElement = domNode.children.find(
-            (child): child is Element => child instanceof Element && child.name === "code",
-          );
-
-          if (codeElement) {
-            const className = codeElement.attribs.class || "";
-            if (className.includes("language-mermaid")) {
-              const codeContent = getTextContent(codeElement);
-              return <div className="mermaid">{codeContent}</div>;
-            }
-          }
-        }
-
-        if (domNode.name === "img") {
-          const { src, alt, width, height } = domNode.attribs;
-
-          if (!src) return null;
-
-          return (
-            <button
-              type="button"
-              onClick={() => setLightboxMedia({ type: "image", src, alt: alt || "" })}
-              className="block cursor-zoom-in border-0 bg-transparent p-0 text-left"
-              aria-label={`Open image${alt ? `: ${alt}` : ""}`}
-            >
-              <Image
-                src={src}
-                alt={alt || ""}
-                width={width ? Number(width) : 800}
-                height={height ? Number(height) : 600}
-                layout="constrained"
-                loading="lazy"
-                className="rounded-lg shadow-md transition-transform duration-200 hover:scale-[1.01]"
-              />
-            </button>
-          );
-        }
-
-        if (domNode.name === "video") {
-          const { src } = domNode.attribs;
-          if (!src) return null;
-
-          return (
-            <button
-              type="button"
-              onClick={() => setLightboxMedia({ type: "video", src })}
-              className="block w-full border-0 bg-transparent p-0 text-left"
-              aria-label="Open video"
-            >
-              <video
-                {...attributesToProps(domNode.attribs)}
-                src={src}
-                controls
-                playsInline
-                className="w-full cursor-pointer rounded-lg border border-border shadow-md"
-              />
-            </button>
-          );
-        }
+      return (
+        <Image
+          src={src}
+          alt={alt || ""}
+          width={800}
+          height={600}
+          layout="constrained"
+          loading="lazy"
+          className="rounded-lg shadow-md"
+        />
+      );
+    },
+    code: ({ className: codeClassName, children, ...props }) => {
+      if (!codeClassName) {
+        return (
+          <code className={codeClassName} {...props}>
+            {children}
+          </code>
+        );
       }
+
+      const isMermaid = codeClassName.includes("language-mermaid");
+      const codeText = getCodeTextContent(children)?.replace(/\n$/, "");
+
+      return (
+        <code className={codeClassName} {...props}>
+          {isMermaid && codeText ? codeText : children}
+        </code>
+      );
     },
   };
 
   return (
-    <>
-      <div className={className}>{parse(markup, options)}</div>
-
-      {lightboxMedia && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm sm:p-8"
-          role="dialog"
-          aria-modal="true"
-          aria-label={lightboxMedia.type === "image" ? "Image viewer" : "Video viewer"}
-          onClick={closeLightbox}
-        >
-          <button
-            type="button"
-            onClick={closeLightbox}
-            className="absolute top-4 right-4 inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/15 text-white transition-colors hover:bg-white/25"
-            aria-label="Close media viewer"
-          >
-            <MdiClose className="h-5 w-5" />
-          </button>
-
-          <div
-            className="max-h-[88vh] max-w-[92vw] overflow-auto"
-            role="presentation"
-            onClick={(event) => event.stopPropagation()}
-          >
-            {lightboxMedia.type === "image" ? (
-              <img
-                ref={lightboxImageRef}
-                src={lightboxMedia.src}
-                alt={lightboxMedia.alt}
-                onClick={toggleImageZoom}
-                style={
-                  isZoomed && zoomWidth
-                    ? { width: `${zoomWidth}px`, maxWidth: "none", maxHeight: "none" }
-                    : undefined
-                }
-                className={`rounded-lg object-contain shadow-2xl transition-all duration-200 ${
-                  isZoomed ? "h-auto cursor-zoom-out" : "max-h-[88vh] max-w-[92vw] cursor-zoom-in"
-                }`}
-              />
-            ) : (
-              <video
-                src={lightboxMedia.src}
-                controls
-                autoPlay
-                playsInline
-                className="max-h-[88vh] max-w-[92vw] rounded-lg shadow-2xl"
-              />
-            )}
-          </div>
-        </div>
+    <div className={className}>
+      <ReactMarkdown remarkPlugins={[remarkGfm]} skipHtml components={components}>
+        {content}
+      </ReactMarkdown>
+      {enableImageLightbox && slides.length > 0 && hasRequestedLightbox && (
+        <Suspense fallback={null}>
+          <MarkdownLightbox
+            open={isLightboxOpen}
+            onClose={() => setLightboxIndex(-1)}
+            index={isLightboxOpen ? lightboxIndex : 0}
+            slides={slides}
+          />
+        </Suspense>
       )}
-    </>
+    </div>
   );
 }

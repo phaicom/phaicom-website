@@ -1,4 +1,3 @@
-export { AnimatedCard } from "./AnimatedCard";
 export { BackLink } from "./BackLink";
 export { Image } from "./Image";
 export { Markdown } from "./Markdown";

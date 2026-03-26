@@ -4,9 +4,9 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import { nitro } from "nitro/vite";
 import Icons from "unplugin-icons/vite";
-import { defineConfig } from "vite";
+import { defineConfig } from "vitest/config";
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   resolve: {
     tsconfigPaths: true,
   },
@@ -15,16 +15,18 @@ export default defineConfig({
   },
   plugins: [
     tailwindcss(),
-    contentCollections(),
+    ...(mode === "test" ? [] : [contentCollections()]),
     Icons({ compiler: "jsx", jsx: "react" }),
     tanstackStart({
       srcDirectory: "src",
     }),
     // react's vite plugin must come after start's vite plugin
     viteReact(),
-    nitro(),
+    ...(mode === "test" ? [] : [nitro()]),
   ],
-  ssr: {
-    external: ["mermaid"],
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: "./src/test/setup.tsx",
   },
-});
+}));

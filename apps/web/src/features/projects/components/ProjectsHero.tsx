@@ -17,7 +17,7 @@ export default function ProjectsHero() {
     <PageHero
       eyebrow="Projects"
       title="Product and platform work, presented without the noise."
-      description="A concise set of case studies covering frontend delivery, internal systems, backend services, and full-stack product work."
+      description="Selected case studies across frontend platforms, internal systems, backend services, and full-stack product delivery."
       stats={heroStats}
     />
   );
