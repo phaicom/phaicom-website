@@ -21,7 +21,7 @@ export function PageHero({ eyebrow, title, description, stats, className }: Prop
   return (
     <section
       className={cn(
-        "relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/88 px-5 py-7 shadow-[0_24px_55px_-38px_rgba(42,53,22,0.4)] backdrop-blur-sm sm:px-8 sm:py-9 lg:rounded-[2.25rem] lg:px-10 lg:py-10",
+        "relative overflow-hidden rounded-4xl border border-border/70 bg-card/88 px-5 py-7 shadow-[0_24px_55px_-38px_rgba(42,53,22,0.4)] backdrop-blur-sm sm:px-8 sm:py-9 lg:rounded-[2.25rem] lg:px-10 lg:py-10",
         className,
       )}
     >
@@ -71,9 +71,9 @@ export function PageHero({ eyebrow, title, description, stats, className }: Prop
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.14 + index * 0.04, ease: "easeOut" }}
-                className="flex h-full min-h-[6.5rem] flex-col justify-between rounded-2xl border border-border/70 bg-background/75 px-4 py-3"
+                className="flex h-full min-h-26 flex-col justify-between rounded-2xl border border-border/70 bg-background/75 px-4 py-3"
               >
-                <p className="min-h-[2.75rem] text-xl leading-tight font-semibold tracking-[-0.04em] text-foreground sm:text-2xl">
+                <p className="min-h-11 text-xl leading-tight font-semibold tracking-[-0.04em] text-foreground sm:text-2xl">
                   {stat.value}
                 </p>
                 <p className="mt-3 text-sm leading-5 text-muted-foreground">{stat.label}</p>

@@ -40,10 +40,10 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
 
       <aside className={`
           fixed top-0 z-50 flex h-screen w-[84vw] max-w-72 flex-col overflow-y-auto overscroll-contain
-          border-r border-sidebar-border bg-sidebar/95 px-4 pt-20 pb-5
-          shadow-[0_16px_40px_-28px_rgba(42,53,22,0.35)] backdrop-blur-xl
-          transition-transform duration-300
-          lg:sticky lg:w-64 lg:bg-sidebar lg:px-6 lg:pt-6 lg:shadow-none
+          border-r border-sidebar-border bg-sidebar/95 px-4 pt-20 pb-5 shadow-[0_16px_40px_-28px_rgba(42,53,22,0.35)]
+          backdrop-blur-xl transition-transform
+          duration-300 sm:px-6
+          lg:sticky lg:w-64 lg:bg-sidebar lg:px-8 lg:pt-6 lg:shadow-none
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
         `}>
         {/* Header */}

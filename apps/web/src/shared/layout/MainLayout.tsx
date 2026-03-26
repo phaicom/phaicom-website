@@ -1,10 +1,16 @@
+import type { ReactNode } from "react";
+
 import { Outlet } from "@tanstack/react-router";
 import { useState } from "react";
 
 import MobileMenuButton from "./MobileMenuButton";
 import Sidebar from "./Sidebar";
 
-export default function MainLayout() {
+type Props = {
+  children?: ReactNode;
+};
+
+export default function MainLayout({ children }: Props) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -17,8 +23,8 @@ export default function MainLayout() {
         <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
         <main className="min-h-screen flex-1 pt-24 lg:pt-0">
-          <div className="px-4 pb-8 sm:px-6 sm:pb-10 lg:p-8 xl:p-10">
-            <Outlet />
+          <div className="px-4 pb-8 sm:px-6 sm:pb-10 lg:px-8 lg:py-8 xl:px-10 xl:py-10">
+            {children ?? <Outlet />}
           </div>
         </main>
       </div>

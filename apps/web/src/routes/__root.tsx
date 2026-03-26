@@ -6,6 +6,7 @@ import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 import { siteConfig } from "@/config/site";
 import { seo } from "@/lib/seo";
+import { NotFoundPage } from "@/shared/components";
 import appCss from "@/styles/index.css?url";
 
 export const Route = createRootRoute({
@@ -61,6 +62,7 @@ export const Route = createRootRoute({
     ],
   }),
   component: RootComponent,
+  notFoundComponent: NotFoundPage,
 });
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
