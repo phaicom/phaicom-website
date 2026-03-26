@@ -90,9 +90,9 @@ export default function ProjectCard({ project, index }: Props) {
             ease: "easeOut",
           },
         }}
-        className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-colors duration-200 hover:border-primary/30"
+        className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border/80 bg-background/90 shadow-[0_16px_40px_-34px_rgba(42,53,22,0.42)] transition-colors duration-200 hover:border-primary/30"
       >
-        <div className="relative h-52 overflow-hidden border-b border-border/80">
+        <div className="relative h-56 overflow-hidden border-b border-border/80 sm:h-52">
           <Image
             src={project.headerImage || "/apple-touch-icon.png"}
             alt={project.title}
@@ -116,8 +116,8 @@ export default function ProjectCard({ project, index }: Props) {
             )}
           </div>
 
-          <div className="mt-4 min-h-[5.5rem]">
-            <h3 className="line-clamp-2 text-2xl font-semibold tracking-[-0.03em] text-foreground">
+          <div className="mt-4 min-h-[5rem]">
+            <h3 className="line-clamp-2 text-[1.65rem] font-semibold tracking-[-0.04em] text-foreground sm:text-2xl">
               {project.title}
             </h3>
 
@@ -128,12 +128,12 @@ export default function ProjectCard({ project, index }: Props) {
             )}
           </div>
 
-          <div className="mt-4 inline-flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="mt-4 inline-flex w-fit items-center gap-2 rounded-full border border-border/70 bg-card px-3 py-1.5 text-sm text-muted-foreground">
             <MdiCalendarBlankOutline className="h-4 w-4" />
             {formatDateRange(project.startDate, project.endDate)}
           </div>
 
-          <p className="mt-4 line-clamp-2 min-h-[3rem] text-sm leading-6 text-muted-foreground">
+          <p className="mt-4 line-clamp-3 min-h-[4.5rem] text-sm leading-6 text-muted-foreground">
             {summary}
           </p>
 

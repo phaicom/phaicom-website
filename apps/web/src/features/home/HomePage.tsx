@@ -4,7 +4,7 @@ import SkillsSection from "./components/SkillsSection";
 
 export default function HomePage() {
   return (
-    <div className="mx-auto max-w-5xl">
+    <div className="mx-auto flex max-w-5xl flex-col gap-10 sm:gap-12">
       <HomeHero />
       <ServicesSection />
       <SkillsSection />

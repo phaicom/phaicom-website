@@ -19,10 +19,19 @@ export function PageHero({ eyebrow, title, description, stats, className }: Prop
   const hasStats = Boolean(stats?.length);
 
   return (
-    <section className={cn("border-b border-border/80 pb-10 sm:pb-12", className)}>
+    <section
+      className={cn(
+        "relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/88 px-5 py-7 shadow-[0_24px_55px_-38px_rgba(42,53,22,0.4)] backdrop-blur-sm sm:px-8 sm:py-9 lg:rounded-[2.25rem] lg:px-10 lg:py-10",
+        className,
+      )}
+    >
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-linear-to-b from-primary/8 via-accent/5 to-transparent" />
+      <div className="pointer-events-none absolute -right-12 -bottom-16 h-44 w-44 rounded-full bg-primary/8 blur-3xl" />
+      <div className="pointer-events-none absolute top-8 -left-10 h-28 w-28 rounded-full bg-accent/12 blur-3xl" />
+
       <div
         className={cn(
-          "grid gap-8",
+          "relative grid gap-8",
           hasStats && "lg:grid-cols-[minmax(0,1.5fr)_minmax(16rem,0.8fr)] lg:items-end",
         )}
       >
@@ -33,17 +42,17 @@ export function PageHero({ eyebrow, title, description, stats, className }: Prop
           className="max-w-3xl"
         >
           {eyebrow && (
-            <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">
+            <p className="inline-flex rounded-full border border-primary/15 bg-primary/8 px-3 py-1 text-[0.68rem] font-semibold tracking-[0.2em] text-primary uppercase">
               {eyebrow}
             </p>
           )}
 
-          <h1 className="mt-4 max-w-4xl text-4xl font-semibold tracking-[-0.04em] text-foreground sm:text-5xl">
+          <h1 className="mt-4 max-w-4xl text-[2.15rem] font-semibold tracking-[-0.05em] text-foreground sm:text-5xl">
             {title}
           </h1>
 
           {description && (
-            <div className="mt-5 max-w-2xl space-y-4 text-base leading-8 text-muted-foreground">
+            <div className="mt-5 max-w-2xl space-y-4 text-[0.98rem] leading-7 text-muted-foreground sm:text-base sm:leading-8">
               {typeof description === "string" ? <p>{description}</p> : description}
             </div>
           )}
@@ -54,7 +63,7 @@ export function PageHero({ eyebrow, title, description, stats, className }: Prop
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, delay: 0.08, ease: "easeOut" }}
-            className="grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4 lg:grid-cols-2"
+            className="grid grid-cols-2 items-stretch gap-3 sm:grid-cols-4 lg:grid-cols-2"
           >
             {stats?.map((stat, index) => (
               <motion.div
@@ -62,11 +71,12 @@ export function PageHero({ eyebrow, title, description, stats, className }: Prop
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.14 + index * 0.04, ease: "easeOut" }}
+                className="flex h-full min-h-[6.5rem] flex-col justify-between rounded-2xl border border-border/70 bg-background/75 px-4 py-3"
               >
-                <p className="text-2xl font-semibold tracking-[-0.04em] text-foreground">
+                <p className="min-h-[2.75rem] text-xl leading-tight font-semibold tracking-[-0.04em] text-foreground sm:text-2xl">
                   {stat.value}
                 </p>
-                <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
+                <p className="mt-3 text-sm leading-5 text-muted-foreground">{stat.label}</p>
               </motion.div>
             ))}
           </motion.div>

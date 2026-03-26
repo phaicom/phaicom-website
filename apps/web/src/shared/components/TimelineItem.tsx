@@ -22,11 +22,11 @@ export function TimelineItem({
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: index * 0.1 }}
-      className="relative rounded-xl border border-border bg-card p-6 pl-10"
+      className="relative overflow-hidden rounded-[1.6rem] border border-border/80 bg-background/88 p-5 pl-5 shadow-[0_16px_40px_-34px_rgba(42,53,22,0.42)] sm:p-6 sm:pl-10"
     >
-      <div className="absolute top-6 left-0 h-16 w-1 rounded-r bg-primary" />
+      <div className="absolute inset-x-0 top-0 h-1.5 bg-linear-to-r from-primary via-primary/70 to-transparent sm:inset-y-6 sm:left-0 sm:h-16 sm:w-1.5 sm:rounded-r sm:bg-primary" />
 
-      <p className="mb-2 text-sm text-primary">{period}</p>
+      <p className="mb-2 pt-3 text-sm font-medium text-primary sm:pt-0">{period}</p>
 
       <h3 className="mb-1 text-xl">{title}</h3>
 

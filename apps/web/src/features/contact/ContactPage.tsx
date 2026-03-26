@@ -7,16 +7,16 @@ import ContactInfo from "./components/ContactInfo";
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto flex max-w-5xl flex-col gap-12 lg:gap-14">
+    <div className="mx-auto flex max-w-5xl flex-col gap-10 sm:gap-12 lg:gap-14">
       <ContactHero />
 
-      <div className="grid gap-10 lg:grid-cols-2">
+      <div className="grid gap-6 lg:grid-cols-2 lg:gap-10">
         <ContactInfo />
         <motion.aside
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-sm lg:max-w-md lg:justify-self-end"
+          className="relative overflow-hidden rounded-[2rem] border border-border/80 bg-card/88 p-6 shadow-[0_20px_50px_-38px_rgba(42,53,22,0.42)] lg:max-w-md lg:justify-self-end"
         >
           <div className="pointer-events-none absolute -top-12 -right-10 h-36 w-36 rounded-full bg-primary/15 blur-2xl" />
           <div className="pointer-events-none absolute -bottom-12 -left-10 h-36 w-36 rounded-full bg-accent/45 blur-2xl" />
@@ -41,7 +41,7 @@ export default function ContactPage() {
               whileTap={{ y: 0 }}
               href="/files/fullstack-resume.pdf"
               download="fullstack-resume.pdf"
-              className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-md shadow-primary/30 transition-all hover:brightness-95"
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-primary px-5 py-3.5 text-sm font-semibold text-primary-foreground shadow-md shadow-primary/30 transition-all hover:brightness-95"
             >
               <MdiDownload className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
               Download Resume
