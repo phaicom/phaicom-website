@@ -26,16 +26,22 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
 
   return (
     <>
-      {/* Overlay (mobile) */}
       <AnimatePresence>
         {sidebarOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSidebarOpen(false)}
-            className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
-          />
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSidebarOpen(false)}
+              className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
+            />
+            <div
+              aria-hidden="true"
+              className="fixed inset-x-0 bottom-0 z-40 bg-sidebar/95 lg:hidden"
+              style={{ height: "env(safe-area-inset-bottom)" }}
+            />
+          </>
         )}
       </AnimatePresence>
 
@@ -46,7 +52,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
           lg:sticky lg:top-0 lg:left-auto lg:h-screen lg:max-h-screen lg:w-64 lg:bg-sidebar lg:shadow-none
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
         `}>
-        <div className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-4 pt-[max(1.5rem,env(safe-area-inset-top))] pb-[max(5rem,calc(env(safe-area-inset-bottom)+4rem))] sm:px-6 lg:px-8 lg:pt-6 lg:pb-5">
+        <div className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-4 pt-[max(1.5rem,env(safe-area-inset-top))] pb-[max(1.25rem,env(safe-area-inset-bottom))] sm:px-6 lg:px-8 lg:pt-6 lg:pb-5">
           {/* Header */}
           <div className="mb-6 border-b border-sidebar-border pb-5">
             <div className="mb-4 flex items-start justify-end lg:hidden">
