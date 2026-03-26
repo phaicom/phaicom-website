@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 import { Outlet } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import MobileMenuButton from "./MobileMenuButton";
 import Sidebar from "./Sidebar";
@@ -12,6 +12,23 @@ type Props = {
 
 export default function MainLayout({ children }: Props) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    if (!sidebarOpen) {
+      return;
+    }
+
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+    const previousBodyOverflow = document.body.style.overflow;
+
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.documentElement.style.overflow = previousHtmlOverflow;
+      document.body.style.overflow = previousBodyOverflow;
+    };
+  }, [sidebarOpen]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
