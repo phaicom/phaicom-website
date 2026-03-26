@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
+import MdiClose from "~icons/mdi/close";
 import MdiGithub from "~icons/mdi/github";
 import MdiLinkedin from "~icons/mdi/linkedin";
 
@@ -40,7 +41,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
 
       <aside className={`
           fixed top-0 z-50 flex h-screen w-[84vw] max-w-72 flex-col overflow-y-auto overscroll-contain
-          border-r border-sidebar-border bg-sidebar/95 px-4 pt-20 pb-5 shadow-[0_16px_40px_-28px_rgba(42,53,22,0.35)]
+          border-r border-sidebar-border bg-sidebar/95 px-4 pt-6 pb-5 shadow-[0_16px_40px_-28px_rgba(42,53,22,0.35)]
           backdrop-blur-xl transition-transform
           duration-300 sm:px-6
           lg:sticky lg:w-64 lg:bg-sidebar lg:px-8 lg:pt-6 lg:shadow-none
@@ -48,6 +49,15 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
         `}>
         {/* Header */}
         <div className="mb-6 border-b border-sidebar-border pb-5">
+          <div className="mb-4 flex items-start justify-end lg:hidden">
+            <button
+              onClick={() => setSidebarOpen(false)}
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-sidebar-border bg-sidebar text-sidebar-foreground transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+              aria-label="Close menu"
+            >
+              <MdiClose className="h-5 w-5 text-current" />
+            </button>
+          </div>
           <h1 className="text-lg font-semibold text-sidebar-foreground">Reawpai Chunsoi</h1>
           <p className="mt-1 text-sm text-muted-foreground">
             Senior Full-Stack <span className="whitespace-nowrap">Web Developer</span>

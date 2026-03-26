@@ -19,7 +19,7 @@ export default function MainLayout({ children }: Props) {
       <div className="pointer-events-none fixed inset-x-0 top-20 z-0 h-40 bg-[radial-gradient(circle_at_top,rgba(120,140,75,0.14),transparent_68%)] lg:hidden" />
 
       <div className="relative z-10 flex">
-        <MobileMenuButton sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        <MobileMenuButton setSidebarOpen={setSidebarOpen} />
         <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
         <main className="min-h-screen flex-1 pt-24 lg:pt-0">
