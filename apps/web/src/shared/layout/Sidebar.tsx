@@ -40,11 +40,11 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
       </AnimatePresence>
 
       <aside className={`
-          fixed top-0 z-50 flex h-screen w-[84vw] max-w-72 flex-col overflow-y-auto overscroll-contain
-          border-r border-sidebar-border bg-sidebar/95 px-4 pt-6 pb-5 shadow-[0_16px_40px_-28px_rgba(42,53,22,0.35)]
-          backdrop-blur-xl transition-transform
-          duration-300 sm:px-6
-          lg:sticky lg:w-64 lg:bg-sidebar lg:px-8 lg:pt-6 lg:shadow-none
+          fixed inset-y-0 left-0 z-50 flex w-[84vw] max-w-72 flex-col overflow-y-auto overscroll-contain
+          border-r border-sidebar-border bg-sidebar/95 px-4 pt-[max(1.5rem,env(safe-area-inset-top))] pb-[max(1.25rem,env(safe-area-inset-bottom))]
+          shadow-[0_16px_40px_-28px_rgba(42,53,22,0.35)] backdrop-blur-xl transition-transform duration-300
+          sm:px-6
+          lg:sticky lg:top-0 lg:left-auto lg:h-screen lg:w-64 lg:bg-sidebar lg:px-8 lg:pt-6 lg:pb-5 lg:shadow-none
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
         `}>
         {/* Header */}
