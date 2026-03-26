@@ -20,19 +20,13 @@ export default function MainLayout({ children }: Props) {
 
     const previousHtmlOverflow = document.documentElement.style.overflow;
     const previousBodyOverflow = document.body.style.overflow;
-    const previousHtmlBackground = document.documentElement.style.backgroundColor;
-    const previousBodyBackground = document.body.style.backgroundColor;
 
     document.documentElement.style.overflow = "hidden";
-    document.documentElement.style.backgroundColor = "var(--sidebar)";
     document.body.style.overflow = "hidden";
-    document.body.style.backgroundColor = "var(--sidebar)";
 
     return () => {
       document.documentElement.style.overflow = previousHtmlOverflow;
-      document.documentElement.style.backgroundColor = previousHtmlBackground;
       document.body.style.overflow = previousBodyOverflow;
-      document.body.style.backgroundColor = previousBodyBackground;
     };
   }, [sidebarOpen]);
 
