@@ -28,26 +28,19 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
     <>
       <AnimatePresence>
         {sidebarOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSidebarOpen(false)}
-              className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
-            />
-            <div
-              aria-hidden="true"
-              className="fixed inset-x-0 bottom-0 z-40 bg-sidebar/95 lg:hidden"
-              style={{ height: "env(safe-area-inset-bottom)" }}
-            />
-          </>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSidebarOpen(false)}
+            className="fixed inset-0 z-40 h-screen bg-black/50 backdrop-blur-sm lg:hidden"
+          />
         )}
       </AnimatePresence>
 
       <aside className={`
-          fixed top-0 left-0 z-50 flex h-[100dvh] max-h-[100dvh] w-[84vw] max-w-72 flex-col overflow-hidden
-          border-r border-sidebar-border bg-sidebar/95 shadow-[0_16px_40px_-28px_rgba(42,53,22,0.35)]
+          fixed top-0 left-0 z-50 flex h-screen max-h-screen w-[84vw] max-w-72 flex-col overflow-hidden border-r
+          border-sidebar-border bg-sidebar/95 shadow-[0_16px_40px_-28px_rgba(42,53,22,0.35)]
           backdrop-blur-xl transition-transform duration-300
           lg:sticky lg:top-0 lg:left-auto lg:h-screen lg:max-h-screen lg:w-64 lg:bg-sidebar lg:shadow-none
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
@@ -95,7 +88,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
             </ul>
           </nav>
 
-          <div className="mt-auto border-t border-sidebar-border pt-4">
+          <div className="border-t border-sidebar-border pt-4">
             <a
               href={`mailto:${CONTACT.email}`}
               className="block truncate text-sm text-muted-foreground transition-colors hover:text-foreground"
