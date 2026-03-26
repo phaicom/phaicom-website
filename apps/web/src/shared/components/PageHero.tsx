@@ -62,12 +62,14 @@ export function PageHero({ eyebrow, title, description, stats, className }: Prop
               <div
                 key={stat.label}
                 style={{ "--enter-delay": `${140 + index * 40}ms` } as CSSProperties}
-                className="enter-fade-up flex h-full min-h-26 flex-col justify-between rounded-2xl border border-border/70 bg-background/75 px-4 py-3"
+                className="enter-fade-up flex h-full min-h-26 min-w-0 flex-col justify-between rounded-2xl border border-border/70 bg-background/75 px-4 py-3"
               >
-                <p className="min-h-11 text-xl leading-tight font-semibold tracking-[-0.04em] text-foreground sm:text-2xl">
+                <p className="min-h-11 min-w-0 text-lg leading-tight font-semibold tracking-[-0.04em] break-words text-foreground sm:text-xl xl:text-2xl">
                   {stat.value}
                 </p>
-                <p className="mt-3 text-sm leading-5 text-muted-foreground">{stat.label}</p>
+                <p className="mt-3 text-sm leading-5 break-words text-muted-foreground">
+                  {stat.label}
+                </p>
               </div>
             ))}
           </div>

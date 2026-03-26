@@ -20,20 +20,21 @@ export default function HomeHero() {
         }
         description={
           <>
-            <p className="font-medium text-foreground/85">React, Vue, Node.js, and Golang.</p>
+            <p className="font-medium text-foreground/85">Vue, React, Node.js, and Golang.</p>
             <p>
               Bangkok-based engineer with 7+ years of experience delivering web platforms used by
               regional markets, enterprise teams, and product-driven businesses.
             </p>
             <p>
-              I focus on shipping maintainable systems, performance-aware frontend experiences, and
-              backend services that support long-term product growth.
+              I focus on shipping maintainable systems, performance-aware frontend experiences
+              across modern JavaScript frameworks, and backend services that support long-term
+              product growth.
             </p>
           </>
         }
         stats={[
           { label: "Years building", value: "7+" },
-          { label: "Core stack", value: "React + Node" },
+          { label: "Core focus", value: "Vue + React + JS" },
           { label: "Based in", value: "Bangkok" },
           { label: "Delivery style", value: "Product-led" },
         ]}

@@ -132,7 +132,7 @@ export default function ProjectDetailPage() {
           prose-hr:my-10 prose-hr:border-border
         "
       >
-        <Markdown content={project.content} enableImageLightbox />
+        <Markdown content={project.content} />
       </div>
 
       <div style={{ "--enter-delay": "400ms" } as CSSProperties} className="enter-fade-up mt-16">

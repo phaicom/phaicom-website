@@ -13,7 +13,7 @@ describe("HomeHero", () => {
     ).toBeInTheDocument();
     expect(screen.getByText("Bangkok, Thailand")).toBeInTheDocument();
     expect(screen.getByText("7+")).toBeInTheDocument();
-    expect(screen.getByText("React + Node")).toBeInTheDocument();
+    expect(screen.getByText("Vue + React + JS")).toBeInTheDocument();
     expect(screen.getByText(/performance-aware frontend experiences/i)).toBeInTheDocument();
   });
 });

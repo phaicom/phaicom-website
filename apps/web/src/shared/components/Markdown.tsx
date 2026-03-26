@@ -1,9 +1,8 @@
 import type { ReactNode } from "react";
 import type { Components } from "react-markdown";
-import type { SlideImage } from "yet-another-react-lightbox";
 
 import { Link } from "@tanstack/react-router";
-import { isValidElement, lazy, Suspense, useMemo, useState } from "react";
+import { isValidElement } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -12,7 +11,6 @@ import { Image } from "@/shared/components/Image";
 type MarkdownProps = {
   content: string;
   className?: string;
-  enableImageLightbox?: boolean;
 };
 
 type MarkdownNode = {
@@ -62,52 +60,7 @@ function getCodeTextContent(children: ReactNode): string | null {
   return null;
 }
 
-function extractMarkdownImages(content: string): SlideImage[] {
-  const imagePattern = /!\[([^\]]*)\]\(([^)\s]+)(?:\s+["'][^"']*["'])?\)/g;
-
-  return Array.from(content.matchAll(imagePattern), ([, alt, src]) => ({
-    alt,
-    src,
-  }));
-}
-
-function getSlideIndex(slides: SlideImage[], src: string, alt?: string) {
-  const exactMatchIndex = slides.findIndex(
-    (slide) => slide.src === src && slide.alt === (alt || ""),
-  );
-
-  if (exactMatchIndex >= 0) {
-    return exactMatchIndex;
-  }
-
-  return slides.findIndex((slide) => slide.src === src);
-}
-
-// Keep the lightbox UX, but load the package only after image intent so it stays out of the
-// initial markdown/client bundle for visitors who never open a gallery image.
-const loadMarkdownLightbox = () => import("./MarkdownLightbox");
-const MarkdownLightbox = lazy(loadMarkdownLightbox);
-
-export function Markdown({ content, className, enableImageLightbox = false }: MarkdownProps) {
-  const [lightboxIndex, setLightboxIndex] = useState(-1);
-  const [hasRequestedLightbox, setHasRequestedLightbox] = useState(false);
-  const slides = useMemo(() => extractMarkdownImages(content), [content]);
-  const isLightboxOpen = lightboxIndex >= 0;
-
-  function prepareLightbox() {
-    if (!enableImageLightbox || slides.length === 0) {
-      return;
-    }
-
-    void loadMarkdownLightbox();
-  }
-
-  function openLightbox(index: number) {
-    setHasRequestedLightbox(true);
-    setLightboxIndex(index);
-    prepareLightbox();
-  }
-
+export function Markdown({ content, className }: MarkdownProps) {
   const components: Components = {
     a: ({ href, children, ...props }) => {
       if (href?.startsWith("/")) {
@@ -162,36 +115,6 @@ export function Markdown({ content, className, enableImageLightbox = false }: Ma
     img: ({ src, alt }) => {
       if (!src) return null;
 
-      if (enableImageLightbox) {
-        const currentIndex = getSlideIndex(slides, src, alt);
-
-        if (currentIndex < 0) {
-          return null;
-        }
-
-        return (
-          <button
-            type="button"
-            onClick={() => openLightbox(currentIndex)}
-            onPointerEnter={prepareLightbox}
-            onFocus={prepareLightbox}
-            onTouchStart={prepareLightbox}
-            className="group block w-full cursor-zoom-in rounded-lg text-left"
-            aria-label={`Open image${alt ? `: ${alt}` : ""}`}
-          >
-            <Image
-              src={src}
-              alt={alt || ""}
-              width={800}
-              height={600}
-              layout="constrained"
-              loading="lazy"
-              className="rounded-lg shadow-md transition-transform duration-200 group-hover:scale-[1.01]"
-            />
-          </button>
-        );
-      }
-
       return (
         <Image
           src={src}
@@ -229,16 +152,6 @@ export function Markdown({ content, className, enableImageLightbox = false }: Ma
       <ReactMarkdown remarkPlugins={[remarkGfm]} skipHtml components={components}>
         {content}
       </ReactMarkdown>
-      {enableImageLightbox && slides.length > 0 && hasRequestedLightbox && (
-        <Suspense fallback={null}>
-          <MarkdownLightbox
-            open={isLightboxOpen}
-            onClose={() => setLightboxIndex(-1)}
-            index={isLightboxOpen ? lightboxIndex : 0}
-            slides={slides}
-          />
-        </Suspense>
-      )}
     </div>
   );
 }
