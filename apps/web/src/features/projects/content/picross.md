@@ -14,7 +14,7 @@ techStack:
 featured: false
 startDate: 2021-04-28
 endDate: Present
-websiteUrl: https://picross-git-main-phaicom.vercel.app
+websiteUrl: https://picross.phaicom.xyz
 githubUrl: https://github.com/phaicom/picross
 ---
 
