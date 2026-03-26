@@ -4,10 +4,11 @@ import MdiMenu from "~icons/mdi/menu";
 import { NAV_LINKS } from "@/config/navigation";
 
 type Props = {
-  setSidebarOpen: (value: boolean) => void;
+  isSidebarOpen: boolean;
+  openSidebar: () => void;
 };
 
-export default function MobileMenuButton({ setSidebarOpen }: Props) {
+export default function MobileMenuButton({ isSidebarOpen, openSidebar }: Props) {
   const location = useLocation();
   const activeLink = NAV_LINKS.find((link) => link.to === location.pathname);
 
@@ -16,9 +17,12 @@ export default function MobileMenuButton({ setSidebarOpen }: Props) {
       <div className="rounded-2xl border border-border/70 bg-background/90 px-4 py-3 shadow-[0_12px_30px_-24px_rgba(42,53,22,0.35)] backdrop-blur-md sm:px-5">
         <div className="flex items-center gap-3">
           <button
-            onClick={() => setSidebarOpen(true)}
+            type="button"
+            onClick={openSidebar}
             className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-border bg-card text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
             aria-label="Open menu"
+            aria-controls="site-sidebar"
+            aria-expanded={isSidebarOpen}
           >
             <MdiMenu className="h-5 w-5 text-current" />
           </button>

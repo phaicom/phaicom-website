@@ -1,21 +1,16 @@
 import { motion } from "motion/react";
 
+import { SectionCard } from "@/shared/components";
+
 import { skills } from "../data/skills";
 
 export default function SkillsSection() {
   return (
-    <section className="rounded-[2rem] border border-border/70 bg-card/78 px-5 py-6 shadow-[0_18px_45px_-38px_rgba(42,53,22,0.42)] sm:px-8 sm:py-8">
-      <div className="mb-8 max-w-2xl">
-        <p className="text-[0.68rem] font-semibold tracking-[0.22em] text-primary uppercase">
-          Stack
-        </p>
-        <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl">Core skills</h2>
-        <p className="mt-3 text-sm leading-7 text-muted-foreground sm:text-base">
-          Grouped into a tighter mobile cloud so the stack reads quickly without becoming a dense
-          wall of tags.
-        </p>
-      </div>
-
+    <SectionCard
+      eyebrow="Stack"
+      title="Core skills"
+      description="Grouped into a tighter mobile cloud so the stack reads quickly without becoming a dense wall of tags."
+    >
       <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:gap-4">
         {skills.map((skill, index) => (
           <motion.div
@@ -40,6 +35,6 @@ export default function SkillsSection() {
           </motion.div>
         ))}
       </div>
-    </section>
+    </SectionCard>
   );
 }

@@ -1,34 +1,21 @@
 import type { ReactNode } from "react";
 
 import { Outlet } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+
+import { useBodyScrollLock } from "@/shared/hooks/useBodyScrollLock";
+import { useDisclosure } from "@/shared/hooks/useDisclosure";
 
 import MobileMenuButton from "./MobileMenuButton";
-import Sidebar from "./Sidebar";
+import { Sidebar } from "./sidebar";
 
 type Props = {
   children?: ReactNode;
 };
 
 export default function MainLayout({ children }: Props) {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const mobileSidebar = useDisclosure();
 
-  useEffect(() => {
-    if (!sidebarOpen) {
-      return;
-    }
-
-    const previousHtmlOverflow = document.documentElement.style.overflow;
-    const previousBodyOverflow = document.body.style.overflow;
-
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.documentElement.style.overflow = previousHtmlOverflow;
-      document.body.style.overflow = previousBodyOverflow;
-    };
-  }, [sidebarOpen]);
+  useBodyScrollLock(mobileSidebar.isOpen);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -36,8 +23,8 @@ export default function MainLayout({ children }: Props) {
       <div className="pointer-events-none fixed inset-x-0 top-20 z-0 h-40 bg-[radial-gradient(circle_at_top,rgba(120,140,75,0.14),transparent_68%)] lg:hidden" />
 
       <div className="relative z-10 flex">
-        <MobileMenuButton setSidebarOpen={setSidebarOpen} />
-        <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        <MobileMenuButton isSidebarOpen={mobileSidebar.isOpen} openSidebar={mobileSidebar.open} />
+        <Sidebar isOpen={mobileSidebar.isOpen} onClose={mobileSidebar.close} />
 
         <main className="min-h-screen flex-1 pt-24 lg:pt-0">
           <div className="px-4 pb-8 sm:px-6 sm:pb-10 lg:px-8 lg:py-8 xl:px-10 xl:py-10">

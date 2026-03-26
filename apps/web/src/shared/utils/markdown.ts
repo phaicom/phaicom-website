@@ -20,6 +20,15 @@ export type MarkdownResult = {
   headings: Array<MarkdownHeading>;
 };
 
+type HastNode = Parameters<typeof toString>[0];
+
+type HeadingElement = {
+  tagName: string;
+  properties: {
+    id?: unknown;
+  };
+};
+
 export function renderMarkdown(content: string): MarkdownResult {
   const headings: Array<MarkdownHeading> = [];
 
@@ -34,11 +43,11 @@ export function renderMarkdown(content: string): MarkdownResult {
       properties: { className: ["anchor"] },
     })
     .use(() => (tree) => {
-      visit(tree, "element", (node: any) => {
+      visit(tree, "element", (node: HeadingElement) => {
         if (node.tagName && ["h1", "h2", "h3", "h4", "h5", "h6"].includes(node.tagName)) {
           headings.push({
-            id: node.properties?.id || "",
-            text: toString(node),
+            id: typeof node.properties.id === "string" ? node.properties.id : "",
+            text: toString(node as HastNode),
             level: Number(node.tagName.charAt(1)),
           });
         }

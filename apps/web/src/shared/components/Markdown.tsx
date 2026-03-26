@@ -1,14 +1,16 @@
 import { Link } from "@tanstack/react-router";
 import parse, {
+  attributesToProps,
   domToReact,
-  type HTMLReactParserOptions,
   type DOMNode,
+  type HTMLReactParserOptions,
   Element,
 } from "html-react-parser";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
 import MdiClose from "~icons/mdi/close";
 
 import { Image } from "@/shared/components/Image";
+import { useBodyScrollLock } from "@/shared/hooks/useBodyScrollLock";
 import { renderMarkdown } from "@/shared/utils/markdown";
 
 type MarkdownProps = {
@@ -27,30 +29,36 @@ type LightboxMedia =
       src: string;
     };
 
-// Helper to extract text content from a node
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function getTextContent(node: any): string {
-  if (node.data) {
+type HtmlNode = {
+  data?: string;
+  children?: HtmlNode[];
+};
+
+function getTextContent(node: HtmlNode): string {
+  if (typeof node.data === "string") {
     return node.data;
   }
-  if (node.children) {
+
+  if (Array.isArray(node.children)) {
     return node.children.map(getTextContent).join("");
   }
+
   return "";
 }
 
 export function Markdown({ content, className }: MarkdownProps) {
   const { markup } = useMemo(() => renderMarkdown(content), [content]);
+  const hasMermaidDiagrams = markup.includes('class="language-mermaid"');
   const [lightboxMedia, setLightboxMedia] = useState<LightboxMedia | null>(null);
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomWidth, setZoomWidth] = useState<number | null>(null);
   const lightboxImageRef = useRef<HTMLImageElement | null>(null);
 
-  const closeLightbox = () => {
+  const closeLightbox = useEffectEvent(() => {
     setLightboxMedia(null);
     setIsZoomed(false);
     setZoomWidth(null);
-  };
+  });
 
   const toggleImageZoom = () => {
     if (isZoomed) {
@@ -66,13 +74,14 @@ export function Markdown({ content, className }: MarkdownProps) {
     setIsZoomed(true);
   };
 
-  // Render all mermaid diagrams after markup changes
   useEffect(() => {
+    if (!hasMermaidDiagrams || typeof window === "undefined") {
+      return;
+    }
+
     let cancelled = false;
 
     async function renderMermaid() {
-      if (typeof window === "undefined") return;
-
       const mermaid = (await import("mermaid")).default;
 
       mermaid.initialize({
@@ -88,32 +97,32 @@ export function Markdown({ content, className }: MarkdownProps) {
       }
     }
 
-    renderMermaid().catch(console.error);
+    renderMermaid().catch(() => {
+      // Keep markdown content readable even if mermaid fails to render.
+    });
 
     return () => {
       cancelled = true;
     };
-  }, [markup]);
+  }, [hasMermaidDiagrams, markup]);
+
+  useBodyScrollLock(Boolean(lightboxMedia));
 
   useEffect(() => {
-    if (typeof document === "undefined") return;
     if (!lightboxMedia) return;
 
-    const previousOverflow = document.body.style.overflow;
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         closeLightbox();
       }
     };
 
-    document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKeyDown);
 
     return () => {
-      document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [lightboxMedia]);
+  }, [closeLightbox, lightboxMedia]);
 
   const options: HTMLReactParserOptions = {
     replace: (domNode) => {
@@ -127,12 +136,12 @@ export function Markdown({ content, className }: MarkdownProps) {
         }
 
         if (domNode.name === "pre") {
-          // Check pre element for mermaid code blocks
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const codeElement = domNode.children?.find((child: any) => child.name === "code");
+          const codeElement = domNode.children.find(
+            (child): child is Element => child instanceof Element && child.name === "code",
+          );
+
           if (codeElement) {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const className = (codeElement as any).attribs?.class || "";
+            const className = codeElement.attribs.class || "";
             if (className.includes("language-mermaid")) {
               const codeContent = getTextContent(codeElement);
               return <div className="mermaid">{codeContent}</div>;
@@ -177,6 +186,7 @@ export function Markdown({ content, className }: MarkdownProps) {
               aria-label="Open video"
             >
               <video
+                {...attributesToProps(domNode.attribs)}
                 src={src}
                 controls
                 playsInline
@@ -196,7 +206,9 @@ export function Markdown({ content, className }: MarkdownProps) {
       {lightboxMedia && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm sm:p-8"
-          role="presentation"
+          role="dialog"
+          aria-modal="true"
+          aria-label={lightboxMedia.type === "image" ? "Image viewer" : "Video viewer"}
           onClick={closeLightbox}
         >
           <button

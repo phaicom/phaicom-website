@@ -2,17 +2,16 @@ import MdiEmail from "~icons/mdi/email";
 import MdiMapMarkerMultipleOutline from "~icons/mdi/map-marker-multiple-outline";
 
 import { CONTACT } from "@/config/contact";
+import { SectionCard } from "@/shared/components";
 
 export default function ContactInfo() {
   return (
-    <div className="rounded-[2rem] border border-border/70 bg-card/78 px-5 py-6 shadow-[0_18px_45px_-38px_rgba(42,53,22,0.42)] sm:px-8 sm:py-8">
-      <h2 className="mb-4 text-2xl sm:text-3xl">Let&apos;s Connect</h2>
-
-      <p className="mb-8 leading-7 text-muted-foreground">
-        Open to Senior Full-Stack Web Developer opportunities, product engineering roles, and
-        technical consulting work where reliable delivery and clear architecture matter.
-      </p>
-
+    <SectionCard
+      title="Let's Connect"
+      description="Open to Senior Full-Stack Web Developer opportunities, product engineering roles, and technical consulting work where reliable delivery and clear architecture matter."
+      className="h-full"
+      contentClassName="max-w-none"
+    >
       <div className="space-y-4">
         <div className="flex items-center gap-4 rounded-2xl border border-border/70 bg-background/76 px-4 py-4">
           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
@@ -34,6 +33,6 @@ export default function ContactInfo() {
           <span className="text-sm sm:text-base">{CONTACT.location}</span>
         </div>
       </div>
-    </div>
+    </SectionCard>
   );
 }

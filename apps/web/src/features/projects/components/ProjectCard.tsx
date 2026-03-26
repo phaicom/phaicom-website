@@ -5,6 +5,7 @@ import MdiCalendarBlankOutline from "~icons/mdi/calendar-blank-outline";
 import MdiLinkVariant from "~icons/mdi/link-variant";
 import MdiStar from "~icons/mdi/star";
 
+import { formatProjectDateRange, getProjectSummary } from "@/features/projects/lib/projects";
 import { Image } from "@/shared/components/Image";
 import Pill from "@/shared/components/Pill";
 
@@ -29,47 +30,8 @@ type Props = {
   index: number;
 };
 
-const dateFormatter = new Intl.DateTimeFormat("en-US", {
-  month: "short",
-  year: "numeric",
-});
-
-function stripMarkdown(value: string) {
-  return value
-    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, "$1")
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
-    .replace(/`([^`]+)`/g, "$1")
-    .replace(/^#{1,6}\s+/gm, "")
-    .replace(/^\s*[-*+]\s+/gm, "")
-    .replace(/^\s*>\s+/gm, "")
-    .replace(/[*_~]+/g, "")
-    .replace(/\n+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function shortenSummary(value: string, maxLength = 120) {
-  if (value.length <= maxLength) return value;
-
-  const firstSentence = value.match(/^.*?[.!?](\s|$)/)?.[0]?.trim();
-  if (firstSentence && firstSentence.length <= maxLength) return firstSentence;
-
-  return `${value.slice(0, maxLength).trimEnd()}...`;
-}
-
-function formatDateRange(startDate: string, endDate?: string) {
-  const start = new Date(startDate);
-  const end = endDate ? new Date(endDate) : undefined;
-
-  if (Number.isNaN(start.getTime())) return "Date unavailable";
-  if (!end || Number.isNaN(end.getTime())) return `${dateFormatter.format(start)} - Present`;
-  return `${dateFormatter.format(start)} - ${dateFormatter.format(end)}`;
-}
-
 export default function ProjectCard({ project, index }: Props) {
-  const summary = shortenSummary(
-    stripMarkdown(project.excerpt ?? project.description ?? project.subtitle ?? ""),
-  );
+  const summary = getProjectSummary(project);
   const visibleTech = project.techStack.slice(0, 3);
   const hasExternalLink = Boolean(project.websiteUrl || project.githubUrl);
 
@@ -130,7 +92,7 @@ export default function ProjectCard({ project, index }: Props) {
 
           <div className="mt-4 inline-flex w-fit items-center gap-2 rounded-full border border-border/70 bg-card px-3 py-1.5 text-sm text-muted-foreground">
             <MdiCalendarBlankOutline className="h-4 w-4" />
-            {formatDateRange(project.startDate, project.endDate)}
+            {formatProjectDateRange(project.startDate, project.endDate)}
           </div>
 
           <p className="mt-4 line-clamp-3 min-h-[4.5rem] text-sm leading-6 text-muted-foreground">
