@@ -6,7 +6,7 @@ type ProjectSearchFieldProps = {
 
 export function ProjectSearchField({ value, onChange, resultCount }: ProjectSearchFieldProps) {
   return (
-    <div className="mt-6 space-y-3">
+    <div className="space-y-2">
       <label className="block">
         <span className="mb-2 block text-sm font-medium text-foreground">Search case studies</span>
         <input
@@ -18,7 +18,7 @@ export function ProjectSearchField({ value, onChange, resultCount }: ProjectSear
           aria-label="Search projects"
         />
       </label>
-      <p className="text-sm text-muted-foreground">
+      <p aria-live="polite" className="text-xs text-muted-foreground">
         {resultCount} {resultCount === 1 ? "project" : "projects"} matched
       </p>
     </div>

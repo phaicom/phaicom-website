@@ -3,6 +3,8 @@ title: The 1 Platform
 subtitle: Loyalty Ecosystem
 description: Full-stack loyalty-campaign and member-engagement features for an enterprise customer-engagement platform.
 category: Full-Stack
+role: Full-Stack Developer
+impact: 96/100 accessibility and 75% fewer manual deployments
 techStack:
   - Nuxt
   - Vuex

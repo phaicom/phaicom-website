@@ -19,6 +19,8 @@ const projects = defineCollection({
     subtitle: z.string().optional(),
     description: z.string(),
     category: z.string(),
+    role: z.string().optional(),
+    impact: z.string().optional(),
     techStack: z.string().array(),
     featured: z.boolean(),
     startDate: z.string(),
@@ -33,6 +35,9 @@ const projects = defineCollection({
 
     const headerImageMatch = content.match(/!\[([^\]]*)\]\(([^)]+)\)/);
     const headerImage = headerImageMatch ? headerImageMatch[2] : undefined;
+    const bodyWithoutHeaderImage = headerImageMatch
+      ? frontMatter.body.replace(headerImageMatch[0], "").replace(/\n{3,}/, "\n\n")
+      : frontMatter.body;
 
     return {
       ...project,
@@ -40,7 +45,7 @@ const projects = defineCollection({
       excerpt: frontMatter.excerpt,
       description: frontMatter.data.description,
       headerImage,
-      content: frontMatter.body,
+      content: bodyWithoutHeaderImage,
     };
   },
 });

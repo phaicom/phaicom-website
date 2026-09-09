@@ -3,6 +3,8 @@ title: Zrch (Hjem.no)
 subtitle: Real Estate Marketplace
 description: Property marketplace featuring map-based discovery, dynamic filtering, internal advertising, and administrative workflows.
 category: Frontend
+role: Front-End Developer
+impact: 55% faster page loads and a 40% smaller bundle
 techStack:
   - Vue 3
   - Vite

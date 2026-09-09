@@ -2,9 +2,9 @@ import type { Service } from "../types";
 
 export const services: Service[] = [
   {
-    title: "Frontend systems",
+    title: "Full-stack delivery",
     description:
-      "Scalable, accessible interfaces with React, Vue, TypeScript, and framework conventions that keep teams moving.",
+      "Production features carried from React or Vue interfaces through Node.js services, data stores, deployment, and iteration.",
   },
   {
     title: "Product architecture",
@@ -17,8 +17,8 @@ export const services: Service[] = [
       "Fast, resilient experiences shaped by performance budgets, SEO, testing, and careful implementation details.",
   },
   {
-    title: "Full-stack delivery",
+    title: "Frontend systems",
     description:
-      "Production features carried from interface to Node.js or Go services, data stores, deployment, and iteration.",
+      "Scalable, accessible interfaces with TypeScript and framework conventions that keep product teams moving.",
   },
 ];

@@ -9,8 +9,9 @@ import { SectionCard } from "@/shared/components";
 export default function ContactInfo() {
   return (
     <SectionCard
-      title="Let's Connect"
-      description="Email or call me about senior frontend, full stack, and product engineering work."
+      eyebrow="Direct contact"
+      title="Start with the role or problem."
+      description="Email or call about senior full-stack and product engineering work."
       className="h-full xl:border-r xl:pr-16"
       contentClassName="max-w-none"
       headerClassName="md:grid-cols-1"

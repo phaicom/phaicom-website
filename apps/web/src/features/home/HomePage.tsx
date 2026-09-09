@@ -7,8 +7,8 @@ export default function HomePage() {
   return (
     <div className="section-shell">
       <HomeHero />
-      <ServicesSection />
       <SelectedWorkSection />
+      <ServicesSection />
       <SkillsSection />
     </div>
   );

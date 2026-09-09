@@ -3,6 +3,8 @@ title: HFM Websites
 subtitle: Campaign, Careers, and Corporate Platforms
 description: Localized campaign, careers, and corporate web experiences delivered across multiple countries and regulatory regions.
 category: Frontend
+role: Front-End Developer
+impact: Reusable delivery across country- and regulator-specific experiences
 techStack:
   - React
   - Next.js

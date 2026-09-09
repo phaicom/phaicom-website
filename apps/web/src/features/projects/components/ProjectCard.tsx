@@ -12,6 +12,8 @@ type Project = {
   title: string;
   subtitle?: string;
   category: string;
+  role?: string;
+  impact?: string;
   techStack: string[];
   featured: boolean;
   headerImage?: string;
@@ -48,8 +50,9 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         <div className="border-b border-border py-5">
           <div className="flex items-start justify-between gap-5">
             <div className={cn(isLeadProject && "max-w-3xl")}>
-              <p className="font-mono text-[0.68rem] tracking-[0.12em] text-muted-foreground uppercase">
-                {project.category} · {formatProjectDateRange(project.startDate, project.endDate)}
+              <p className="font-mono text-[0.68rem] tracking-[0.1em] text-muted-foreground uppercase">
+                {project.role || project.category} ·{" "}
+                {formatProjectDateRange(project.startDate, project.endDate)}
               </p>
               <h3
                 className={cn(
@@ -68,6 +71,11 @@ export default function ProjectCard({ project, index }: { project: Project; inde
           <p className="mt-3 line-clamp-2 text-sm leading-6 text-muted-foreground">
             {getProjectSummary(project)}
           </p>
+          {project.impact && (
+            <p className="mt-3 border-l-2 border-primary pl-3 text-sm font-semibold text-foreground">
+              {project.impact}
+            </p>
+          )}
           <ul className="mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono text-[0.65rem] tracking-wide text-muted-foreground uppercase">
             {project.techStack.slice(0, 4).map((tech) => (
               <li key={tech}>{tech}</li>

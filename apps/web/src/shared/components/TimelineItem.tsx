@@ -22,12 +22,19 @@ export function TimelineItem({
   return (
     <article
       style={{ "--enter-delay": `${index * 100}ms` } as CSSProperties}
-      className="enter-fade-up grid gap-5 border-t border-border py-8 md:grid-cols-[10rem_minmax(0,1fr)] md:gap-10 lg:grid-cols-[13rem_minmax(0,1fr)]"
+      className="enter-fade-up grid gap-4 border-t border-border py-7 md:grid-cols-[10rem_minmax(0,1fr)] md:gap-10 lg:grid-cols-[13rem_minmax(0,1fr)] lg:py-8"
     >
-      <p className="font-mono text-xs leading-6 text-primary">{period}</p>
+      <div>
+        <p className="font-mono text-xs leading-6 text-primary">{period}</p>
+        {period.toLowerCase().includes("present") && (
+          <span className="mt-2 inline-block border border-primary/30 px-2 py-1 font-mono text-[0.6rem] tracking-wider text-primary uppercase">
+            Current
+          </span>
+        )}
+      </div>
       <div>
         <div className="flex flex-col gap-1 lg:flex-row lg:items-baseline lg:justify-between lg:gap-6">
-          <h3 className="text-xl font-semibold tracking-tight [overflow-wrap:anywhere] sm:text-2xl">
+          <h3 className="text-xl font-semibold tracking-[-0.025em] [overflow-wrap:anywhere] sm:text-2xl">
             {title}
           </h3>
           <p className="text-sm font-semibold [overflow-wrap:anywhere] text-muted-foreground">

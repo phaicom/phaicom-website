@@ -14,7 +14,7 @@ type Props = {
 export function PageHero({ eyebrow, title, description, stats, className }: Props) {
   return (
     <section
-      className={cn("border-b border-border pt-6 pb-12 sm:pt-10 sm:pb-16 lg:pb-20", className)}
+      className={cn("border-b border-border pt-6 pb-11 sm:pt-10 sm:pb-14 lg:pb-16", className)}
     >
       <div
         className={cn(
@@ -24,7 +24,7 @@ export function PageHero({ eyebrow, title, description, stats, className }: Prop
       >
         <div className="enter-fade-up max-w-4xl">
           {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-          <h1 className="mt-5 text-[clamp(2.6rem,7vw,6.5rem)] leading-[0.98] font-semibold tracking-[-0.06em] text-balance [overflow-wrap:anywhere]">
+          <h1 className="mt-5 text-[clamp(2.6rem,6vw,5.75rem)] leading-[0.98] font-semibold tracking-[-0.055em] text-balance [overflow-wrap:anywhere]">
             {title}
           </h1>
           {description && (

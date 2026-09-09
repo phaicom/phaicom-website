@@ -1,51 +1,20 @@
 import type { SkillGroup } from "../types";
 
 export const skillGroups: SkillGroup[] = [
-  { category: "Languages", skills: ["TypeScript", "JavaScript", "SQL", "Go"] },
   {
-    category: "Frontend",
-    skills: [
-      "React",
-      "Next.js",
-      "Vue 3",
-      "Nuxt",
-      "Tailwind CSS",
-      "Material UI",
-      "Vuetify",
-      "CSS / SCSS",
-    ],
+    category: "Application",
+    skills: ["TypeScript", "React", "Next.js", "Vue 3", "Nuxt", "Node.js"],
   },
   {
-    category: "Backend",
-    skills: ["Node.js", "Express", "NestJS", "Fastify", "REST APIs", "GraphQL", "gRPC"],
-  },
-  { category: "Data", skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "DynamoDB"] },
-  { category: "Testing", skills: ["Vitest", "Jest", "Testing Library", "Cypress"] },
-  {
-    category: "Cloud & DevOps",
-    skills: [
-      "AWS",
-      "ECS",
-      "S3",
-      "CloudFront",
-      "RDS",
-      "Docker",
-      "GitHub Actions",
-      "GitLab CI",
-      "Jenkins",
-    ],
+    category: "Backend & data",
+    skills: ["REST APIs", "GraphQL", "Express", "NestJS", "PostgreSQL", "Redis"],
   },
   {
     category: "Architecture",
-    skills: [
-      "Monorepos",
-      "Microservices",
-      "BFF",
-      "SSR / ISR / SSG",
-      "CMS-driven development",
-      "Localization / i18n",
-      "SEO",
-      "Performance optimization",
-    ],
+    skills: ["SSR / ISR / SSG", "BFF", "Microservices", "CMS", "i18n", "Monorepos"],
+  },
+  {
+    category: "Quality & delivery",
+    skills: ["Accessibility", "Performance", "Vitest", "Cypress", "AWS", "Docker", "CI/CD"],
   },
 ];

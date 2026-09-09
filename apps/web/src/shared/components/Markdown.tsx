@@ -36,7 +36,7 @@ const projectImageDimensions: Record<string, { width: number; height: number }> 
   "picross-1.webp": { width: 390, height: 799 },
   "picross-2.webp": { width: 388, height: 794 },
   "picross-3.webp": { width: 385, height: 796 },
-  "picross-g-1.gif": { width: 240, height: 426 },
+  "picross-g-1.webp": { width: 240, height: 426 },
   "skywalk-1.webp": { width: 1023, height: 575 },
   "skywalk-2.webp": { width: 1018, height: 574 },
   "skywalk-3.webp": { width: 1017, height: 572 },

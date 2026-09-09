@@ -1,23 +1,18 @@
-import { getProjectStats } from "@/features/projects/lib/projects";
 import { PageHero } from "@/shared/components";
 
-const numberFormatter = new Intl.NumberFormat("en-US");
-
 export default function ProjectsHero() {
-  const stats = getProjectStats();
-
   const heroStats = [
-    { label: "Case studies", value: numberFormatter.format(stats.totalCount) },
-    { label: "Featured builds", value: numberFormatter.format(stats.featuredCount) },
-    { label: "Domains", value: numberFormatter.format(stats.categoryCount) },
-    { label: "Timeline", value: stats.timelineLabel },
+    { label: "Page load", value: "55% faster" },
+    { label: "Bundle size", value: "40% smaller" },
+    { label: "Accessibility", value: "96 / 100" },
+    { label: "Deployment", value: "75% less manual" },
   ];
 
   return (
     <PageHero
       eyebrow="Projects"
-      title="Selected product and platform work."
-      description="Selected case studies across frontend platforms, internal systems, backend services, and full-stack product delivery."
+      title="Work, decisions, and outcomes."
+      description="Case studies from production platforms, internal systems, and full-stack products—focused on my role, the engineering decisions, and the result."
       stats={heroStats}
     />
   );

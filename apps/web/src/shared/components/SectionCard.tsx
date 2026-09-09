@@ -22,18 +22,18 @@ export function SectionCard({
   headerClassName,
 }: Props) {
   return (
-    <section className={cn("py-12 sm:py-16 lg:py-20", className)}>
+    <section className={cn("py-11 sm:py-14 lg:py-16", className)}>
       {(eyebrow || title || description) && (
         <header
           className={cn(
-            "mb-9 grid gap-4 border-t border-border pt-5 md:grid-cols-[minmax(0,1fr)_minmax(18rem,0.7fr)] md:items-start",
+            "mb-8 grid gap-4 border-t border-border pt-5 md:grid-cols-[minmax(0,1fr)_minmax(18rem,0.7fr)] md:items-start",
             headerClassName,
           )}
         >
           <div>
             {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
             {title && (
-              <h2 className="max-w-2xl text-3xl font-semibold tracking-[-0.045em] text-balance [overflow-wrap:anywhere] sm:text-4xl lg:text-5xl">
+              <h2 className="max-w-2xl text-3xl font-semibold tracking-[-0.04em] text-balance [overflow-wrap:anywhere] sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08]">
                 {title}
               </h2>
             )}

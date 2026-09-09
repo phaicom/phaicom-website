@@ -21,24 +21,6 @@ export function getSortedProjects() {
   });
 }
 
-export function getProjectStats() {
-  const projects = getSortedProjects();
-  const featuredCount = projects.filter((project) => project.featured).length;
-  const categories = new Set(projects.map((project) => project.category));
-  const years = projects
-    .map((project) => new Date(project.startDate).getFullYear())
-    .filter((year) => !Number.isNaN(year));
-  const earliestYear = years.length ? Math.min(...years) : undefined;
-  const latestYear = years.length ? Math.max(...years) : undefined;
-
-  return {
-    totalCount: projects.length,
-    featuredCount,
-    categoryCount: categories.size,
-    timelineLabel: earliestYear && latestYear ? `${earliestYear}-${latestYear}` : "Ongoing",
-  };
-}
-
 export function formatProjectDateRange(startDate: string, endDate?: string) {
   const start = new Date(startDate);
   const end = endDate ? new Date(endDate) : undefined;

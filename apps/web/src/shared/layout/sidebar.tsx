@@ -49,7 +49,7 @@ export function Sidebar({ isOpen, onClose, onOpen }: Props) {
               Reawpai Chunsoi
             </span>
             <span className="block truncate text-[0.68rem] text-muted-foreground">
-              Senior Full Stack Developer
+              Senior Full-Stack Developer
             </span>
           </span>
         </Link>
@@ -60,6 +60,7 @@ export function Sidebar({ isOpen, onClose, onOpen }: Props) {
               <Link
                 key={link.to}
                 to={link.to}
+                aria-current={active ? "page" : undefined}
                 className={`rounded-sm px-3 py-2 text-sm transition-colors hover:text-primary lg:px-4 ${active ? "text-primary" : "text-muted-foreground"}`}
               >
                 {link.label}
@@ -89,16 +90,20 @@ export function Sidebar({ isOpen, onClose, onOpen }: Props) {
         className={`max-h-[calc(100dvh-4.5rem-env(safe-area-inset-top))] overflow-y-auto overscroll-contain border-t border-border bg-background md:hidden ${isOpen ? "block" : "hidden"}`}
       >
         <nav className="section-shell py-4" aria-label="Mobile navigation">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              onClick={onClose}
-              className="block border-b border-border py-3 text-base last:border-0"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const active = link.to === "/" ? pathname === "/" : pathname.startsWith(link.to);
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                onClick={onClose}
+                aria-current={active ? "page" : undefined}
+                className={`block border-b border-border py-3 text-base last:border-0 ${active ? "font-semibold text-primary" : ""}`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           <a
             href={`mailto:${CONTACT.email}`}
             className="mt-4 flex justify-center bg-foreground px-4 py-3 text-sm font-semibold text-background"

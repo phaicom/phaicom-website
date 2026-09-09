@@ -5,8 +5,9 @@ import { experience } from "../data/experience";
 export default function ExperienceSection() {
   return (
     <SectionCard
-      title="Experience"
-      description="Roles spanning product delivery, platform work, and internal tooling across frontend and full-stack teams."
+      eyebrow="Career history"
+      title="Roles and measurable contributions."
+      description="Responsibilities are useful context; outcomes and the systems behind them are the stronger signal."
     >
       <div>
         {experience.map((item, index) => (

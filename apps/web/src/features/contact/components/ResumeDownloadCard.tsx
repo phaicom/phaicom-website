@@ -3,7 +3,7 @@ import MdiFileDocumentOutline from "~icons/mdi/file-document-outline";
 
 export default function ResumeDownloadCard() {
   return (
-    <aside className="enter-fade-up py-12 sm:py-16 lg:py-20">
+    <aside className="enter-fade-up py-11 sm:py-14 lg:py-16">
       <div className="space-y-5">
         <div className="inline-flex h-12 w-12 items-center justify-center border border-border bg-card text-primary">
           <MdiFileDocumentOutline className="h-6 w-6" />

@@ -5,11 +5,11 @@ import ProjectsPage from "@/features/projects/ProjectsPage";
 export const Route = createFileRoute("/(public)/projects/")({
   head: () => ({
     meta: [
-      { title: "Projects | Reawpai Chunsoi - Senior Web Engineering Case Studies" },
+      { title: "Projects | Reawpai Chunsoi - Senior Full-Stack Case Studies" },
       {
         name: "description",
         content:
-          "Case studies covering production web delivery, frontend architecture, APIs, localization, testing, CI/CD, and performance optimization.",
+          "Full-stack case studies covering production interfaces, backend services, APIs, data, testing, CI/CD, and performance optimization.",
       },
     ],
   }),

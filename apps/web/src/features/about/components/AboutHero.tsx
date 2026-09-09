@@ -4,8 +4,8 @@ export default function AboutHero() {
   return (
     <PageHero
       eyebrow="Experience"
-      title="Building useful software with clarity and care."
-      description="Nine-plus years building and maintaining production web platforms across frontend architecture, backend services, internationalization, performance, and automated delivery."
+      title="Production work across products, platforms, and teams."
+      description="Nine-plus years delivering across frontend applications, backend services, APIs, data, and deployment—with recent depth in multi-market platforms, performance, and maintainable architecture."
     />
   );
 }

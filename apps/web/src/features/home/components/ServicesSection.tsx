@@ -5,9 +5,9 @@ import { services } from "../data/services";
 export default function ServicesSection() {
   return (
     <SectionCard
-      eyebrow="What I do"
-      title="Engineering that supports the product, not the other way around."
-      description="I work across the stack, with a particular strength in frontend architecture and translating complex requirements into clear, durable experiences."
+      eyebrow="Working approach"
+      title="Clear decisions, durable delivery."
+      description="I carry product work across interface, service, data, and deployment boundaries, with a bias toward maintainable systems over short-lived fixes."
     >
       <ol className="grid border-t border-border md:grid-cols-2">
         {services.map((service, index) => (

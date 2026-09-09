@@ -9,7 +9,7 @@ export default function ContactHero() {
       description={
         <>
           <p>
-            For senior frontend, full stack, and product engineering conversations where execution
+            For senior full-stack and product engineering conversations where end-to-end execution
             quality and maintainable architecture matter.
           </p>
           <p>{CONTACT.email}</p>

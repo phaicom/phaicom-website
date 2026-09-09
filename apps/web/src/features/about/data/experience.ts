@@ -4,7 +4,7 @@ export const experience: Experience[] = [
   {
     period: "Aug 2025 - Present",
     title: "Front-End Developer",
-    company: "HFM (HF Markets) · On-site",
+    company: "HFM (HF Markets) · Full-time",
     description:
       "Develop and maintain production campaign, careers, and corporate websites for an international financial-services company.",
     highlights: [
@@ -28,7 +28,7 @@ export const experience: Experience[] = [
   {
     period: "Mar 2022 - Jul 2025",
     title: "Freelance Full-Stack Developer",
-    company: "Independent",
+    company: "Independent · Freelance",
     description:
       "Built and delivered full-stack platforms for startups and client products using Next.js, Nuxt, and Node.js APIs.",
     highlights: [
@@ -63,7 +63,7 @@ export const experience: Experience[] = [
   {
     period: "Oct 2020 - Jun 2021",
     title: "Full-Stack Developer",
-    company: "Apar Technologies (The 1 Central Team) · Full-time",
+    company: "Apar Technologies (The 1 Central Team) · Contract",
     description:
       "Delivered customer experiences and backend-for-frontend services for an enterprise loyalty and customer-engagement platform.",
     highlights: [
@@ -75,7 +75,7 @@ export const experience: Experience[] = [
   {
     period: "Jan 2019 - Oct 2020",
     title: "Contract / Freelance Developer",
-    company: "Client Projects · Full-time",
+    company: "Client Projects · Contract / Freelance",
     description:
       "Built CRM, back-office, and logistics-booking workflows across Vue frontends and backend integrations.",
     highlights: [

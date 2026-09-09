@@ -79,7 +79,7 @@ The solver runs in two phases:
 
 Preset-based limits (iterations, nodes, timeout, step count) prevent runaway solving and keep the solver predictable for UI playback.
 
-![Solver Playback Demo](/images/projects/picross-g-1.gif)
+![Solver Playback Demo](/images/projects/picross-g-1.webp)
 
 ---
 

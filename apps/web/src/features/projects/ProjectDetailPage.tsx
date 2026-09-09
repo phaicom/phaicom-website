@@ -21,7 +21,7 @@ export default function ProjectDetailPage() {
 
       <header
         style={{ "--enter-delay": "100ms" } as CSSProperties}
-        className="enter-fade-up mb-12 border-b border-border pb-10 sm:pb-14"
+        className="enter-fade-up mb-10 border-b border-border pb-10 sm:mb-12 sm:pb-12"
       >
         <div className="mb-6 flex flex-wrap items-center gap-3">
           <Pill variant="category" className="py-1.5">
@@ -49,6 +49,12 @@ export default function ProjectDetailPage() {
         </h1>
 
         <p className="max-w-3xl text-lg leading-8 text-muted-foreground">{project.description}</p>
+
+        {project.impact && (
+          <p className="mt-5 max-w-3xl border-l-2 border-primary pl-4 text-base font-semibold text-foreground sm:text-lg">
+            {project.impact}
+          </p>
+        )}
 
         <div className="mt-8 flex flex-wrap gap-2">
           {project.techStack.map((tech: string, index: number) => (
@@ -116,6 +122,14 @@ export default function ProjectDetailPage() {
         <aside className="border-t border-border pt-4 lg:sticky lg:top-28 lg:self-start">
           <p className="eyebrow">Case study</p>
           <dl className="mt-5 grid grid-cols-2 gap-5 lg:grid-cols-1">
+            {project.role && (
+              <div>
+                <dt className="font-mono text-[0.62rem] tracking-wider text-muted-foreground uppercase">
+                  Role
+                </dt>
+                <dd className="mt-1 text-sm font-semibold">{project.role}</dd>
+              </div>
+            )}
             <div>
               <dt className="font-mono text-[0.62rem] tracking-wider text-muted-foreground uppercase">
                 Discipline
