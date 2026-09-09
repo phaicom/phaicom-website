@@ -8,7 +8,7 @@ export default function ExperienceSection() {
       title="Experience"
       description="Roles spanning product delivery, platform work, and internal tooling across frontend and full-stack teams."
     >
-      <div className="space-y-6">
+      <div>
         {experience.map((item, index) => (
           <TimelineItem
             key={`${item.company}-${item.period}-${item.title}`}
@@ -17,6 +17,7 @@ export default function ExperienceSection() {
             organization={item.company}
             description={item.description}
             highlights={item.highlights}
+            technologies={item.technologies}
             index={index}
           />
         ))}

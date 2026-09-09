@@ -55,7 +55,7 @@ export function formatProjectDateRange(startDate: string, endDate?: string) {
 }
 
 export function getProjectSummary(project: ProjectSummarySource, maxLength = 120) {
-  const value = stripMarkdown(project.excerpt ?? project.description ?? project.subtitle ?? "");
+  const value = stripMarkdown(project.excerpt || project.description || project.subtitle || "");
 
   if (value.length <= maxLength) {
     return value;

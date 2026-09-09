@@ -9,7 +9,7 @@ export const Route = createFileRoute("/(public)/projects/")({
       {
         name: "description",
         content:
-          "Case studies covering production web delivery, frontend architecture, backend APIs, and performance optimization across React, Vue, Node.js, and Golang projects.",
+          "Case studies covering production web delivery, frontend architecture, APIs, localization, testing, CI/CD, and performance optimization.",
       },
     ],
   }),

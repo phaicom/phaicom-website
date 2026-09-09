@@ -27,8 +27,6 @@ export const seo = ({
     { name: "twitter:card", content: image ? "summary_large_image" : "summary" },
     { name: "twitter:title", content: title },
     description ? { name: "twitter:description", content: description } : null,
-    { name: "twitter:creator", content: "@PiePaiPhi1" },
-    { name: "twitter:site", content: "@PiePaiPhi1" },
     { name: "og:type", content: "website" },
     { name: "og:title", content: title },
     description ? { name: "og:description", content: description } : null,

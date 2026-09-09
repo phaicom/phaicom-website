@@ -5,12 +5,12 @@ export default function ContactHero() {
   return (
     <PageHero
       eyebrow="Contact"
-      title="Direct contact for product, platform, and consulting work."
+      title="Let’s build something that holds up."
       description={
         <>
           <p>
-            Open to senior frontend and full-stack roles, long-term product teams, and focused
-            engineering engagements where execution quality matters.
+            For senior frontend, full stack, and product engineering conversations where execution
+            quality and maintainable architecture matter.
           </p>
           <p>{CONTACT.email}</p>
         </>

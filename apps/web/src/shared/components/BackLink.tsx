@@ -23,7 +23,7 @@ export function BackLink({ to, label, variant = "text" }: Props) {
   return (
     <Link
       to={to}
-      className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+      className="group inline-flex min-h-11 items-center gap-2 py-2 text-sm text-muted-foreground transition-colors hover:text-primary"
     >
       <MdiArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
       {label}

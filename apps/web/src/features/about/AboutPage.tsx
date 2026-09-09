@@ -1,13 +1,15 @@
 import AboutHero from "./components/AboutHero";
 import EducationSection from "./components/EducationSection";
 import ExperienceSection from "./components/ExperienceSection";
+import LanguagesSection from "./components/LanguagesSection";
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto flex max-w-5xl flex-col gap-10 sm:gap-12">
+    <div className="section-shell">
       <AboutHero />
-      <EducationSection />
       <ExperienceSection />
+      <EducationSection />
+      <LanguagesSection />
     </div>
   );
 }

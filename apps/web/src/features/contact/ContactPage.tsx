@@ -4,10 +4,10 @@ import ResumeDownloadCard from "./components/ResumeDownloadCard";
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto flex max-w-5xl flex-col gap-10 sm:gap-12 lg:gap-14">
+    <div className="section-shell">
       <ContactHero />
 
-      <div className="grid gap-6 lg:grid-cols-2 lg:gap-10">
+      <div className="grid border-b border-border xl:grid-cols-2 xl:gap-16">
         <ContactInfo />
         <ResumeDownloadCard />
       </div>

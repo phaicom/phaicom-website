@@ -9,10 +9,9 @@ type Props = {
 };
 
 const variantStyles = {
-  default:
-    "rounded-lg border border-border bg-card text-foreground shadow-sm transition-colors hover:bg-accent",
-  category: "rounded-full bg-primary/10 text-primary",
-  featured: "rounded-full border border-primary bg-primary text-primary-foreground shadow-md",
+  default: "border border-border bg-card text-foreground transition-colors hover:border-primary",
+  category: "border border-primary/25 bg-accent text-primary",
+  featured: "border border-primary bg-primary text-primary-foreground",
 };
 
 export default function Pill({
@@ -22,7 +21,7 @@ export default function Pill({
   index = 0,
   animate = false,
 }: Props) {
-  const baseClasses = `select-none px-4 py-2 text-sm font-medium ${variantStyles[variant]}`;
+  const baseClasses = `inline-flex max-w-full items-center px-4 py-2 text-sm font-medium break-words select-none [overflow-wrap:anywhere] ${variantStyles[variant]}`;
 
   if (animate) {
     return (

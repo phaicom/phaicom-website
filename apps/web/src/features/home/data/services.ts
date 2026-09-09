@@ -1,33 +1,24 @@
-import MdiCloud from "~icons/mdi/cloud";
-import MdiLightningBolt from "~icons/mdi/lightning-bolt";
-import MdiLinkVariant from "~icons/mdi/link-variant";
-import MdiPuzzle from "~icons/mdi/puzzle";
-
 import type { Service } from "../types";
 
 export const services: Service[] = [
   {
-    icon: MdiLightningBolt,
-    title: "Full Stack Web Development",
+    title: "Frontend systems",
     description:
-      "Building scalable web applications using React, Vue, Next.js, and backend services with Node.js or Golang.",
+      "Scalable, accessible interfaces with React, Vue, TypeScript, and framework conventions that keep teams moving.",
   },
   {
-    icon: MdiPuzzle,
-    title: "Frontend Engineering",
+    title: "Product architecture",
     description:
-      "Crafting performant and maintainable interfaces with Vue ecosystem, React, TypeScript, and Tailwind CSS.",
+      "Pragmatic technical decisions across routing, state, design systems, API boundaries, and long-term maintainability.",
   },
   {
-    icon: MdiLinkVariant,
-    title: "Backend & API Development",
+    title: "Performance & quality",
     description:
-      "Designing REST APIs and service layers with Node.js, Express/Fastify/NestJS, and Go for performance-critical workflows.",
+      "Fast, resilient experiences shaped by performance budgets, SEO, testing, and careful implementation details.",
   },
   {
-    icon: MdiCloud,
-    title: "Cloud & DevOps",
+    title: "Full-stack delivery",
     description:
-      "Deploying and managing applications with AWS, CI/CD pipelines, containerization, and agile workflows.",
+      "Production features carried from interface to Node.js or Go services, data stores, deployment, and iteration.",
   },
 ];

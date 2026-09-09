@@ -1,6 +1,6 @@
 # Web App
 
-Portfolio and resume website for positioning as a `Senior Full-Stack Web Developer`.
+Portfolio and resume website for positioning as a `Senior Full Stack Developer`.
 
 ## Stack
 

@@ -8,12 +8,12 @@ describe("HomeHero", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /senior full-stack web developer/i,
+        name: /senior full stack developer/i,
       }),
     ).toBeInTheDocument();
     expect(screen.getByText("Bangkok, Thailand")).toBeInTheDocument();
-    expect(screen.getByText("7+")).toBeInTheDocument();
-    expect(screen.getByText("Vue + React + JS")).toBeInTheDocument();
-    expect(screen.getByText(/performance-aware frontend experiences/i)).toBeInTheDocument();
+    expect(screen.getByText("9+")).toBeInTheDocument();
+    expect(screen.getByText("React + Vue + TS")).toBeInTheDocument();
+    expect(screen.getByText(/internationalized production platforms/i)).toBeInTheDocument();
   });
 });

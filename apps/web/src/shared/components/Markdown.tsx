@@ -6,6 +6,7 @@ import { isValidElement } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
+import { cn } from "@/lib/utils";
 import { Image } from "@/shared/components/Image";
 
 type MarkdownProps = {
@@ -18,6 +19,44 @@ type MarkdownNode = {
   value?: string;
   children?: MarkdownNode[];
 };
+
+const projectImageDimensions: Record<string, { width: number; height: number }> = {
+  "backoffice-1.webp": { width: 1600, height: 900 },
+  "backoffice-2.webp": { width: 1067, height: 446 },
+  "backoffice-3.webp": { width: 1067, height: 601 },
+  "backoffice-4.webp": { width: 1068, height: 601 },
+  "hfm-1.webp": { width: 1236, height: 705 },
+  "hfm-2.webp": { width: 1236, height: 705 },
+  "hfm-3.webp": { width: 1236, height: 705 },
+  "hfm-4.webp": { width: 1236, height: 705 },
+  "hjem-1.webp": { width: 1236, height: 705 },
+  "hjem-2.webp": { width: 1236, height: 705 },
+  "hjem-3.webp": { width: 1236, height: 705 },
+  "hjem-4.webp": { width: 1236, height: 705 },
+  "picross-1.webp": { width: 390, height: 799 },
+  "picross-2.webp": { width: 388, height: 794 },
+  "picross-3.webp": { width: 385, height: 796 },
+  "picross-g-1.gif": { width: 240, height: 426 },
+  "skywalk-1.webp": { width: 1023, height: 575 },
+  "skywalk-2.webp": { width: 1018, height: 574 },
+  "skywalk-3.webp": { width: 1017, height: 572 },
+  "skywalk-4.webp": { width: 1013, height: 571 },
+  "the1-1.webp": { width: 1236, height: 705 },
+  "the1-2.webp": { width: 1236, height: 705 },
+  "the1-3.webp": { width: 1236, height: 705 },
+  "the1-4.webp": { width: 1236, height: 705 },
+  "tribe-1.webp": { width: 1600, height: 900 },
+  "tribe-2.webp": { width: 1600, height: 900 },
+  "tribe-3.webp": { width: 1600, height: 900 },
+  "tribe-4.webp": { width: 1600, height: 900 },
+  "tribe-5.webp": { width: 1600, height: 900 },
+  "tribe-6.webp": { width: 755, height: 589 },
+};
+
+function getProjectImageDimensions(src: string) {
+  const filename = src.split("/").at(-1) ?? "";
+  return projectImageDimensions[filename] ?? { width: 1200, height: 675 };
+}
 
 function getTextContent(node: MarkdownNode): string {
   if (typeof node.value === "string") {
@@ -115,15 +154,18 @@ export function Markdown({ content, className }: MarkdownProps) {
     img: ({ src, alt }) => {
       if (!src) return null;
 
+      const dimensions = getProjectImageDimensions(src);
+      const isPortrait = dimensions.height > dimensions.width;
+
       return (
         <Image
           src={src}
           alt={alt || ""}
-          width={800}
-          height={600}
+          width={dimensions.width}
+          height={dimensions.height}
           layout="constrained"
           loading="lazy"
-          className="rounded-lg shadow-md"
+          className={cn("project-image", isPortrait && "project-image--portrait")}
         />
       );
     },

@@ -1,162 +1,75 @@
 ---
-title: Hjem.no Platform
-subtitle: Real Estate Marketplace & Admin Advertising System
-description: Property marketplace and admin advertising dashboard with map-based discovery and data-driven listing workflows.
+title: Zrch (Hjem.no)
+subtitle: Real Estate Marketplace
+description: Property marketplace featuring map-based discovery, dynamic filtering, internal advertising, and administrative workflows.
 category: Frontend
 techStack:
-  - Vue.js
+  - Vue 3
   - Vite
   - TypeScript
-  - Material Design
-  - REST API
+  - REST APIs
   - Map Integration
+  - Micro-frontends
 featured: true
-startDate: 2021-06-01
+startDate: 2021-07-01
 endDate: 2022-03-01
 websiteUrl: https://hjem.no
 ---
 
 ## Project Overview
 
-**Hjem.no** is a real estate marketplace platform designed to help users search, filter, and explore properties through an intuitive web interface and interactive map experience.
-
-I worked as a **Frontend Developer at Zrch (Bangkok)** from **June 2021 – March 2022**, developing both the public-facing property website and an internal advertising/admin dashboard system.
-
-The platform focuses on:
-
-- Property listing discovery
-- Advanced filtering
-- Interactive map-based search
-- Detailed property pages
-- Advertising management tools for agents/admins
+**Hjem.no** is a real estate marketplace with property-discovery experiences and internal tools for marketplace operators. As a Front-End Developer at Zrch, I delivered customer-facing search and map features alongside advertising and administrative workflows.
 
 ![Hjem Listing Page](/images/projects/hjem-1.webp)
 
 ---
 
-## Core User Features
+## Property Discovery
 
-### 1. Advanced Property Search & Filtering
+The marketplace helps users explore available properties through connected search, filtering, and map interactions.
 
-Users can:
+My work included:
 
-- Search by location and keyword
-- Filter by property type
-- View listings for sale or rent
-- Apply pricing and category filters
-- Toggle between grid and list view
-
-The filtering logic was designed to be fast, dynamic, and API-driven to ensure a smooth browsing experience.
+- Map-based property discovery
+- Search and dynamic filtering
+- Property listing and detail experiences
+- Synchronization between map and listing state
+- REST API integration
 
 ![Filter Modal](/images/projects/hjem-2.webp)
-
----
-
-### 2. Interactive Map-Based Discovery
-
-The platform integrates map functionality allowing users to:
-
-- View clustered property markers
-- Draw search areas
-- Zoom and dynamically load results
-- Switch between map and list view
-- See real-time property counts
-
-This required tight synchronization between map state and listing results.
 
 ![Map Search View](/images/projects/hjem-3.webp)
 
 ---
 
-### 3. Property Detail Experience
+## Internal Workflows
 
-Each property page includes:
-
-- Large image galleries
-- Pricing breakdown
-- Agent contact modules
-- Property facts and specifications
-- Clear call-to-action elements
-
-The layout was optimized for readability and user conversion.
+I built internal advertising and administrative dashboards used by marketplace operators. These interfaces supported day-to-day listing, advertising, and administrative workflows through reusable Vue components.
 
 ![Property Detail Page](/images/projects/hjem-4.webp)
 
 ---
 
-## Admin & Advertising Dashboard
+## Architecture and Performance
 
-In addition to the public website, I built an internal admin dashboard that allows:
+I refactored a monolithic frontend into modular micro-frontends, improving page load speed by **55%** and reducing bundle size by **40%**.
 
-- Property advertisement creation and editing
-- Listing status management
-- Content moderation
-- Configuration of promotional content
-- Data-driven updates from backend APIs
+The implementation applied domain-driven design principles and reusable Vue component architecture to support long-term scalability and feature development.
 
-The admin interface was built using **Vue 3 + Material Design**, focusing on usability and maintainability.
+### Technology
 
----
-
-## My Responsibilities
-
-As a Frontend Developer, I was responsible for:
-
-- Building SPA architecture using Vue 3 + Vite 2
-- Implementing reusable component systems
-- Integrating REST APIs from backend services
-- Implementing map interaction logic
-- Developing dynamic filtering systems
-- Collaborating closely with designers for UI accuracy
-- Working with backend engineers to align API contracts
-- Optimizing performance for large data sets
+- Vue 3 and Vite
+- TypeScript
+- REST APIs
+- Map integration
+- Modular micro-frontends
 
 ---
 
-## Technical Implementation
+## My Contribution
 
-### Frontend Stack
-
-- Vue 3 Composition API
-- Vite 2 build tooling
-- TypeScript for maintainability
-- Material Design component system
-- Modular component structure
-
-### Key Focus Areas
-
-- Reactive filtering logic
-- Map & UI synchronization
-- Clean state management
-- Component reusability
-- Performance optimization for large property datasets
-
----
-
-## Impact
-
-During my time at Zrch, I contributed to:
-
-- Delivering a production-ready real estate marketplace
-- Building a scalable admin advertising platform
-- Improving search performance and UX consistency
-- Ensuring design fidelity across multiple responsive breakpoints
-
-This project strengthened my expertise in:
-
-- Vue 3 modern frontend architecture
-- Complex UI state synchronization
-- Map-based application design
-- Cross-team collaboration in product-driven environments
-
----
-
-## Summary
-
-This project demonstrates my ability to:
-
-- Build scalable frontend architectures with Vue 3
-- Develop complex filtering and map-based interfaces
-- Create internal dashboard systems
-- Collaborate effectively with design and backend teams
-- Deliver production-grade, user-focused web applications
+- Delivered map-based search and dynamic property filtering
+- Built internal advertising and administrative dashboards
+- Designed reusable Vue component systems
+- Refactored the frontend into modular micro-frontends
+- Improved page-load performance and reduced bundle size

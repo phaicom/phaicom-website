@@ -14,7 +14,7 @@ export function ProjectSearchField({ value, onChange, resultCount }: ProjectSear
           value={value}
           onChange={(event) => onChange(event.target.value)}
           placeholder="Search by project, stack, or category"
-          className="w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground shadow-sm transition-colors outline-none placeholder:text-muted-foreground focus:border-primary"
+          className="w-full border border-border bg-card px-4 py-3 text-sm text-foreground transition-colors placeholder:text-muted-foreground focus:border-primary"
           aria-label="Search projects"
         />
       </label>

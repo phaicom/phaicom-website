@@ -23,18 +23,18 @@ export default function ProjectsGrid() {
   );
 
   return (
-    <div className="space-y-8">
+    <div>
       <SectionCard
         title="Selected work"
         description="A curated set of case studies covering frontend delivery, platform work, and full-stack product development."
       >
         <div className="max-w-2xl">
-          <div className="mt-5 flex flex-wrap gap-2">
+          <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
             {categories.map((category, index) => (
               <span
                 key={category}
                 style={{ "--enter-delay": `${index * 30}ms` } as CSSProperties}
-                className="enter-fade-up rounded-full border border-border bg-background/70 px-3 py-1 text-sm text-muted-foreground"
+                className="enter-fade-up font-mono text-[0.68rem] tracking-wide text-muted-foreground uppercase"
               >
                 {category}
               </span>
@@ -48,14 +48,14 @@ export default function ProjectsGrid() {
           />
         </div>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-2 md:gap-5">
+        <div className="mt-10 grid gap-x-6 gap-y-12 md:grid-cols-2 lg:gap-x-10 lg:gap-y-16">
           {filteredProjects.map((project, index) => (
             <ProjectCard key={project.slug} project={project} index={index} />
           ))}
         </div>
 
         {filteredProjects.length === 0 && (
-          <div className="mt-6 rounded-3xl border border-dashed border-border bg-background/55 px-5 py-6 text-sm text-muted-foreground">
+          <div className="mt-8 border border-dashed border-border px-5 py-6 text-sm text-muted-foreground">
             No case studies matched "{debouncedQuery}". Try a project name, domain, or technology.
           </div>
         )}

@@ -8,7 +8,7 @@ export default function EducationSection() {
       title="Education"
       description="Formal education and language study that supported my transition into professional software development."
     >
-      <div className="space-y-6">
+      <div>
         {education.map((item, index) => (
           <TimelineItem
             key={`${item.institution}-${item.period}-${item.title}`}

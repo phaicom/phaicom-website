@@ -1,30 +1,51 @@
-import MdiAws from "~icons/mdi/aws";
-import MdiDatabase from "~icons/mdi/database";
-import MdiDocker from "~icons/mdi/docker";
-import MdiLanguageGo from "~icons/mdi/language-go";
-import MdiLanguageTypescript from "~icons/mdi/language-typescript";
-import MdiLightningBolt from "~icons/mdi/lightning-bolt"; // for Bun
-import MdiNodejs from "~icons/mdi/nodejs";
-import MdiNuxt from "~icons/mdi/nuxt";
-import MdiReact from "~icons/mdi/react";
-import MdiRocketLaunch from "~icons/mdi/rocket-launch"; // for Astro
-import MdiTailwind from "~icons/mdi/tailwind";
-import MdiVuejs from "~icons/mdi/vuejs";
+import type { SkillGroup } from "../types";
 
-import type { Skill } from "../types";
-
-export const skills: Skill[] = [
-  { name: "Vue.js", icon: MdiVuejs },
-  { name: "Nuxt.js", icon: MdiNuxt },
-  { name: "React", icon: MdiReact },
-  { name: "Next.js", icon: MdiReact },
-  { name: "Astro", icon: MdiRocketLaunch },
-  { name: "TypeScript", icon: MdiLanguageTypescript },
-  { name: "Golang", icon: MdiLanguageGo },
-  { name: "Tailwind CSS", icon: MdiTailwind },
-  { name: "Node.js (Express, Fastify, NestJS)", icon: MdiNodejs },
-  { name: "Bun", icon: MdiLightningBolt },
-  { name: "SQL & NoSQL Databases", icon: MdiDatabase },
-  { name: "Docker", icon: MdiDocker },
-  { name: "AWS", icon: MdiAws },
+export const skillGroups: SkillGroup[] = [
+  { category: "Languages", skills: ["TypeScript", "JavaScript", "SQL", "Go"] },
+  {
+    category: "Frontend",
+    skills: [
+      "React",
+      "Next.js",
+      "Vue 3",
+      "Nuxt",
+      "Tailwind CSS",
+      "Material UI",
+      "Vuetify",
+      "CSS / SCSS",
+    ],
+  },
+  {
+    category: "Backend",
+    skills: ["Node.js", "Express", "NestJS", "Fastify", "REST APIs", "GraphQL", "gRPC"],
+  },
+  { category: "Data", skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "DynamoDB"] },
+  { category: "Testing", skills: ["Vitest", "Jest", "Testing Library", "Cypress"] },
+  {
+    category: "Cloud & DevOps",
+    skills: [
+      "AWS",
+      "ECS",
+      "S3",
+      "CloudFront",
+      "RDS",
+      "Docker",
+      "GitHub Actions",
+      "GitLab CI",
+      "Jenkins",
+    ],
+  },
+  {
+    category: "Architecture",
+    skills: [
+      "Monorepos",
+      "Microservices",
+      "BFF",
+      "SSR / ISR / SSG",
+      "CMS-driven development",
+      "Localization / i18n",
+      "SEO",
+      "Performance optimization",
+    ],
+  },
 ];

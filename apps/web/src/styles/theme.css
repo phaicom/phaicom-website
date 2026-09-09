@@ -1,93 +1,33 @@
-@import "tailwindcss";
-@plugin "@tailwindcss/typography";
-@custom-variant dark (&:is(.dark *));
-
 :root {
-  --font-size: 16px;
-  /* Font size scale */
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 1.875rem;
-  --text-4xl: 2.25rem;
-  --text-5xl: 3rem;
-  /* Light theme - clean minimal with vibrant olive green highlights */
-  --background: oklch(0.995 0 0);
-  --foreground: oklch(0.2 0.01 120);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.01 120);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.01 120);
-  --primary: oklch(0.5 0.14 130);
+  --background: oklch(0.975 0.006 85);
+  --foreground: oklch(0.19 0.012 255);
+  --card: oklch(0.995 0.003 85);
+  --card-foreground: var(--foreground);
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.48 0.2 263);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.96 0.012 120);
-  --secondary-foreground: oklch(0.25 0.01 120);
-  --muted: oklch(0.96 0.01 120);
-  --muted-foreground: oklch(0.5 0.015 120);
-  --accent: oklch(0.94 0.04 130);
-  --accent-foreground: oklch(0.5 0.14 130);
+  --secondary: oklch(0.94 0.008 85);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.94 0.008 85);
+  --muted-foreground: oklch(0.48 0.015 255);
+  --accent: oklch(0.93 0.03 263);
+  --accent-foreground: oklch(0.38 0.17 263);
   --destructive: oklch(0.55 0.22 25);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.92 0.008 120);
-  --input: oklch(0.96 0.01 120);
-  --input-background: oklch(0.99 0 0);
-  --switch-background: oklch(0.88 0.06 130);
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  --ring: oklch(0.5 0.14 130);
-  --chart-1: oklch(0.5 0.14 130);
-  --chart-2: oklch(0.55 0.12 120);
-  --chart-3: oklch(0.6 0.1 110);
-  --chart-4: oklch(0.45 0.14 140);
-  --chart-5: oklch(0.5 0.12 150);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.98 0.008 120);
-  --sidebar-foreground: oklch(0.2 0.01 120);
-  --sidebar-primary: oklch(0.5 0.14 130);
-  --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.94 0.04 130);
-  --sidebar-accent-foreground: oklch(0.5 0.14 130);
-  --sidebar-border: oklch(0.92 0.008 120);
-  --sidebar-ring: oklch(0.5 0.14 130);
-}
-
-.dark {
-  /* Dark theme - clean minimal with vibrant olive green highlights */
-  --background: oklch(0.12 0.01 120);
-  --foreground: oklch(0.92 0.008 120);
-  --card: oklch(0.16 0.015 120);
-  --card-foreground: oklch(0.92 0.008 120);
-  --popover: oklch(0.16 0.015 120);
-  --popover-foreground: oklch(0.92 0.008 120);
-  --primary: oklch(0.65 0.14 130);
-  --primary-foreground: oklch(0.12 0.01 130);
-  --secondary: oklch(0.2 0.015 120);
-  --secondary-foreground: oklch(0.92 0.008 120);
-  --muted: oklch(0.2 0.015 120);
-  --muted-foreground: oklch(0.65 0.015 120);
-  --accent: oklch(0.22 0.03 130);
-  --accent-foreground: oklch(0.65 0.14 130);
-  --destructive: oklch(0.55 0.22 25);
-  --destructive-foreground: oklch(0.98 0.01 25);
-  --border: oklch(0.24 0.015 120);
-  --input: oklch(0.2 0.015 120);
-  --ring: oklch(0.65 0.14 130);
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  --chart-1: oklch(0.65 0.14 130);
-  --chart-2: oklch(0.6 0.12 120);
-  --chart-3: oklch(0.55 0.1 110);
-  --chart-4: oklch(0.6 0.14 140);
-  --chart-5: oklch(0.55 0.12 150);
-  --sidebar: oklch(0.14 0.015 120);
-  --sidebar-foreground: oklch(0.92 0.008 120);
-  --sidebar-primary: oklch(0.65 0.14 130);
-  --sidebar-primary-foreground: oklch(0.12 0.01 130);
-  --sidebar-accent: oklch(0.22 0.03 130);
-  --sidebar-accent-foreground: oklch(0.65 0.14 130);
-  --sidebar-border: oklch(0.24 0.015 120);
-  --sidebar-ring: oklch(0.65 0.14 130);
+  --destructive-foreground: white;
+  --border: oklch(0.86 0.01 85);
+  --input: var(--border);
+  --input-background: var(--card);
+  --ring: var(--primary);
+  --radius: 0.25rem;
+  --sidebar: var(--background);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
 }
 
 @theme inline {
@@ -110,17 +50,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-input-background: var(--input-background);
-  --color-switch-background: var(--switch-background);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -129,149 +59,246 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, monospace;
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
-
-  body {
-    @apply bg-background text-foreground;
-    font-family:
-      "Poppins",
-      ui-sans-serif,
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      sans-serif;
-  }
-
-  ::selection {
-    background-color: rgba(128, 128, 0, 0.25);
-    color: white;
-  }
-
-  /**
-  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
-  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
-  */
-
   html {
-    font-size: var(--font-size);
+    scroll-behavior: smooth;
     scrollbar-gutter: stable;
   }
-
-  h1 {
-    font-size: var(--text-2xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.4;
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
   }
-
-  h2 {
-    font-size: var(--text-xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.4;
-  }
-
-  h3 {
-    font-size: var(--text-lg);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.4;
-  }
-
-  h4 {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.4;
-  }
-
-  label {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.4;
-  }
-
-  button {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.4;
-  }
-
+  a,
+  button,
   input {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-normal);
-    line-height: 1.4;
+    @apply outline-none;
+  }
+  :focus-visible {
+    @apply ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+  ::selection {
+    @apply bg-primary text-primary-foreground;
   }
 }
 
 @keyframes enter-fade-up {
   from {
     opacity: 0;
-    transform: translate3d(0, 16px, 0);
+    transform: translateY(10px);
   }
-
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes enter-fade-left {
-  from {
-    opacity: 0;
-    transform: translate3d(-16px, 0, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes enter-fade-right {
-  from {
-    opacity: 0;
-    transform: translate3d(16px, 0, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translateY(0);
   }
 }
 
 @layer utilities {
-  .enter-fade-up,
-  .enter-fade-left,
-  .enter-fade-right {
-    animation-duration: 0.45s;
-    animation-fill-mode: both;
-    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-    animation-delay: var(--enter-delay, 0ms);
-    will-change: transform, opacity;
-  }
-
   .enter-fade-up {
-    animation-name: enter-fade-up;
+    animation: enter-fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--enter-delay, 0ms);
+  }
+  .section-shell {
+    @apply mx-auto w-full max-w-7xl;
+    padding-right: max(1.25rem, env(safe-area-inset-right));
+    padding-left: max(1.25rem, env(safe-area-inset-left));
+  }
+  .eyebrow {
+    @apply font-mono text-[0.68rem] font-medium tracking-[0.18em] text-primary uppercase;
+  }
+}
+
+@layer components {
+  .project-prose {
+    color: var(--muted-foreground);
+    font-size: 1rem;
+    line-height: 1.85;
+    min-width: 0;
+    overflow-wrap: break-word;
   }
 
-  .enter-fade-left {
-    animation-name: enter-fade-left;
+  .project-prose > :first-child {
+    margin-top: 0;
   }
+  .project-prose p {
+    margin-block: 1.25rem;
+  }
+  .project-prose h1,
+  .project-prose h2,
+  .project-prose h3,
+  .project-prose h4 {
+    color: var(--foreground);
+    text-wrap: balance;
+    scroll-margin-top: 7rem;
+  }
+  .project-prose h2 {
+    margin-top: 5rem;
+    margin-bottom: 1.5rem;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+  }
+  .project-prose > h2:first-child {
+    margin-top: 0;
+    border-top: 0;
+    padding-top: 0;
+  }
+  .project-prose h3 {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+  }
+  .project-prose h4 {
+    margin-top: 2rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+  .project-prose h2 a,
+  .project-prose h3 a,
+  .project-prose h4 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .project-prose strong {
+    color: var(--foreground);
+    font-weight: 650;
+  }
+  .project-prose a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+  }
+  .project-prose ul,
+  .project-prose ol {
+    margin-block: 1.5rem;
+    display: grid;
+    gap: 0.65rem;
+    padding-left: 0;
+  }
+  .project-prose ul {
+    list-style: none;
+  }
+  .project-prose ul > li {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  .project-prose ul > li::before {
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    content: "—";
+  }
+  .project-prose ol {
+    padding-left: 1.4rem;
+  }
+  .project-prose li::marker {
+    color: var(--primary);
+    font-family: var(--font-mono);
+    font-size: 0.8em;
+  }
+  .project-prose blockquote {
+    margin-block: 2rem;
+    border-left: 2px solid var(--primary);
+    padding: 0.25rem 0 0.25rem 1.5rem;
+    color: var(--foreground);
+    font-size: 1.1rem;
+  }
+  .project-prose hr {
+    margin-block: 4rem;
+    border: 0;
+    border-top: 1px solid var(--border);
+  }
+  .project-prose .project-image {
+    margin-block: 2.5rem 4.5rem;
+    height: auto;
+    width: 100%;
+    border: 1px solid var(--border);
+    background: var(--muted);
+    box-shadow: 0 24px 60px -48px rgb(15 23 42 / 0.5);
+  }
+  .project-prose .project-image--portrait {
+    max-width: 24rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .project-prose code {
+    border: 1px solid var(--border);
+    background: var(--accent);
+    padding: 0.15em 0.35em;
+    color: var(--foreground);
+    font-family: var(--font-mono);
+    font-size: 0.86em;
+  }
+  .project-prose pre {
+    margin-block: 2rem;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    background: var(--foreground);
+    padding: 1.25rem;
+    color: var(--background);
+  }
+  .project-prose pre code {
+    border: 0;
+    background: transparent;
+    padding: 0;
+    color: inherit;
+  }
+  .project-prose table {
+    margin-block: 2rem;
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  .project-prose th,
+  .project-prose td {
+    border-bottom: 1px solid var(--border);
+    padding: 0.8rem 1rem;
+    text-align: left;
+  }
+  .project-prose th {
+    color: var(--foreground);
+    font-weight: 700;
+  }
+}
 
-  .enter-fade-right {
-    animation-name: enter-fade-right;
+@media (min-width: 40rem) {
+  .section-shell {
+    padding-right: max(2rem, env(safe-area-inset-right));
+    padding-left: max(2rem, env(safe-area-inset-left));
+  }
+}
+
+@media (min-width: 64rem) {
+  .section-shell {
+    padding-right: max(3rem, env(safe-area-inset-right));
+    padding-left: max(3rem, env(safe-area-inset-left));
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .enter-fade-up,
-  .enter-fade-left,
-  .enter-fade-right {
-    animation: none;
-    opacity: 1;
-    transform: none;
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

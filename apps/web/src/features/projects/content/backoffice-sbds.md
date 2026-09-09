@@ -10,17 +10,17 @@ techStack:
   - Responsive Web Design
   - Admin Dashboard
 featured: false
-startDate: 2017-06-01
-endDate: 2018-01-01
+startDate: 2019-01-01
+endDate: 2020-10-01
 ---
 
 ## Project Overview
 
-While working at **FireOneOne**, I developed a back-office web application for a retail company to streamline internal operations.
+As part of my contract and freelance client work, I developed a back-office web application for a retail company to support internal operations.
 
 The system focuses primarily on **inventory management** and **sales workflows**, enabling staff to efficiently manage stock levels, process orders, monitor performance, and support daily business operations.
 
-My role as a **Frontend Developer (Vue.js)** was to deliver a responsive, user-friendly, and reliable interface used daily by operational teams.
+My role as a **Contract / Freelance Developer** included delivering the Vue.js frontend and its backend integrations for operational workflows.
 
 ![Login Page](/images/projects/backoffice-1.webp)
 
@@ -76,7 +76,7 @@ This allows business users to adjust operational behavior without developer inte
 
 ## My Responsibilities
 
-As the frontend developer, I was responsible for:
+My responsibilities included:
 
 - Designing scalable Vue.js component architecture
 - Building reusable UI components

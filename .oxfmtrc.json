@@ -17,5 +17,5 @@
     "functions": ["clsx", "cn"],
     "preserveWhitespace": true
   },
-  "ignorePatterns": ["project/**"]
+  "ignorePatterns": ["project/**", "apps/web/src/routeTree.gen.ts"]
 }

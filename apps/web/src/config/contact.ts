@@ -1,6 +1,6 @@
 export const CONTACT = {
   email: "reawpai.chunsoi@gmail.com",
+  phone: "064-240-7662",
   location: "Bangkok, Thailand",
-  linkedin: "https://linkedin.com/in/reawpaichunsoi",
   github: "https://github.com/phaicom",
 };

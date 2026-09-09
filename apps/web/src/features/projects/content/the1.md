@@ -1,17 +1,17 @@
 ---
 title: The 1 Platform
-subtitle: Enterprise Loyalty & Customer Engagement Ecosystem
-description: Enterprise loyalty platform work spanning campaign frontend delivery, API services, and AWS-ready full-stack integration.
+subtitle: Loyalty Ecosystem
+description: Full-stack loyalty-campaign and member-engagement features for an enterprise customer-engagement platform.
 category: Full-Stack
 techStack:
-  - Nuxt.js
-  - TypeScript
+  - Nuxt
+  - Vuex
+  - Vuetify
   - Node.js
-  - Express.js
-  - SQL
-  - AWS
-  - REST API
-  - Microservices
+  - Express
+  - BFF
+  - Docker
+  - Jenkins
 featured: true
 startDate: 2020-10-01
 endDate: 2021-06-01
@@ -20,124 +20,55 @@ websiteUrl: https://the1.co.th
 
 ## Project Overview
 
-**The 1** is Thailand’s leading loyalty and customer engagement platform under Central Retail, serving millions of members nationwide.
-
-I worked as a **Contract Full-Stack Developer at Apar Technologies (Bangkok)** from **October 2020 – June 2021**, assigned to The 1 Central team to develop and enhance large-scale, data-driven loyalty platforms.
-
-My work focused on customer acquisition funnels, engagement platforms, and backend API systems that power loyalty operations across Central Retail brands.
+As a Full-Stack Developer with **Apar Technologies on The 1 Central team**, I delivered customer experiences and backend-for-frontend services for an enterprise loyalty and customer-engagement platform.
 
 ![The 1 Hero Section](/images/projects/the1-1.webp)
 
 ---
 
-## Core Platform Capabilities
+## Campaign and Loyalty Delivery
 
-### 1. Member Acquisition & Campaign Landing
+I built full-stack loyalty-campaign and member-engagement features that enabled marketing teams to launch and manage promotional programs.
 
-The platform supports large-scale promotional campaigns:
+The work included:
 
-- Welcome coupon campaigns
-- Dynamic landing pages
-- App download funnels
-- First-time reward incentives
-- Campaign-driven dynamic content
-
-I implemented reusable, configurable campaign modules to allow marketing teams to launch new promotions quickly without deep system refactoring.
+- Nuxt-based customer experiences
+- Campaign and loyalty features
+- Node.js and Express BFF services
+- Reusable frontend flows with Vuex and Vuetify
 
 ![Member Onboarding Flow](/images/projects/the1-2.webp)
-
----
-
-### 2. Loyalty & Points System
-
-The loyalty infrastructure enables:
-
-- Point accumulation tracking
-- QR-based member identification
-- Coupon redemption flows
-- Tier qualification tracking
-- Secure business rule enforcement at API level
-
-I designed and implemented REST APIs using Node.js and Express to ensure system reliability and data integrity.
 
 ![Points & Rewards](/images/projects/the1-3.webp)
 
 ---
 
-### 3. Exclusive Tier Experience
+## Accessibility and Usability
 
-The system includes tier-based segmentation logic:
+I improved accessibility and usability, raising the Lighthouse accessibility score to **96/100** and reducing bounce rate by **18%**.
 
-- Spending threshold tracking
-- Exclusive member qualification
-- Dynamic privilege rendering
-- Personalized UI content based on membership status
-
-This required close coordination between frontend SSR rendering (Nuxt) and backend validation logic.
+The improvements focused on making customer-facing flows clearer and more accessible while maintaining the platform's campaign requirements.
 
 ![The 1 Exclusive](/images/projects/the1-4.webp)
 
 ---
 
-## My Responsibilities
+## Delivery Automation
 
-As a Contract Full-Stack Developer, I was responsible for:
+I integrated Jenkins CI/CD pipelines to automate build and deployment processes. This reduced manual deployments by **75%** and improved release reliability.
 
-- Developing Nuxt.js (Vue) SSR & SPA applications
-- Designing RESTful APIs using Node.js & Express
-- Writing maintainable TypeScript-based service layers
-- Optimizing SQL queries and improving database performance
-- Integrating with internal microservices
-- Ensuring scalable deployment on AWS infrastructure
-- Collaborating with product, marketing, and data teams
+### Technology
 
----
-
-## Technical Implementation
-
-### Frontend
-
-- Nuxt.js with SSR support
-- TypeScript-based architecture
-- Dynamic routing for campaigns
-- API-driven UI rendering
-- Performance optimization for marketing traffic spikes
-
-### Backend
-
-- Node.js + Express REST API
-- Business logic encapsulation in service layers
-- SQL database integration
-- Authentication & validation middleware
-
-### Infrastructure
-
-- AWS cloud deployment
-- Environment-based configuration
-- CI/CD pipeline integration
-- Scalable architecture for campaign-based traffic
+- Nuxt, Vuex, and Vuetify
+- Node.js and Express
+- Backend-for-frontend services
+- Docker and Jenkins
 
 ---
 
-## Impact
+## My Contribution
 
-During my contract period, I contributed to:
-
-- High-traffic campaign launches
-- Improved campaign deployment agility
-- More maintainable API service structure
-- Performance optimization for customer-facing flows
-
-This experience strengthened my skills in enterprise system design, loyalty platform architecture, and cross-functional collaboration within large organizations.
-
----
-
-## Summary
-
-This project demonstrates my ability to:
-
-- Deliver enterprise-grade loyalty platforms
-- Build scalable Nuxt + Node.js fullstack systems
-- Implement robust business logic in API layers
-- Optimize performance for large-scale campaign systems
-- Contribute effectively as a contract engineer within a major retail ecosystem
+- Delivered full-stack campaign and member-engagement features
+- Developed Nuxt customer experiences and Node.js/Express BFF services
+- Improved accessibility and usability outcomes
+- Automated build and deployment workflows with Jenkins

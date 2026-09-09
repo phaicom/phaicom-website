@@ -2,13 +2,14 @@ import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-type SectionCardProps = {
+type Props = {
   title?: ReactNode;
   description?: ReactNode;
   eyebrow?: string;
   children: ReactNode;
   className?: string;
   contentClassName?: string;
+  headerClassName?: string;
 };
 
 export function SectionCard({
@@ -18,39 +19,37 @@ export function SectionCard({
   children,
   className,
   contentClassName,
-}: SectionCardProps) {
-  const hasHeader = eyebrow || title || description;
-
+  headerClassName,
+}: Props) {
   return (
-    <section
-      className={cn(
-        "rounded-[2rem] border border-border/70 bg-card/78 px-5 py-6 shadow-[0_18px_45px_-38px_rgba(42,53,22,0.42)] sm:px-8 sm:py-8",
-        className,
-      )}
-    >
-      {hasHeader && (
-        <div className="mb-8 max-w-2xl">
-          {eyebrow && (
-            <p className="text-[0.68rem] font-semibold tracking-[0.22em] text-primary uppercase">
-              {eyebrow}
-            </p>
+    <section className={cn("py-12 sm:py-16 lg:py-20", className)}>
+      {(eyebrow || title || description) && (
+        <header
+          className={cn(
+            "mb-9 grid gap-4 border-t border-border pt-5 md:grid-cols-[minmax(0,1fr)_minmax(18rem,0.7fr)] md:items-start",
+            headerClassName,
           )}
-          {title && (
-            <h2 className={cn("text-2xl sm:text-3xl lg:text-4xl", eyebrow && "mt-3")}>{title}</h2>
-          )}
+        >
+          <div>
+            {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
+            {title && (
+              <h2 className="max-w-2xl text-3xl font-semibold tracking-[-0.045em] text-balance [overflow-wrap:anywhere] sm:text-4xl lg:text-5xl">
+                {title}
+              </h2>
+            )}
+          </div>
           {description && (
             <div
               className={cn(
-                "mt-3 text-sm leading-7 text-muted-foreground sm:text-base",
+                "max-w-xl text-sm leading-7 text-muted-foreground sm:text-base",
                 contentClassName,
               )}
             >
               {description}
             </div>
           )}
-        </div>
+        </header>
       )}
-
       {children}
     </section>
   );

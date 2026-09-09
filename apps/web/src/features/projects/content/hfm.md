@@ -1,16 +1,19 @@
 ---
-title: HFM (HF Markets)
-subtitle: Global Trading Platform & Localized Marketing Ecosystem
-description: Multi-market marketing and promotion platform delivery for HFM with a focus on SEO, performance, and brand consistency.
+title: HFM Websites
+subtitle: Campaign, Careers, and Corporate Platforms
+description: Localized campaign, careers, and corporate web experiences delivered across multiple countries and regulatory regions.
 category: Frontend
 techStack:
+  - React
   - Next.js
   - TypeScript
   - Tailwind CSS
-  - Django
-  - REST API
-  - SEO
+  - REST APIs
+  - CMS
+  - Localization / i18n
   - AWS
+  - Docker
+  - CI/CD
 featured: true
 startDate: 2025-08-01
 endDate: Present
@@ -19,143 +22,63 @@ websiteUrl: https://hfm.com
 
 ## Project Overview
 
-**HFM (HF Markets)** is a global multi-asset trading platform serving clients across Asia, Europe, the Middle East, and Africa.
+I develop and maintain production campaign, careers, and corporate web experiences for **HFM (HF Markets)** across multiple countries and regulatory regions.
 
-Since **August 2025**, I have been developing localized promotional and marketing platforms for multiple Asian markets, ensuring high performance, strong SEO visibility, and consistent global brand alignment.
-
-My work focuses on:
-
-- Localized promotional campaign pages
-- Regional marketing initiatives
-- SEO-optimized landing pages
-- High-performance SSR/ISR architecture
-- Cross-region content alignment
+The work combines reusable frontend architecture with country-specific requirements, CMS content, API integrations, responsive delivery, and production support in large codebases.
 
 ![HFM Homepage](/images/projects/hfm-1.webp)
 
 ---
 
-## Localized Promotion & Marketing Development
+## Localized Campaign Experiences
 
-I develop region-specific promotional pages tailored for Asian markets, including:
+Each market can require different behavior while sharing the same core frontend systems. My work includes:
 
-- Deposit bonus campaigns
-- Trading competitions
-- Seasonal regional promotions
-- Country-targeted marketing funnels
-
-Each localized page requires:
-
-- Language-specific content structure
-- SEO optimization (metadata, structured content, indexing strategy)
-- Performance tuning across regions
-- Cultural and regulatory alignment
-
-The system ensures regional customization without breaking global brand consistency.
+- Translating Figma designs into reusable React and Next.js components
+- Delivering responsive campaign experiences for mobile, tablet, and desktop
+- Implementing country- and regulator-specific routing and content
+- Managing localization, campaign timing, CTA visibility, and redirects
+- Maintaining consistent behavior across shared applications
 
 ![Bonuses & Promotions](/images/projects/hfm-2.webp)
 
 ---
 
-## SEO & Performance Optimization
+## Platform Contributions
 
-Given that marketing traffic is highly SEO and paid-ad driven, performance is critical.
+Beyond campaign pages, I contribute to HFM's careers and corporate websites through UI enhancements, localized content, responsive behavior, and cross-browser fixes.
 
-Key optimization areas:
+I also contribute to shared frontend libraries that standardize:
 
-- Server-side rendering with Next.js
-- Static generation (where applicable)
-- Optimized meta tags and structured data
-- Image optimization & lazy loading
-- Lighthouse performance improvements
-- Core Web Vitals monitoring
-
-This ensures strong search visibility and reduced bounce rates across multiple Asian markets.
+- Routing and redirects
+- Language and localization handling
+- Common behavior across HFM web applications
+- Reusable component patterns
 
 ![AngPao Campaign](/images/projects/hfm-3.webp)
 
 ---
 
-## International Collaboration
+## Production Delivery
 
-I collaborate closely with the **Headquarters team**, contributing in an international environment to:
+My responsibilities include integrating CMS-driven content and REST APIs into maintainable frontend experiences. Production quality is supported through performance-conscious asset handling, CI/CD, Docker, and AWS-hosted services.
 
-- Align regional initiatives with global marketing strategy
-- Ensure consistency in design systems and brand standards
-- Coordinate campaign rollouts across time zones
-- Align backend API contracts between regional and global teams
+### Technology
 
-This cross-team collaboration requires strong communication and architectural clarity.
-
----
-
-## Technical Architecture
-
-### Frontend
-
-- **Next.js** (SSR / SSG hybrid approach)
-- TypeScript-based code structure
-- Tailwind CSS for scalable styling system
-- Modular, reusable campaign components
-- SEO-first page architecture
-
-### Backend
-
-- Django-based backend services
-- REST API integrations
-- CMS-driven dynamic content
-- Regional configuration support
-
-### System Overview
-
-1. User requests a page from the frontend.
-2. Frontend middleware validates request parameters and emits analytics events.
-3. Middleware checks the cache before hitting the database.
-4. Cache hits return immediately; cache misses fetch fresh CMS or backend data.
-5. The frontend renders the final page and pushes client-side analytics for engagement tracking.
+- React and Next.js
+- TypeScript and Tailwind CSS
+- REST APIs and CMS integrations
+- Localization and internationalization
+- AWS, Docker, and CI/CD
 
 ---
 
-### Data Caching Strategy
+## My Contribution
 
-- Check for an existing cache entry before performing a database query.
-- Return cached content immediately when available to keep campaigns responsive.
-- On a cache miss, fetch the latest data from the database or CMS.
-- Store successful responses back in cache for the next request.
-- Fall back gracefully when downstream data is unavailable so marketing pages still respond predictably.
-
----
-
-## My Responsibilities
-
-- Develop localized marketing and promotion pages
-- Implement SEO best practices across regions
-- Ensure responsive design across all device types
-- Optimize performance for high-traffic campaigns
-- Collaborate with HQ and backend teams
-- Align regional implementations with global strategy
-- Maintain clean, scalable, production-ready code
-
----
-
-## Impact
-
-My contributions help:
-
-- Improve regional SEO performance
-- Ensure fast-loading pages across Asia
-- Support high-conversion marketing funnels
-- Enable consistent global brand alignment
-- Deliver scalable localized campaigns efficiently
-
----
-
-## Summary
-
-This project demonstrates my ability to:
-
-- Build scalable marketing platforms using Next.js
-- Optimize SEO and performance for global audiences
-- Develop localized solutions within international environments
-- Collaborate effectively across global teams
-- Deliver high-impact marketing systems in production
+- Develop and maintain localized campaign, careers, and corporate websites
+- Build responsive, reusable UI components from Figma designs
+- Implement country- and regulator-specific user flows
+- Integrate CMS content and REST APIs
+- Contribute to shared frontend libraries
+- Resolve responsive and cross-browser issues in production codebases
+- Support performance-conscious, automated production delivery

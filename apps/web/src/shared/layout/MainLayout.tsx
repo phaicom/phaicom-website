@@ -2,10 +2,8 @@ import type { ReactNode } from "react";
 
 import { Outlet } from "@tanstack/react-router";
 
-import { useBodyScrollLock } from "@/shared/hooks/useBodyScrollLock";
 import { useDisclosure } from "@/shared/hooks/useDisclosure";
 
-import MobileMenuButton from "./MobileMenuButton";
 import { Sidebar } from "./sidebar";
 
 type Props = {
@@ -15,23 +13,27 @@ type Props = {
 export default function MainLayout({ children }: Props) {
   const mobileSidebar = useDisclosure();
 
-  useBodyScrollLock(mobileSidebar.isOpen);
-
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="pointer-events-none fixed inset-x-0 top-0 z-0 h-72 bg-linear-to-b from-primary/8 via-accent/6 to-transparent lg:hidden" />
-      <div className="pointer-events-none fixed inset-x-0 top-20 z-0 h-40 bg-[radial-gradient(circle_at_top,rgba(120,140,75,0.14),transparent_68%)] lg:hidden" />
-
-      <div className="relative z-10 flex">
-        <MobileMenuButton isSidebarOpen={mobileSidebar.isOpen} openSidebar={mobileSidebar.open} />
-        <Sidebar isOpen={mobileSidebar.isOpen} onClose={mobileSidebar.close} />
-
-        <main className="min-h-screen flex-1 pt-24 lg:pt-0">
-          <div className="px-4 pb-8 sm:px-6 sm:pb-10 lg:px-8 lg:py-8 xl:px-10 xl:py-10">
-            {children ?? <Outlet />}
-          </div>
-        </main>
-      </div>
+      <Sidebar
+        isOpen={mobileSidebar.isOpen}
+        onClose={mobileSidebar.close}
+        onOpen={mobileSidebar.open}
+      />
+      <main
+        id="main-content"
+        className="min-h-[calc(100vh-8rem)] pt-[calc(6rem+env(safe-area-inset-top))] sm:pt-[calc(7rem+env(safe-area-inset-top))]"
+      >
+        {children ?? <Outlet />}
+      </main>
+      <footer className="section-shell pt-10 pb-[max(2.5rem,env(safe-area-inset-bottom))] sm:pt-14 sm:pb-[max(3.5rem,env(safe-area-inset-bottom))]">
+        <div className="flex flex-col gap-3 border-t border-border pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} Reawpai Chunsoi</p>
+          <p className="font-mono text-xs tracking-wider uppercase">
+            Built with React + TypeScript
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
