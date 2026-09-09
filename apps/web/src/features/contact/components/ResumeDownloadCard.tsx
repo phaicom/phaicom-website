@@ -21,8 +21,8 @@ export default function ResumeDownloadCard() {
         </div>
 
         <a
-          href="/files/fullstack-resume.pdf"
-          download="fullstack-resume.pdf"
+          href="/files/Reawpai_Chunsoi_Senior_Full_Stack_Developer_Resume.pdf"
+          download="Reawpai_Chunsoi_Senior_Full_Stack_Developer_Resume.pdf"
           className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-primary px-5 py-3.5 text-sm font-semibold text-primary-foreground shadow-md shadow-primary/30 transition-all hover:-translate-y-0.5 hover:brightness-95"
         >
           <MdiDownload className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />

@@ -35,4 +35,4 @@ bun --cwd apps/web run build
 - Resume experience: `apps/web/src/features/about/data/experience.ts`
 - Skills and services: `apps/web/src/features/home/data/`
 - Project case studies: `apps/web/src/features/projects/content/`
-- Downloadable CV: `apps/web/public/files/fullstack-resume.pdf`
+- Downloadable CV: `apps/web/public/files/Reawpai_Chunsoi_Senior_Full_Stack_Developer_Resume.pdf`

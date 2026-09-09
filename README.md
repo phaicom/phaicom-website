@@ -69,7 +69,7 @@ Source folder: `apps/web/src/features/projects/content/`
 - Home data (skills/services): `apps/web/src/features/home/data/`
 - Project content: `apps/web/src/features/projects/content/`
 - Public assets: `apps/web/public/`
-- Downloadable CV: `apps/web/public/files/fullstack-resume.pdf`
+- Downloadable CV: `apps/web/public/files/Reawpai_Chunsoi_Senior_Full_Stack_Developer_Resume.pdf`
 
 ## Documentation
 
